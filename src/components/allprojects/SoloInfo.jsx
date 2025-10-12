@@ -68,7 +68,7 @@ const SoloInfo = () => {
                   initial={{ scaleY: 0 }}
                   animate={{ scaleY: 0 }}
                   variants={{
-                    hover: { scaleY: 1 },
+                    hover: { scaleY: 1.3 },
                   }}
                   transition={{ duration: 0.3 }}
                   className="absolute w-full h-10 opacity-25 bg-black origin-bottom"
