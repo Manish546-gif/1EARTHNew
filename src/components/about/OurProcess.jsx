@@ -40,8 +40,6 @@ export default function OurProcess() {
     <div className="min-h-screen bg-white flex items-start justify-center px-6 lg:px-8 py-16">
       <div className="max-w-8xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
-          
-          
           <div className="flex-shrink-0 md:w-4/11">
             <div className="text-center  lg:text-left">
               <h2 className="text-6xl lg:text-7xl font-serif text-black tracking-wider leading-tight">
@@ -51,8 +49,7 @@ export default function OurProcess() {
             </div>
           </div>
 
-         
-             <div className="flex-1">
+          <div className="flex-1">
                <div className="space-y-6">
                  {processSteps.map((step, index) => (
                    <motion.div 
@@ -75,10 +72,8 @@ export default function OurProcess() {
                          }`}>
                            {step.number}.
                          </span>
-                         
                        </div>
                        
-                       {/* Step content */}
                        <div className="flex-1">
                          <h3 className="text-lg lg:text-xl font-bold text-black uppercase tracking-wide mb-3">
                            {step.title}

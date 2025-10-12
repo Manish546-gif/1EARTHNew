@@ -15,9 +15,7 @@ export default function OurTeam() {
             </div>
           </div>
 
-          {/* Right side - Team members */}
           <div className="flex-1 flex flex-col lg:flex-row gap-22 lg:gap-26">
-            {/* Team Member 1 - Shreyash Tarawade */}
             <div className="flex flex-col items-center lg:items-start">
               <div className="w-64 bg-gray-300 h-64 lg:w-102 lg:h-102 mb-6 overflow-hidden">
                 <img src="" alt="" className="w-full h-full object-cover" />
@@ -41,7 +39,6 @@ export default function OurTeam() {
               </div>
             </div>
 
-            {/* Team Member 2 - Sonal Jadhav */}
             <div className="flex flex-col items-center lg:items-start">
               <div  className="w-64 bg-gray-300 h-64 lg:w-102 lg:h-102 mb-6 overflow-hidden">
                 <img src="" alt="" className="w-full h-full object-cover" />

@@ -12,7 +12,6 @@ const Home = () => {
   return (
     <div className="h-screen w-full bg-amber-300 pt-430">
       <Navbar />
-      <About />
       <LetterParallax />
       <CraftVisionSection />
       <Footer />        
