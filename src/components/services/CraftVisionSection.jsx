@@ -7,13 +7,15 @@ export default function CraftVisionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           <div className="hidden lg:block">
             <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              whileInView={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0, ease: "easeInOut" }}
-              viewport={{ once: true }}
-              style={{ transformOrigin: "left" }}
+              
               className="bg-gray-300 md:mt-80  h-80 w-full md:w-3/4 md:ml-20 rounded"
-            ></motion.div>
+            >
+               <motion.div  initial={{ scaleX: 1, opacity: 1 }}
+        whileInView={{ scaleX: 0, opacity: 1 }}
+        transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
+        viewport={{ once: true }}
+        style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-red-400"></motion.div>
+            </motion.div>
           </div>
 
           <div className="lg:col-span-1 text-left lg:px-8">
@@ -43,13 +45,12 @@ export default function CraftVisionSection() {
 
           <div className="hidden lg:block">
             <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              whileInView={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-              viewport={{ once: true }}
-              style={{ transformOrigin: "left" }}
               className="bg-gray-300 h-140 mt-10  w-full rounded"
-            ></motion.div>
+            > <motion.div  initial={{ scaleX: 1, opacity: 1 }}
+            whileInView={{ scaleX: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
+            viewport={{ once: true }}
+            style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-red-400"></motion.div></motion.div>
           </div>
         </div>
 

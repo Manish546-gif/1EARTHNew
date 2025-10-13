@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import info from "../../assets/info.png"
 
 const SoloInfo = () => {
   const details = [
@@ -12,15 +13,17 @@ const SoloInfo = () => {
   ];
 
   return (
-    <div className="flex flex-col  md:flex-row p-6 gap-26 mt-20 mb-20 max-w-8xl mx-auto">
+    <div className="flex flex-col  md:flex-row p-6 gap-26 mt-40 mb-20 max-w-8xl mx-auto">
       <motion.div
-        className="bg-gray-300 w-full md:w-3/5 md:h-225  sm:h-150 h-110 rounded"
-        initial={{ scaleX: 0, opacity: 0 }}
-        whileInView={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+        className="bg-gray-300 w-full md:w-3/5  md:h-200  overflow-hidden sm:h-150 h-110 rounded"
+      >
+        <motion.div  initial={{ scaleX: 1, opacity: 1 }}
+        whileInView={{ scaleX: 0, opacity: 1 }}
+        transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
         viewport={{ once: true }}
-        style={{ transformOrigin: "left" }}
-      />
+        style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-red-400"></motion.div>
+        <img className=" h-full w-full object-cover" src={info} alt="" />
+      </motion.div>
 
       <div className="flex flex-col md:pr-20 w-full md:w-2/5 space-y-6">
         <div>
@@ -40,13 +43,13 @@ const SoloInfo = () => {
 
         <motion.div
           className="bg-gray-300 w-full h-50 rounded"
-          initial={{ scaleX: 0, opacity: 0 }}
-          whileInView={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-          viewport={{ once: true }}
-          whileHover={{ y: -2 }}
-          style={{ transformOrigin: "left" }}
-        />
+        >
+           <motion.div  initial={{ scaleX: 1, opacity: 1 }}
+        whileInView={{ scaleX: 0, opacity: 1 }}
+        transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
+        viewport={{ once: true }}
+        style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-white"></motion.div>
+        </motion.div>
 
         <div>
           <h3 className="text-lg font-bold mb-4">DETAILS</h3>

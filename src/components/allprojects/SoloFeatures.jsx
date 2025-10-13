@@ -6,12 +6,13 @@ export default function SoloFeatures() {
     <section className="max-w-8xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-32 ">
       <motion.div
         className="bg-gray-300 flex-shrink-0 w-full mt-20  lg:w-1/2 rounded"
-        initial={{ scaleX: 0, originX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true}}
+       
       >
-        <div className="bg-gray-300 aspect-square rounded"></div>
+         <motion.div  initial={{ scaleX: 1, opacity: 1 }}
+        whileInView={{ scaleX: 0, opacity: 1 }}
+        transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
+        viewport={{ once: true }}
+        style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-red-400"></motion.div>
       </motion.div>
 
       <div className="flex flex-col  flex-grow">
@@ -103,11 +104,14 @@ export default function SoloFeatures() {
 
         <motion.div 
           className="mt-10 w-5/11 md:mr-20 self-end bg-gray-300 rounded aspect-video"
-          initial={{ scaleX: 0, originX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        ></motion.div>
+
+        >
+           <motion.div  initial={{ scaleX: 1, opacity: 1 }}
+        whileInView={{ scaleX: 0, opacity: 1 }}
+        transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
+        viewport={{ once: true }}
+        style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-red-400"></motion.div>
+        </motion.div>
       </div>
     </section>
   );

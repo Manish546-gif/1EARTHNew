@@ -8,37 +8,37 @@ const projects = [
     id: 1,
     name: "Urban Heights",
     location: "New Delhi",
-    image: "https://via.placeholder.com/800x900",
+    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
   },
   {
     id: 2,
     name: "Skyline Tower",
     location: "Mumbai",
-    image: "https://via.placeholder.com/800x900",
+    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
   },
   {
     id: 3,
     name: "Sea View Villa",
     location: "Goa",
-    image: "https://via.placeholder.com/800x900",
+    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
   },
   {
     id: 4,
     name: "Hillside Estate",
     location: "Shimla",
-    image: "https://via.placeholder.com/800x900",
+    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
   },
   {
     id: 5,
     name: "Palm Residency",
     location: "Bangalore",
-    image: "https://via.placeholder.com/800x900",
+    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
   },
   {
     id: 6,
     name: "Desert Oasis",
     location: "Jaipur",
-    image: "https://via.placeholder.com/800x900",
+    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
   },
 ];
 
@@ -65,22 +65,22 @@ const ProjectsSection = () => {
   return (
     <div>
       <Navbar />
-      <div className="relative h-screen w-full overflow-hidden text-white flex flex-col justify-between  px-6 sm:px-10 md:px-16 lg:px-20 py-8">
+      <div className="relative h-screen bg-black w-full overflow-hidden text-white flex flex-col justify-between  px-6 sm:px-10 md:px-16 lg:px-20 py-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentProject.id}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.3 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="absolute inset-0 bg-cover bg-center blur-md"
+            transition={{ duration: 0.4 }}
+            className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${currentProject.image})`,
             }}
           />
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/70"></div>
 
         <div className="relative mt-20 z-10 flex flex-col justify-between h-full">
           <div className="flex justify-between items-start">
@@ -106,7 +106,7 @@ const ProjectsSection = () => {
                   <img
                     src={currentProject.image}
                     alt={currentProject.name}
-                    className="object-cover bg-gray-300 shadow-lg rounded-sm w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] h-[40vh] sm:h-[55vh] md:h-[60vh]"
+                    className="object-cover  shadow-lg rounded-sm w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] h-[40vh] sm:h-[55vh] md:h-[60vh]"
                   />
                   <h1 className="text-2xl sm:text-3xl text-start md:text-4xl font-serif mt-6">
                     {currentProject.name}

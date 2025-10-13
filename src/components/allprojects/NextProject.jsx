@@ -24,12 +24,14 @@ export default function NextProject() {
             </div>
             <div className="relative">
               <motion.div 
-                initial={{ scaleX: 0, originX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }} 
+              
                 className="aspect-[4/3] lg:aspect-[1] bg-gray-400 rounded-lg overflow-hidden"
               >
+                 <motion.div  initial={{ scaleX: 1, opacity: 1 }}
+        whileInView={{ scaleX: 0, opacity: 1 }}
+        transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
+        viewport={{ once: true }}
+        style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-red-400"></motion.div>
                 <img 
                   src=""
                   alt=""
