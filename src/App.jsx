@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Menu from './components/common/Menu';
 import Projectsolo from './pages/Projectsolo';
 import Services from './pages/Services';
+import HomeLanding from './components/home/HomeLanding';
 const App = () => {
 
 
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/menu" element={<Menu />} />
         <Route path="/projectsolo" element={<Projectsolo />} />
         <Route path="/services" element={<Services />} />
+        <Route path='/homelanding' element={<HomeLanding/>} />
       </Routes>
     </div>
   )

@@ -57,6 +57,7 @@ const ProjectsSection = () => {
     const timer = setInterval(() => {
       nextProject();
     }, 5000);
+
     return () => clearInterval(timer);
   }, [current]);
 
@@ -65,14 +66,14 @@ const ProjectsSection = () => {
   return (
     <div>
       <Navbar />
-      <div className="relative h-screen bg-black w-full overflow-hidden text-white flex flex-col justify-between  px-6 sm:px-10 md:px-16 lg:px-20 py-8">
+      <div className="relative h-screen bg-black w-full overflow-hidden text-white flex flex-col justify-between px-6 sm:px-10 md:px-16 lg:px-20 py-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentProject.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0.5 , x:200}}
+            animate={{ opacity: 1, x:0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.25 }}
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${currentProject.image})`,
@@ -84,7 +85,7 @@ const ProjectsSection = () => {
 
         <div className="relative mt-20 z-10 flex flex-col justify-between h-full">
           <div className="flex justify-between items-start">
-            <h2 className="text-lg sm:text-base md:text-xl  font-light tracking-wide">
+            <h2 className="text-lg sm:text-base md:text-xl font-light tracking-wide">
               OUR PROJECTS
             </h2>
             <p className="text-sm sm:text-base md:text-lg">
@@ -97,23 +98,59 @@ const ProjectsSection = () => {
               <Link to="/projectsolo">
                 <motion.div
                   key={currentProject.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -50 }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  initial={{ 
+                    opacity: 0, 
+                    x: 200,
+                    scale: 0.8,
+                    rotateY: -15
+                  }}
+                  animate={{ 
+                    opacity: 1, 
+                    x: 0,
+                    scale: 1,
+                    rotateY: 0
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    x: -200,
+                    scale: 0.8,
+                    rotateY: 15
+                  }}
+                  transition={{ 
+                    duration: 1.2, 
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 20
+                  }}
                   className="flex flex-col items-center"
                 >
-                  <img
+                  <motion.img
                     src={currentProject.image}
                     alt={currentProject.name}
-                    className="object-cover  shadow-lg rounded-sm w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] h-[40vh] sm:h-[55vh] md:h-[60vh]"
+                    className="object-cover shadow-lg rounded-sm w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] h-[40vh] sm:h-[55vh] md:h-[60vh]"
+                    whileHover={{ 
+                      scale: 1.05,
+                      rotateY: 5,
+                      transition: { duration: 0.3 }
+                    }}
                   />
-                  <h1 className="text-2xl sm:text-3xl text-start md:text-4xl font-serif mt-6">
+                  <motion.h1 
+                    className="text-2xl sm:text-3xl text-start md:mr-60 md:text-4xl font-serif mt-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                  >
                     {currentProject.name}
-                  </h1>
-                  <p className="text-xs sm:text-sm md:text-base text-start tracking-wider mt-2">
+                  </motion.h1>
+                  <motion.p 
+                    className="text-xs sm:text-sm md:text-base md:mr-100 text-start tracking-wider mt-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                  >
                     {currentProject.location}
-                  </p>
+                  </motion.p>
                 </motion.div>
               </Link>
             </AnimatePresence>

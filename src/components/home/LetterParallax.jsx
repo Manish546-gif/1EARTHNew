@@ -27,7 +27,7 @@ export default function LetterParallax () {
     const mainTl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
-        start: "-15% 70%",
+        start: "-15% 40%",
         markers: true,
         end: "35% 50%",
         scrub: 1.5,
