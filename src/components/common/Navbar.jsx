@@ -377,7 +377,7 @@ const Navbar = () => {
 
                     <motion.div
                       className="flex items-center gap-6 lg:gap-8 overflow-hidden cursor-pointer group"
-                      onClick={() => handleNavigation("/projects")}
+                      onClick={() => handleNavigation("/project")}
                       variants={menuItemVariants}
                       initial="hidden"
                       animate="visible"

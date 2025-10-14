@@ -2,7 +2,7 @@ import React from 'react'
 
 import Navbar from '../components/common/Navbar'
 import Footer from '../components/common/Footer'
-import About from './About'
+
 import LetterParallax from '../components/home/LetterParallax'
 import CraftVisionSection from '../components/services/CraftVisionSection'
 import HomeLanding from '../components/home/HomeLanding'
@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="">
       <Navbar />
-      <HomeLanding/>
+      <HomeLanding />
       <LetterParallax />
       <DesignHarmony />
       <CraftVisionSection />
@@ -23,4 +23,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

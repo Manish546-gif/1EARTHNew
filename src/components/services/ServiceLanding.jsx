@@ -1,17 +1,17 @@
-
+import landimgservice from '../../assets/serviceland.png';
 
 export default function  ServiceLanding() {
   return (
     <div 
-      className="relative min-h-screen bg-gray-800 overflow-hidden flex items-center justify-center"
+      className="relative min-h-screen overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage: `url('https://dhiwise-assets.s3.ap-south-1.amazonaws.com/uploadAttachments/image-1760286396928.png')`,
+        backgroundImage: `url(${landimgservice})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <div className="absolute inset-0 bg-gray-600 bg-opacity-40"></div>
+      <div className="absolute inset-0 bg-black/70 "></div>
 
       <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-8 w-full h-screen flex items-center">
         

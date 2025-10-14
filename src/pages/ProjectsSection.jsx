@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/common/Navbar";
+import projectimg from '../assets/projectland.png';
 import { Link } from "react-router-dom";
 
 const projects = [
@@ -8,37 +9,37 @@ const projects = [
     id: 1,
     name: "Urban Heights",
     location: "New Delhi",
-    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
+    image: projectimg,
   },
   {
     id: 2,
     name: "Skyline Tower",
     location: "Mumbai",
-    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
+    image: projectimg,
   },
   {
     id: 3,
     name: "Sea View Villa",
     location: "Goa",
-    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
+    image: projectimg,
   },
   {
     id: 4,
     name: "Hillside Estate",
     location: "Shimla",
-    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
+    image: projectimg,
   },
   {
     id: 5,
     name: "Palm Residency",
     location: "Bangalore",
-    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
+    image: projectimg,
   },
   {
     id: 6,
     name: "Desert Oasis",
     location: "Jaipur",
-    image: "https://img.freepik.com/free-photo/thunderstorm-countryside_23-2151762513.jpg",
+    image: projectimg,
   },
 ];
 

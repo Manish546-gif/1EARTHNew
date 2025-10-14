@@ -1,9 +1,19 @@
+import { motion } from 'framer-motion'
 import React from 'react'
+import blank from '../../assets/blank1.png';
+
 
 const BlankSolo = () => {
   return (
-    <div className='h-[90vh]  mb-20 max-w-8xl px-20 '>
-      <div className='w-full  h-full rounded-md bg-gray-300'></div>
+    <div className='h-[130vh]  md:mb-20 mt-20  '>
+      <div className='w-full  h-full relative overflow-hidden  bg-gray-300'>
+      <motion.div  initial={{ scaleX: 1, opacity: 1 }}
+        whileInView={{ scaleX: 0, opacity: 1 }}
+        transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
+        viewport={{ once: true }}
+        style={{ transformOrigin: "right" }} className="w-full origin-right absolute  h-full bg-[#FBF0DA]"></motion.div>
+        <img src={blank} className='w-full h-full bg-cover' alt="" />
+      </div>
     </div>
   )
 }

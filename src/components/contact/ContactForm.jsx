@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function ContactForm() {
     return (
-      <div className="min-h-screen  bg-white flex items-center justify-center p-4">
+      <div className="min-h-screen  bg-[#FBF0DA] flex items-center justify-center p-4">
         <div className="max-w-8xl mt-30 mb-20  w-full  overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 p-8 lg:p-12">
@@ -50,7 +50,7 @@ export default function ContactForm() {
               </div>
             </div>
             
-            <div className="lg:w-1/2 p-8 lg:p-12 bg-gray-50">
+            <div className="lg:w-1/2 p-8 lg:p-12 bg-[#FBF0DA]">
               <form className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -132,13 +132,14 @@ export default function ContactForm() {
                   transition={{ duration: 0.6, delay: 1.7 }}
                   style={{ transformOrigin: 'left' }} className='h-[0.7px] w-full bg-black mt-5 origin-left'/>
                             </div>
-                
-                <button
-                  type="submit"
-                  className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 mt-8"
-                >
-                  SUBMIT MESSAGE
-                </button>
+                            <button className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
+  <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+    SUBMIT MESSAGE
+  </span>
+  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+    SUBMIT MESSAGE
+  </span>
+</button>
               </form>
             </div>
           </div>

@@ -1,18 +1,21 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import feature1 from '../../assets/feature1.png';
+import feature2 from '../../assets/feature2.png';
 
 export default function SoloFeatures() {
   return (
     <section className="max-w-8xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-32 ">
       <motion.div
-        className="bg-gray-300 flex-shrink-0 w-full mt-20  lg:w-1/2 rounded"
+        className="relative overflow-hidden flex-shrink-0 w-full mt-20 md:mb-10  lg:w-1/2 rounded"
        
       >
          <motion.div  initial={{ scaleX: 1, opacity: 1 }}
         whileInView={{ scaleX: 0, opacity: 1 }}
         transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
         viewport={{ once: true }}
-        style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-red-400"></motion.div>
+        style={{ transformOrigin: "right" }} className="w-full origin-right absolute  h-full bg-[#FBF0DA]"></motion.div>
+        <img src={feature1} className='w-full h-full bg-cover' alt="" />
       </motion.div>
 
       <div className="flex flex-col  flex-grow">
@@ -103,16 +106,18 @@ export default function SoloFeatures() {
       </ul>
 
         <motion.div 
-          className="mt-10 w-5/11 md:mr-20 self-end bg-gray-300 rounded aspect-video"
+          className="mt-10 w-5/11 md:mr-20  relative overflow-hidden rounded self-end"
 
         >
            <motion.div  initial={{ scaleX: 1, opacity: 1 }}
         whileInView={{ scaleX: 0, opacity: 1 }}
         transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}
         viewport={{ once: true }}
-        style={{ transformOrigin: "right" }} className="w-full origin-right  h-full bg-red-400"></motion.div>
+        style={{ transformOrigin: "right" }} className="w-full origin-right absolute  h-full bg-[#FBF0DA]"></motion.div>
+        <img src={feature2} alt="" />
         </motion.div>
       </div>
+      
     </section>
   );
 }

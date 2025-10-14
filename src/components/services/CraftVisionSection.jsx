@@ -15,7 +15,7 @@ export default function CraftVisionSection() {
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
-                transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+                transition={{ duration: 1.5, delay: 0.6, ease: "circOut" }}
                 viewport={{ once: true }}
                 style={{ transformOrigin: "right" }}
                 className="w-full origin-right absolute z-10 h-full bg-[#FBF0DA]"
@@ -55,8 +55,7 @@ export default function CraftVisionSection() {
           </div>
 
           <div className="hidden lg:block">
-            <motion.div className="bg-gray-300 relative h-140 mt-10 overflow-hidden w-full rounded">
-              {" "}
+            <motion.div className=" relative h-140 mt-10 overflow-hidden w-full rounded">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
@@ -65,28 +64,40 @@ export default function CraftVisionSection() {
                 style={{ transformOrigin: "right" }}
                 className="w-full origin-right absolute  h-full bg-[#FBF0DA]"
               ></motion.div>
-              <img src={craft2} alt="" className="w-full h-full bg-cover"/>
+              <img  src={craft2} alt="" className="w-full h-full bg-cover"/>
             </motion.div>
           </div>
         </div>
 
-        <div className="lg:hidden mt-12 space-y-6">
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-            viewport={{ once: true }}
-            style={{ transformOrigin: "left" }}
-            className="bg-gray-300 h-48 w-full rounded"
-          ></motion.div>
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-            viewport={{ once: true }}
-            style={{ transformOrigin: "left" }}
-            className="bg-gray-300 h-48 w-full rounded"
-          ></motion.div>
+        <div className="lg:hidden mt-12 space-y-6 ">
+          <div
+            className="bg-gray-300 h-48 w-full relative  overflow-hidden w-full rounded "
+          >
+            <motion.div
+                initial={{ scaleX: 1, opacity: 1 }}
+                whileInView={{ scaleX: 0, opacity: 1 }}
+                transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+                viewport={{ once: true }}
+                style={{ transformOrigin: "right" }}
+                className="w-full origin-right absolute  h-full bg-[#FBF0DA]"
+              ></motion.div>
+              <img data-scroll
+          data-scroll-speed="-1" src={craft1} className="w-full h-full bg-cover" alt="" />
+          </div>
+          <div
+            className="bg-gray-300 h-48 w-full relative  overflow-hidden w-full rounded "
+          >
+            <motion.div
+                initial={{ scaleX: 1, opacity: 1 }}
+                whileInView={{ scaleX: 0, opacity: 1 }}
+                transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+                viewport={{ once: true }}
+                style={{ transformOrigin: "right" }}
+                className="w-full origin-right absolute  h-full bg-[#FBF0DA]"
+              ></motion.div>
+              <img data-scroll
+          data-scroll-speed="-1" src={craft2}  alt="" />
+          </div>
         </div>
       </div>
     </div>

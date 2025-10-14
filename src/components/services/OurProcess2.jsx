@@ -232,8 +232,8 @@ const OurProcess2 = () => {
                 </div>
               </div>
               
-              {/* SEPARATOR LINE - NOW POSITIONED RIGHT AFTER TITLE */}
-              {index < processSteps.length - 1 && (
+            
+              {index < processSteps.length  && (
                 <motion.div 
                   className="h-px bg-gray-700 origin-left"
                   initial={{ scaleX: 0 }}
@@ -243,7 +243,7 @@ const OurProcess2 = () => {
                 />
               )}
 
-              {/* EXPANDABLE CONTENT - NOW COMES AFTER THE LINE */}
+              
               <motion.div 
                 className="overflow-hidden"
                 initial={false}
@@ -355,7 +355,7 @@ const OurProcess2 = () => {
                                 </motion.span>
                               </div>
                             </div>
-                            {/* Line under each activity */}
+                           
                             <motion.div 
                               className="h-px bg-gray-600 origin-left ml-6 mt-2"
                               initial={{ scaleX: 0 }}

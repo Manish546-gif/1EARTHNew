@@ -6,6 +6,8 @@ import Footer from '../components/common/Footer';
 import BlankSolo from '../components/allprojects/BlankSolo';
 import SoloFeatures from '../components/allprojects/SoloFeatures';
 import NextProject from '../components/allprojects/NextProject';
+import Line from '../components/common/Line';
+import Blank2 from '../components/allprojects/Blank2';
 
 
 const Projectsolo = () => {
@@ -16,12 +18,17 @@ const Projectsolo = () => {
   };
 
   return (
-    <div className='relative'>
+    <div className='relative bg-[#FBF0DA]'>
       <Navbar />
       <SoloHome />
       <SoloInfo />
+      <Line/>
       <BlankSolo />
+      <Line/>
       <SoloFeatures />
+      <Line/>
+      <Blank2 />
+      <Line/>
        <NextProject />
       <Footer />
     </div>
