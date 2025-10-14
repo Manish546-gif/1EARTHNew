@@ -6,7 +6,7 @@ import ServiceLanding from '../components/services/ServiceLanding'
 import OurProcess2 from '../components/services/OurProcess2'
 const Services = () => {
   return (
-    <div>
+    <div className='bg-[#FBF0DA]'>
         <Navbar />
         <ServiceLanding />
         <OurProcess2/>

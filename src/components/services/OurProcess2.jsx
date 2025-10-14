@@ -128,8 +128,8 @@ const OurProcess2 = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-16 px-6 sm:px-10 md:px-16 lg:px-20">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-[#FBF0DA] py-16 px-6 sm:px-10 md:px-16 lg:px-20">
+      <div className="max-w-7xl mb-12 mx-auto">
         
         <motion.div 
           className="mb-16"
@@ -156,7 +156,6 @@ const OurProcess2 = () => {
           </div>
         </motion.div>
         
-      
         <motion.div 
           className="space-y-0"
           initial="hidden"
@@ -177,11 +176,12 @@ const OurProcess2 = () => {
               variants={stepVariants}
             >
               <div 
-                className="flex items-center justify-between py-8 cursor-pointer transition-all duration-300 hover:bg-white hover:px-6 hover:-mx-6 hover:rounded-lg"
+                className="flex items-center relative justify-between py-8 cursor-pointer transition-all duration-300  group overflow-hidden"
                 onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
               >
-                <div className="flex items-center gap-8">
-                  {/* Step Number and Indicator */}
+                <div className="absolute inset-0 bg-[#D2C6B0]  transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out "></div>
+                
+                <div className="flex items-center gap-8 relative z-10">
                   <div className="flex items-center gap-4">
                     <div className="overflow-hidden">
                       <motion.span 
@@ -213,7 +213,7 @@ const OurProcess2 = () => {
                   </div>
                 </div>
 
-                <div className="overflow-hidden">
+                <div className="overflow-hidden relative z-10">
                   <motion.button 
                     className="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors duration-200 tracking-wider"
                     onClick={(e) => {
@@ -231,7 +231,19 @@ const OurProcess2 = () => {
                   </motion.button>
                 </div>
               </div>
+              
+              {/* SEPARATOR LINE - NOW POSITIONED RIGHT AFTER TITLE */}
+              {index < processSteps.length - 1 && (
+                <motion.div 
+                  className="h-px bg-gray-700 origin-left"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 + 0.5, duration: 0.8 }}
+                />
+              )}
 
+              {/* EXPANDABLE CONTENT - NOW COMES AFTER THE LINE */}
               <motion.div 
                 className="overflow-hidden"
                 initial={false}
@@ -239,7 +251,7 @@ const OurProcess2 = () => {
                 variants={expandVariants}
               >
                 <motion.div 
-                  className="bg-gray-200 rounded-lg p-8 mb-8"
+                  className="bg-[#D2C6B0] p-8 mb-8 "
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ 
                     opacity: expandedInfo === step.id ? 1 : 0,
@@ -345,7 +357,7 @@ const OurProcess2 = () => {
                             </div>
                             {/* Line under each activity */}
                             <motion.div 
-                              className="h-px bg-gray-400 origin-left ml-6"
+                              className="h-px bg-gray-600 origin-left ml-6 mt-2"
                               initial={{ scaleX: 0 }}
                               animate={{ 
                                 scaleX: expandedInfo === step.id ? 1 : 0 
@@ -363,15 +375,6 @@ const OurProcess2 = () => {
                 </motion.div>
               </motion.div>
               
-              {index < processSteps.length && (
-                <motion.div 
-                  className="h-px bg-gray-700 origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.5, duration: 0.8 }}
-                />
-              )}
             </motion.div>
           ))}
         </motion.div>

@@ -4,11 +4,11 @@ import React from "react";
 
 function Line(){
     return(
-          <motion.div className="h-px bg-black origin-left"
+          <motion.div className="h-px bg-gray-500  origin-left"
           initial={{ scaleX: 0 }}
           viewport={{ once: true }}
           whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 1.5, delay: 0.6, ease:"circOut" }}
           style={{ transformOrigin: "left" }}></motion.div>  
     )
 }

@@ -1,20 +1,26 @@
 import { motion } from "framer-motion";
+import Line from "../common/Line.jsx";
+import craft1 from '../../assets/craft1.png';
+import craft2 from '../../assets/craft2.png';
 
 export default function CraftVisionSection() {
   return (
-    <div className="min-h-screen bg-white flex  items-center justify-center p-4">
-      <div className="max-w-8xl w-full mt-18 mx-auto">
+   <div>
+    <Line />
+     <div className="min-h-screen bg-[#FBF0DA]  flex  items-center justify-center p-4">
+      <div className="max-w-8xl w-full  mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           <div className="hidden lg:block">
-            <motion.div className="bg-gray-300 md:mt-80  h-80 w-full md:w-3/4 md:ml-20 rounded">
+            <motion.div className="bg-gray-300 relative md:mt-80 overflow-hidden  h-80 w-full md:w-3/4 md:ml-20 rounded">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
                 transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
                 viewport={{ once: true }}
                 style={{ transformOrigin: "right" }}
-                className="w-full origin-right  h-full bg-red-400"
+                className="w-full origin-right absolute z-10 h-full bg-[#FBF0DA]"
               ></motion.div>
+              <img src={craft1} alt="" className="w-full h-full bg-cover" />
             </motion.div>
           </div>
 
@@ -49,7 +55,7 @@ export default function CraftVisionSection() {
           </div>
 
           <div className="hidden lg:block">
-            <motion.div className="bg-gray-300 h-140 mt-10  w-full rounded">
+            <motion.div className="bg-gray-300 relative h-140 mt-10 overflow-hidden w-full rounded">
               {" "}
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
@@ -57,8 +63,9 @@ export default function CraftVisionSection() {
                 transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
                 viewport={{ once: true }}
                 style={{ transformOrigin: "right" }}
-                className="w-full origin-right  h-full bg-red-400"
+                className="w-full origin-right absolute  h-full bg-[#FBF0DA]"
               ></motion.div>
+              <img src={craft2} alt="" className="w-full h-full bg-cover"/>
             </motion.div>
           </div>
         </div>
@@ -83,5 +90,6 @@ export default function CraftVisionSection() {
         </div>
       </div>
     </div>
+   </div>
   );
 }
