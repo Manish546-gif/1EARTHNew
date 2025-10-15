@@ -17,11 +17,11 @@ const wordVariants = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-export default function Origin() {
-  const heading = "DESIGNING IN HARMONY".split(" ");
+export default function Philosophy() {
+  const heading = "WHAT WE STAND FOR".split(" ");
 
   return (
-    <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center h-screen p-8 gap-10 md:mt-20">
+    <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center h-screen p-8 gap-15 md:mt-20">
       <motion.div
         className="text-5xl md:text-6xl  mb-8 md:mb-0 md:mr-12 text-left"
         variants={containerVariants}
@@ -39,7 +39,18 @@ export default function Origin() {
           </motion.span>
         ))}
       </motion.div>
-      <div className="flex-shrink-0 rounded md:h-160 relative w-full md:w-1/3 mb-8 overflow-hidden md:mb-0">
+      <div className="mb-6 md:w-3/5 md:ml-10">
+          <h3 className=" mb-2">OUR ORIGINS</h3>
+          <p className="text-gray-700 mb-2 md:mb-28">
+            One Earth Properties was founded with a singular vision – to redefine real estate by uniting sustainability, culture, and modern living. Rooted in Pune’s serene landscapes, our journey began with a simple belief: that land is not just to be developed, but to be nurtured.
+          </p>
+          <p className="text-gray-700">
+            Inspired by India’s deep connection to nature and timeless craftsmanship, we create spaces that coexist with their surroundings – where innovation serves the Earth, and design becomes an expression of balance. Each project stands as a testament to harmony, integrity, and renewal.
+          </p>
+        </div>
+     
+      <div className="md:ml-32 w-full md:w-6/7 text-left">
+      <div className="flex-shrink-0 rounded md:h-130 relative w-full md:w-full mb-8 overflow-hidden md:mb-5">
       <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
@@ -50,16 +61,6 @@ export default function Origin() {
               />
               <img src={origin2} alt="" className="w-full h-full bg-cover" />
       </div>
-      <div className="md:ml-22 w-full md:w-1/3 md:mr-23 text-left">
-        <div className="mb-6">
-          <h3 className=" mb-2">OUR ORIGINS</h3>
-          <p className="text-gray-700 mb-2 md:mb-28">
-            One Earth Properties was founded with a singular vision – to redefine real estate by uniting sustainability, culture, and modern living. Rooted in Pune’s serene landscapes, our journey began with a simple belief: that land is not just to be developed, but to be nurtured.
-          </p>
-          <p className="text-gray-700">
-            Inspired by India’s deep connection to nature and timeless craftsmanship, we create spaces that coexist with their surroundings – where innovation serves the Earth, and design becomes an expression of balance. Each project stands as a testament to harmony, integrity, and renewal.
-          </p>
-        </div>
         <div>
           <h3 className="font-bold mb-2">OUR PHILOSOPHY</h3>
           <ul className="text-gray-700 space-y-1">

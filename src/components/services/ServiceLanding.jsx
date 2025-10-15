@@ -4,13 +4,15 @@ export default function  ServiceLanding() {
   return (
     <div 
       className="relative min-h-screen overflow-hidden flex items-center justify-center"
-      style={{
-        backgroundImage: `url(${landimgservice})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      
     >
+      <img
+  data-scroll
+  data-scroll-speed="-0.2"
+  src={landimgservice}
+  alt="Background"
+  className="absolute inset-0 w-full h-full object-cover"
+/>
       <div className="absolute inset-0 bg-black/70 "></div>
 
       <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-8 w-full h-screen flex items-center">

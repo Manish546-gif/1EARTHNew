@@ -7,6 +7,7 @@ import Footer from '../components/common/Footer'
 import Line from '../components/common/Line'
 import Origin from '../components/about/Origin'
 import WhyChoose from '../components/about/WhyChoose'
+import Philosophy from '../components/about/Philoshofy'
 
 const About = () => {
   return (
@@ -14,6 +15,7 @@ const About = () => {
       <Navbar />
       <AboutLanding />
       <Origin />
+      <Philosophy />
       <OurTeam/>
       <WhyChoose/>
       <Line />
