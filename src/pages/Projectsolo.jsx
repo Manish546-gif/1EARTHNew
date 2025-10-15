@@ -8,6 +8,7 @@ import SoloFeatures from '../components/allprojects/SoloFeatures';
 import NextProject from '../components/allprojects/NextProject';
 import Line from '../components/common/Line';
 import Blank2 from '../components/allprojects/Blank2';
+import TestimonialSection from '../components/allprojects/TestimonialSection';
 
 
 const Projectsolo = () => {
@@ -28,6 +29,9 @@ const Projectsolo = () => {
       <SoloFeatures />
       <Line/>
       <Blank2 />
+      <Line />
+      <TestimonialSection/>
+
       <Line/>
        <NextProject />
       <Footer />

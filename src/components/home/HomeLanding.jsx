@@ -19,9 +19,9 @@ function HomeLanding() {
         <div className="text max-w-screen-2xl mx-auto h-full  px-5 sm:px-10 text-white">
           <div className="para mt-72 sm:mt-[32rem] ">
             {[
-              "Global digital design studio partnering with",
-              " brands and businesses that create exceptional",
-              "experiences where people live, work, and unwind.",
+              "Creating timeless spaces where",
+              "nature, culture, and design coexist",
+              "in perfect balance.",
             ].map((item, index) => {
               return (
                 <p
@@ -45,7 +45,7 @@ function HomeLanding() {
             })}
           </div>
           <div className="headings mt-5 sm:mt-17 py-10 overflow-hidden ">
-            {["Digital", "Design", "Experience"].map((item, index) => {
+            {["Sustainable", "Design", "Experience"].map((item, index) => {
               return (
                 <h1 className="text-5xl tracking-tighter font-light leading-none sm:-mt-20 sm:py-10 py-2 sm:text-[12rem] overflow-hidden  ">
                   <motion.span
@@ -66,9 +66,7 @@ function HomeLanding() {
           </div>
           <div className="para2 sm:w-1/3  mt-10 sm:mt-20">
             <p className="sm:text-xl">
-              We help experience-driven companies thrive by making their
-              audience feel the refined intricacies of their brand and product
-              in the digital space. Unforgettable journeys start with a click.
+We craft destinations that inspire a deeper connection with the Earth, where architecture breathes with the landscape, and every detail embodies mindful luxury. Our spaces invite you to live consciously, in harmony with the rhythms of nature.
             </p>
             <a
               className="sm:text-xl sm:border-b-[1px] border-b-[.3px] border-zinc-100 pb-1 inline-block mt-10"

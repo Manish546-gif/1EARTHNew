@@ -3,14 +3,20 @@ import React from "react";
 
 export default function OurTeam() {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-6 lg:px-8">
+    <div className="min-h-screen  flex items-center justify-center px-6 lg:px-8">
       <div className="max-w-8xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
           <div className="flex-shrink-0 md:w-3/11 ">
             <div className="text-center md:mt-30 lg:text-left">
-              <h2 className="text-6xl lg:text-7xl font-serif text-black tracking-wider leading-tight">
-                <span className="block">OUR</span>
-                <span className="block">TEAM</span>
+              <h2 className="text-6xl lg:text-7xl font-serif overflow-hidden text-black tracking-wider leading-tight">
+                <motion.span initial={{y:10, opacity:1}}
+                whileInView={{y:0}}
+                transition={{delay:0.3, duration:1.2 ,ease: "circOut"}} className="block">OUR</motion.span>
+              </h2>
+              <h2 className="text-6xl lg:text-7xl font-serif overflow-hidden text-black tracking-wider leading-tight">
+              <motion.span initial={{y:10, opacity:1}}
+              whileInView={{y:0}}
+              transition={{delay:0.3 ,duration:1.2 ,ease: "circOut"}} className="block">TEAM</motion.span>
               </h2>
             </div>
           </div>
@@ -22,10 +28,10 @@ export default function OurTeam() {
               </div>
 
               <div className="text-center lg:text-left w-full">
-                <h3 className="text-xl lg:text-2xl font-serif text-black uppercase tracking-wide mb-2">
+                <h3 className="text-xl lg:text-2xl  font-serif text-black uppercase tracking-wide mb-2">
                   SHREYASH TARAWADE
                 </h3>
-                <p className="text-sm lg:text-base font-sans text-black uppercase tracking-wide">
+                <p className="text-sm lg:text-base  font-sans text-black uppercase tracking-wide">
                   MANAGING DIRECTOR
                 </p>
                 <motion.div

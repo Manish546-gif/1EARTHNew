@@ -1,17 +1,18 @@
 
-
+import aboutland from '../../assets/aboutland.png';
 export default function  AboutLanding() {
     return (
       <div 
-        className="relative min-h-screen bg-gray-800 overflow-hidden flex items-center justify-center"
-        style={{
-          backgroundImage: `url('https://dhiwise-assets.s3.ap-south-1.amazonaws.com/uploadAttachments/image-1760286396928.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+        className="relative min-h-screen overflow-hidden flex items-center justify-center"
       >
-        <div className="absolute inset-0 bg-gray-600 bg-opacity-40"></div>
+         <img
+  data-scroll
+  data-scroll-speed="-0.2"
+  src={aboutland}
+  alt="Background"
+  className="absolute inset-0 w-full h-full object-cover"
+/>
+        <div className="absolute inset-0 bg-black/40 "></div>
   
         <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-8 w-full h-screen flex items-center">
           
