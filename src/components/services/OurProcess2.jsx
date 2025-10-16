@@ -175,11 +175,24 @@ const OurProcess2 = () => {
               className="group"
               variants={stepVariants}
             >
-              <div 
-                className="flex items-center relative justify-between py-8 cursor-pointer transition-all duration-300  group overflow-hidden"
+              <motion.div
+                className="flex items-center relative justify-between py-8 cursor-pointer overflow-hidden"
                 onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
+                whileHover="hover"
+                initial="initial"
+                variants={{
+                  initial: {},
+                  hover: {}
+                }}
               >
-                <div className="absolute inset-0 bg-[#D2C6B0]  transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out "></div>
+                <motion.div
+                  className="absolute inset-0 bg-[#D2C6B0] "
+                  variants={{
+                    initial: { y: "100%" },
+                    hover: { y: 0 }
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                ></motion.div>
                 
                 <div className="flex items-center gap-8 relative z-10">
                   <div className="flex items-center gap-4">
@@ -214,7 +227,7 @@ const OurProcess2 = () => {
                 </div>
 
                 <div className="overflow-hidden relative z-10">
-                  <motion.button 
+                  <motion.button
                     className="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors duration-200 tracking-wider"
                     onClick={(e) => {
                       e.stopPropagation();
@@ -230,7 +243,7 @@ const OurProcess2 = () => {
                     {expandedInfo === step.id ? 'CLOSE' : 'MORE INFO'}
                   </motion.button>
                 </div>
-              </div>
+              </motion.div>
               
             
               {index < processSteps.length  && (

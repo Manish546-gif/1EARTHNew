@@ -286,18 +286,19 @@ const Navbar = () => {
                 {isMenuOpen && (
                   <>
                     <motion.div
-                      className="flex relative items-center gap-6 lg:gap-8 cursor-pointer overflow-hidden group"
+                      className="flex items-center gap-6 lg:gap-8 cursor-pointer overflow-hidden group"
                       onClick={() => handleNavigation("/")}
                       variants={menuItemVariants}
                       initial="hidden"
                       animate="visible"
                       custom={0}
-      
+
                       transition={{
                         type: "spring",
                         stiffness: 400,
                         damping: 30,
                       }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       <motion.span
                         className="text-xs lg:text-4xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
@@ -336,12 +337,13 @@ const Navbar = () => {
                       initial="hidden"
                       animate="visible"
                       custom={1}
-                      
+
                       transition={{
                         type: "spring",
                         stiffness: 400,
                         damping: 30,
                       }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       <motion.span
                         className="text-xs lg:text-4xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
@@ -380,12 +382,13 @@ const Navbar = () => {
                       initial="hidden"
                       animate="visible"
                       custom={2}
-                      
+
                       transition={{
                         type: "spring",
                         stiffness: 400,
                         damping: 30,
                       }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       <motion.span
                         className="text-xs lg:text-4xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
@@ -424,12 +427,13 @@ const Navbar = () => {
                       initial="hidden"
                       animate="visible"
                       custom={3}
-                      
+
                       transition={{
                         type: "spring",
                         stiffness: 400,
                         damping: 30,
                       }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       <motion.span
                         className="text-xs lg:text-4xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
@@ -473,6 +477,7 @@ const Navbar = () => {
                         stiffness: 400,
                         damping: 30,
                       }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       <motion.span
                         className="text-xs lg:text-4xl ml-5 font-light text-gray-600 min-w-[30px] lg:min-w-[40px]"
