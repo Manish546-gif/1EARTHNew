@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 import Navbar from "../components/common/Navbar";
 import projectimg from '../assets/projectland.png';
 import { Link } from "react-router-dom";
@@ -65,7 +66,7 @@ const ProjectsSection = () => {
   const currentProject = projects[current];
 
   return (
-    <div>
+    <div className="">
       <Navbar />
       <div className="relative h-screen bg-black w-full overflow-hidden text-white flex flex-col justify-between px-6 sm:px-10 md:px-16 lg:px-20 py-8">
         <AnimatePresence mode="wait">

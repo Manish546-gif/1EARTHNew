@@ -22,7 +22,7 @@ const WhyChoose = () => {
        
         <div className="grid grid-cols-2 gap-6 w-full">
          
-          <div className=" bg-white/10 border border-white/20 rounded-[10px] p-6 flex flex-col justify-center text-center md:h-80">
+          <div className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80">
             <h3 className="text-lg font-semibold tracking-wide mb-2">
               TRANSPARENCY & TRUST
             </h3>
@@ -32,7 +32,7 @@ const WhyChoose = () => {
           </div>
 
           
-          <div className=" bg-white/10 border border-white/20 rounded-[10px] p-6 flex flex-col justify-center text-center md:h-80">
+          <div className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80">
             <h3 className="text-lg font-semibold tracking-wide mb-2">
               QUALITY & PLANNING
             </h3>
@@ -42,7 +42,7 @@ const WhyChoose = () => {
           </div>
 
          
-          <div className=" bg-white/10 border border-white/20 rounded-[10px] p-6 flex flex-col justify-center text-center md:h-80">
+          <div className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80">
             <h3 className="text-lg font-semibold tracking-wide mb-2">
               TIMELY DELIVERY
             </h3>
@@ -51,7 +51,7 @@ const WhyChoose = () => {
             </p>
           </div>
 
-          <div className=" bg-white/10 border border-white/20 rounded-[10px] p-6 flex flex-col justify-center text-center md:h-80">
+          <div className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80">
             <h3 className="text-lg font-semibold tracking-wide mb-2">
               CUSTOMER-CENTRIC APPROACH
             </h3>

@@ -50,7 +50,7 @@ export default function Philosophy() {
         </div>
      
       <div className="md:ml-32 w-full md:w-6/7 text-left">
-      <div className="flex-shrink-0 rounded md:h-130 relative w-full md:w-full mb-8 overflow-hidden md:mb-5">
+      <div className="flex-shrink-0  md:h-130 relative w-full md:w-full mb-8 overflow-hidden md:mb-5">
       <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}

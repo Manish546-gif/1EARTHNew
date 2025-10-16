@@ -44,20 +44,20 @@ const Stair = (props) => {
     });
 
     // Show logo container
-    tl.to(logoContainerRef.current, { display: "flex", opacity: 1, duration: 0.3 });
+    tl.to(logoContainerRef.current, { display: "flex", opacity: 1, duration: 0.1 });
 
     // Show default logo
-    tl.to(logoDefaultRef.current, { opacity: 1, duration: 0.3 });
+    tl.to(logoDefaultRef.current, { opacity: 1, duration: 0.1 });
 
     // Logo fill animation
     tl.fromTo(
       logoFillRef.current,
       { clipPath: "inset(100% 0% 0% 0%)" },
-      { clipPath: "inset(0% 0% 0% 0%)", duration: 4, ease: "power2.inOut", delay: 0.3 }
+      { clipPath: "inset(0% 0% 0% 0%)", duration: 3, ease: "power2.inOut", }
     );
 
     // Hide logo
-    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.3, delay: 0.3 });
+    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.3,  });
 
     // Reveal stairs going up
     tl.to(".stair", { y: "100%", stagger: { amount: -0.25 } });
@@ -65,7 +65,7 @@ const Stair = (props) => {
     tl.to(".stair", { y: "0%" });
 
     // Page entrance
-    gsap.from(pageRef.current, { opacity: 0, delay: 5, scale: 1.0 });
+    gsap.from(pageRef.current, { opacity: 0, delay: 5.1, scale: 1.02 });
   }, [locate]);
 
   return (

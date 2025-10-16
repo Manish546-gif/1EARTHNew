@@ -5,7 +5,7 @@ import img from "../../assets/1.png";
 
 function HomeLanding() {
   return (
-    <div className="relative w-full h-[150vh]  sm:h-[250vh]">
+    <div className="relative overflow-hidden w-full h-[150vh]   sm:h-[250vh]" data-scroll-section>
       <div className="picture w-full h-full overflow-hidden">
         <img
           data-scroll

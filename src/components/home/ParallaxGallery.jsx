@@ -10,7 +10,6 @@ const ParallaxGallery = () => {
   return (
     <section
       className="relative h-[100vh] mt-20 flex  justify-center "
-      data-scroll-section
     >
       
       <div className="relative w-[400px] h-[400px]">

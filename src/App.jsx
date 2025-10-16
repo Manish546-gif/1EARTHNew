@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 
-
 import Projects from "./pages/ProjectsSection";
 import Contact from "./pages/Contact";
 import About from "./pages/About";

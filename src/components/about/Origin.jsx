@@ -39,7 +39,7 @@ export default function Origin() {
           </motion.span>
         ))}
       </motion.div>
-      <div className="flex-shrink-0 rounded md:h-160 relative w-full md:w-1/3 mb-8 overflow-hidden md:mb-0">
+      <div className="flex-shrink-0  md:h-160 relative w-full md:w-1/3 mb-8 overflow-hidden md:mb-0">
       <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}

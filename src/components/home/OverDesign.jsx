@@ -12,7 +12,7 @@ export default function OverDesign() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Image */}
           <div className="lg:col-span-5 hidden lg:block">
-            <motion.div className="bg-gray-300 relative overflow-hidden h-full w-full rounded">
+            <motion.div className="bg-gray-300 relative overflow-hidden h-full w-full ">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
@@ -109,7 +109,7 @@ export default function OverDesign() {
           <div className="lg:col-span-3 flex flex-col gap-8 md:gap-40">
             {/* Top Right Image */}
             <div className="hidden lg:block">
-              <motion.div className="bg-gray-300 relative overflow-hidden h-48 w-full rounded">
+              <motion.div className="bg-gray-300 relative overflow-hidden h-48 w-full ">
                 <motion.div
                   initial={{ scaleX: 1, opacity: 1 }}
                   whileInView={{ scaleX: 0, opacity: 1 }}
@@ -188,7 +188,7 @@ export default function OverDesign() {
             transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
             viewport={{ once: true }}
             style={{ transformOrigin: "left" }}
-            className="bg-gray-300 h-48 w-full rounded overflow-hidden"
+            className="bg-gray-300 h-48 w-full  overflow-hidden"
           >
             <img src={craft1} alt="" className="w-full h-full object-cover"/>
           </motion.div>
@@ -198,7 +198,7 @@ export default function OverDesign() {
             transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
             viewport={{ once: true }}
             style={{ transformOrigin: "left" }}
-            className="bg-gray-300 h-48 w-full rounded overflow-hidden"
+            className="bg-gray-300 h-48 w-full  overflow-hidden"
           >
             <img src={craft2} alt="" className="w-full h-full object-cover"/>
           </motion.div>

@@ -10,6 +10,7 @@ const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
   // GSAP Refs
   const leftPanelRef = useRef(null);
   const rightPanelRef = useRef(null);
@@ -18,20 +19,18 @@ const Navbar = () => {
   const isDarkPage =
     location.pathname === "/contact" || location.pathname === "";
 
-  // Lock/Unlock body scroll
+
+
+  // Lock/Unlock body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      // Save current scroll position
       const scrollY = window.scrollY;
-
-      // Lock body scroll
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
       document.body.style.left = "0";
       document.body.style.right = "0";
       document.body.style.overflow = "hidden";
     } else {
-      // Unlock body scroll and restore position
       const scrollY = document.body.style.top;
       document.body.style.position = "";
       document.body.style.top = "";
@@ -44,7 +43,6 @@ const Navbar = () => {
       }
     }
 
-    // Cleanup function
     return () => {
       document.body.style.position = "";
       document.body.style.top = "";
@@ -215,7 +213,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`w-full absolute fixed top-0 z-40 border-b ${
+        className={`w-full fixed top-0 z-40 border-b ${
           isDarkPage ? "border-black" : "border-white"
         }`}
       >

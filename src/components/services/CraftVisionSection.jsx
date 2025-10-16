@@ -11,7 +11,7 @@ export default function CraftVisionSection() {
       <div className="max-w-8xl w-full  mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           <div className="hidden lg:block">
-            <motion.div className="bg-gray-300 relative md:mt-80 overflow-hidden  h-80 w-full md:w-3/4 md:ml-20 rounded">
+            <motion.div className="bg-gray-300 relative md:mt-80 overflow-hidden  h-80 w-full md:w-3/4 md:ml-20 ">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
@@ -129,7 +129,7 @@ export default function CraftVisionSection() {
           </motion.div>
 
           <div className="hidden lg:block">
-            <motion.div className=" relative h-140 mt-10 overflow-hidden w-full rounded">
+            <motion.div className=" relative h-140 mt-10 overflow-hidden w-full ">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}

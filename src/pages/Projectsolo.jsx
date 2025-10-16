@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 import Navbar from '../components/common/Navbar';
 import SoloHome from '../components/allprojects/SoloHome';
 import SoloInfo from '../components/allprojects/SoloInfo';
@@ -19,7 +20,7 @@ const Projectsolo = () => {
   };
 
   return (
-    <div className='relative bg-[#FBF0DA]'>
+    <div className="relative bg-[#FBF0DA]">
       <Navbar />
       <SoloHome />
       <SoloInfo />
