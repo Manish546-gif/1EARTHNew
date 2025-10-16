@@ -8,6 +8,7 @@ import HomeLanding from '../components/home/HomeLanding'
 import OverDesign from '../components/home/OverDesign.jsx'
 import ParallaxGallery from '../components/home/ParallaxGallery.jsx'
 import ImgHarmony from '../components/home/ImgHarmony.jsx'
+import Line from "../components/common/Line.jsx";
 
 
 
@@ -19,6 +20,7 @@ const Home = () => {
       <ParallaxGallery />
       <LetterParallax />
       <OverDesign />
+      <Line />
       <ImgHarmony />
       <CraftVisionSection />
       <Footer />
