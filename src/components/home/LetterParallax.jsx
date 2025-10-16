@@ -20,7 +20,7 @@ export default function LetterParallax () {
       scale: 0.2,
       z: () => gsap.utils.random(-2000, -500), 
       transformOrigin: "center center",
-      filter: "blur(15px)",
+      filter: "blur(1px)",
     });
 
   
