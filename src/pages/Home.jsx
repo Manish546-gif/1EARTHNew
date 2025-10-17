@@ -1,6 +1,5 @@
 import React from "react";
 
-import Navbar from '../components/common/Navbar'
 import Footer from '../components/common/Footer'
 import LetterParallax from '../components/home/LetterParallax'
 import CraftVisionSection from '../components/services/CraftVisionSection'
@@ -17,7 +16,6 @@ import ProjectHome from '../components/home/ProjectHome.jsx'
 const Home = () => {
   return (
     <div className="bg-[#FBF0DA]">
-      <Navbar />
       <HomeLanding />
       <EveryAbout/>
       <Line />

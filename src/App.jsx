@@ -2,46 +2,58 @@ import React, { useEffect, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
+
+import Navbar from './components/common/Navbar';
+import Home from "./pages/Home";
 import Projects from "./pages/ProjectsSection";
+import Projectsolo from "./pages/Projectsolo";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-import Home from "./pages/Home";
-import Projectsolo from "./pages/Projectsolo";
 import Services from "./pages/Services";
 import HomeLanding from "./components/home/HomeLanding";
+import Footer from "./components/common/Footer";
+
 const App = () => {
   const scrollRef = useRef(null);
   const location = useLocation();
+  const locoInstance = useRef(null);
+
   useEffect(() => {
     const scrollEl = scrollRef.current;
-    const scroll = new LocomotiveScroll({
+    if (!scrollEl) return;
+
+    // Initialize Locomotive Scroll
+    locoInstance.current = new LocomotiveScroll({
       el: scrollEl,
       smooth: true,
       lerp: 0.08,
       smartphone: { smooth: true },
       tablet: { smooth: true },
     });
-    setTimeout(() => {
-      scroll.update();
-      scroll.scrollTo(0, { duration: 0, disableLerp: true });
-    }, 100);
+
+    // Scroll to top instantly on route change
+    locoInstance.current.scrollTo(0, { duration: 0, disableLerp: true });
+
+    setTimeout(() => locoInstance.current.update(), 100);
+
     return () => {
-      if (scroll) scroll.destroy();
+      if (locoInstance.current) locoInstance.current.destroy();
     };
   }, [location.pathname]);
+
   return (
     <div ref={scrollRef} data-scroll-container className="overflow-hidden">
-      {" "}
+      <Navbar />
       <Routes>
-        {" "}
-        <Route path="/" element={<Home />} />{" "}
-        <Route path="/project" element={<Projects />} />{" "}
-        <Route path="/contact" element={<Contact />} />{" "}
-        <Route path="/about" element={<About />} />{" "}
-        <Route path="/projectsolo" element={<Projectsolo />} />{" "}
-        <Route path="/services" element={<Services />} />{" "}
-        <Route path="/homelanding" element={<HomeLanding />} />{" "}
-      </Routes>{" "}
+        <Route path="/" element={<Home />} />
+        <Route path="/project" element={<Projects />} />
+        <Route path="/projectsolo" element={<Projectsolo />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/homelanding" element={<HomeLanding />} />
+      </Routes>
+      
     </div>
   );
 };

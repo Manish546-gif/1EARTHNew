@@ -1,6 +1,5 @@
 import React from "react";
 
-import Navbar from '../components/common/Navbar';
 import SoloHome from '../components/allprojects/SoloHome';
 import SoloInfo from '../components/allprojects/SoloInfo';
 import Footer from '../components/common/Footer';
@@ -21,7 +20,6 @@ const Projectsolo = () => {
 
   return (
     <div className="relative bg-[#FBF0DA]">
-      <Navbar />
       <SoloHome />
       <SoloInfo />
       <Line/>

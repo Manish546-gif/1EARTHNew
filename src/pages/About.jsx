@@ -1,6 +1,5 @@
 import React from "react";
 
-import Navbar from '../components/common/Navbar'
 import AboutLanding from '../components/about/AboutLanding'
 import OurTeam from '../components/about/OurTeam'
 import OurProcess from '../components/about/OurProcess'
@@ -13,7 +12,7 @@ import Philosophy from '../components/about/Philoshofy'
 const About = () => {
   return (
     <div className="bg-[#FBF0DA]">
-      <Navbar />
+
       <AboutLanding />
       <Origin />
       <Philosophy />

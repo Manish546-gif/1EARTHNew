@@ -308,7 +308,7 @@ const ServiceCard = ({ service }) => {
 function ServiceStack() {
   return (
     <div className="relative">
-      {/* Stacked service cards container */}
+      
       <div className="relative" style={{ height: `${services.length * 100}vh` }}>
         {services.map((service) => (
           <ServiceCard key={service.id} service={service} />
