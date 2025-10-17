@@ -64,7 +64,7 @@ export default function ContactForm() {
                   <motion.div  initial={{ scaleX: 0 }}
                   viewport={{once:true}}
                   whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 1.7 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                   style={{ transformOrigin: 'left' }} className='h-px w-full bg-black mt-5 origin-left'/>
                 </div>
                 
@@ -80,7 +80,7 @@ export default function ContactForm() {
                   <motion.div  initial={{ scaleX: 0 }}
                   viewport={{once:true}}
                   whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 1.7 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                   style={{ transformOrigin: 'left' }} className='h-[0.7px] w-full bg-black mt-5 origin-left'/>
                 </div>
                 
@@ -96,7 +96,7 @@ export default function ContactForm() {
                   <motion.div  initial={{ scaleX: 0 }}
                   viewport={{once:true}}
                   whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 1.7 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                   style={{ transformOrigin: 'left' }} className='h-px w-full bg-black mt-5 origin-left'/>
                 </div>
                 
@@ -113,7 +113,7 @@ export default function ContactForm() {
                   <motion.div  initial={{ scaleX: 0 }}
                   viewport={{once:true}}
                   whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 1.7 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                   style={{ transformOrigin: 'left' }} className='h-[0.7px] w-full bg-black mt-5 origin-left'/>
                 </div>
                 
@@ -129,7 +129,7 @@ export default function ContactForm() {
                   <motion.div  initial={{ scaleX: 0 }}
                   viewport={{once:true}}
                   whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 1.7 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                   style={{ transformOrigin: 'left' }} className='h-[0.7px] w-full bg-black mt-5 origin-left'/>
                             </div>
                             <button className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">

@@ -10,6 +10,7 @@ import ParallaxGallery from '../components/home/ParallaxGallery.jsx'
 import ImgHarmony from '../components/home/ImgHarmony.jsx'
 import Line from "../components/common/Line.jsx";
 import EveryAbout from "../components/home/EveryAbout.jsx";
+import ProjectHome from '../components/home/ProjectHome.jsx'
 
 
 
@@ -22,6 +23,7 @@ const Home = () => {
       <Line />
       <ParallaxGallery />
       <LetterParallax />
+      <ProjectHome />
       <OverDesign />
       <Line />
       <ImgHarmony />
