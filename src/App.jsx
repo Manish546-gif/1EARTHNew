@@ -11,7 +11,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import HomeLanding from "./components/home/HomeLanding";
-import Footer from "./components/common/Footer";
+
 
 const App = () => {
   const scrollRef = useRef(null);
@@ -22,7 +22,7 @@ const App = () => {
     const scrollEl = scrollRef.current;
     if (!scrollEl) return;
 
-    // Initialize Locomotive Scroll
+  
     locoInstance.current = new LocomotiveScroll({
       el: scrollEl,
       smooth: true,
@@ -30,8 +30,6 @@ const App = () => {
       smartphone: { smooth: true },
       tablet: { smooth: true },
     });
-
-    // Scroll to top instantly on route change
     locoInstance.current.scrollTo(0, { duration: 0, disableLerp: true });
 
     setTimeout(() => locoInstance.current.update(), 100);
