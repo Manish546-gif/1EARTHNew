@@ -79,7 +79,7 @@ const CurtainPreloader = ({ children }) => {
 
   return (
     <div className="fixed inset-0 z-[9999] flex pointer-events-none overflow-hidden">
-      {/* Left Curtain */}
+    
       <div
         ref={leftCurtainRef}
         className="w-1/2 h-full bg-[#1a2332] relative"

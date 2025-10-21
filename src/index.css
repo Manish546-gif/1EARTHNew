@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Grenda';
+    src: url('/grenda.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Barlow';
+    src: url('/Barlow-Regular.ttf') format('truetype');
+}
 
 body{
     overflow-x: hidden;
