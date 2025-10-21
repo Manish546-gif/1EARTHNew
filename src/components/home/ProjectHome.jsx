@@ -68,6 +68,8 @@ const ProjectSlider = () => {
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
             <motion.img
+            data-scroll
+            data-scroll-speed="-0.4"
               src={projects[page].image}
               alt={projects[page].title}
               className="w-full h-full object-cover"

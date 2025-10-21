@@ -3,15 +3,18 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
-import Stair from './components/common/Stair.jsx'
+
+import CurtainPreloader from './components/common/CurtainPreloader.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Stair>
-        
+    
+        <CurtainPreloader>
+
         <App />
-      </Stair>
+        </CurtainPreloader>
+     
     </BrowserRouter>
   </StrictMode>
 )
