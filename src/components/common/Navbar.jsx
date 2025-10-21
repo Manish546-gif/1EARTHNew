@@ -252,7 +252,7 @@ const Navbar = () => {
 
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-50 opacity-0 overflow-hidden"
+        className="fixed inset-0 z-50  opacity-0 overflow-hidden"
         style={{
           display: isMenuOpen ? "block" : "none",
           height: "100vh",
@@ -261,7 +261,7 @@ const Navbar = () => {
       >
         <div
           ref={leftPanelRef}
-          className="absolute top-0 left-0 w-1/2 bg-[#FBF0DA] overflow-hidden"
+          className="absolute top-0 left-0 w-1/2  bg-[#FBF0DA] overflow-hidden"
           style={{
             transform: "translateX(-100%)",
             height: "100vh",

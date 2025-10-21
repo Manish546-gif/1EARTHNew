@@ -75,7 +75,7 @@ export default function LetterParallax () {
   return (
     <div
       ref={containerRef}
-      className="relative h-[60vh] bg-[#FBF0DA] overflow-hidden flex items-center justify-center"
+      className="relative h-[60vh]  bg-[#FBF0DA] overflow-hidden flex items-center justify-center"
       style={{ perspective: '2000px' }}
     >
       <div className="relative z-10 text-center" style={{ transformStyle: 'preserve-3d' }}>

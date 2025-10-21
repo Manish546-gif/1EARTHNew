@@ -1,94 +1,113 @@
-import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 
 const CurtainPreloader = ({ children }) => {
   const [showContent, setShowContent] = useState(false);
 
-  const leftCurtain = useAnimation();
-  const rightCurtain = useAnimation();
-  const leftCenterLine = useAnimation();
-  const rightCenterLine = useAnimation();
-  const leftEdgeLine = useAnimation();
-  const rightEdgeLine = useAnimation();
+  // Refs for all animated parts
+  const leftCurtainRef = useRef(null);
+  const rightCurtainRef = useRef(null);
+  const leftEdgeLineRef = useRef(null);
+  const leftCenterLineRef = useRef(null);
+  const rightEdgeLineRef = useRef(null);
+  const rightCenterLineRef = useRef(null);
 
   useEffect(() => {
-    const sequence = async () => {
-      
-      await Promise.all([
-        leftCurtain.start({ x: "0%", transition: { duration: 1, ease: "easeInOut" } }),
-        rightCurtain.start({ x: "0%", transition: { duration: 1, ease: "easeInOut" } }),
-      ]);
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.inOut" },
+      onComplete: () => setShowContent(true),
+    });
 
-     
-      await Promise.all([
-        leftCenterLine.start({ height: "50%", transition: { duration: 1.4, ease: "easeInOut" } }),
-        leftEdgeLine.start({ height: "100%", transition: { duration: 1.4, ease: "easeInOut" } }),
-        rightCenterLine.start({ height: "50%", transition: { duration: 1.4, ease: "easeInOut" } }),
-        rightEdgeLine.start({ height: "100%", transition: { duration: 1.4, ease: "easeInOut" } }),
-      ]);
+    tl.set([leftCurtainRef.current, rightCurtainRef.current], { x: 0 }); // start from 0 for control
 
-     
-      await new Promise((res) => setTimeout(res, 1000));
+    tl.fromTo(
+      leftCurtainRef.current,
+      { x: "-100%" },
+      { x: "0%", duration: 1 },
+      0
+    )
+      .fromTo(
+        rightCurtainRef.current,
+        { x: "100%" },
+        { x: "0%", duration: 1 },
+        0
+      )
 
-     
-      await Promise.all([
-        leftCenterLine.start({ height: "0%", transition: { duration: 1.4, ease: "easeInOut" } }),
-        leftEdgeLine.start({ height: "0%", transition: { duration: 1.4, ease: "easeInOut" } }),
-        rightCenterLine.start({ height: "0%", transition: { duration: 1.4, ease: "easeInOut" } }),
-        rightEdgeLine.start({ height: "0%", transition: { duration: 1.4, ease: "easeInOut" } }),
-      ]);
+      // Line draw-in animation
+      .to(
+        [leftCenterLineRef.current, rightCenterLineRef.current],
+        { height: "50%", duration: 1.4 },
+        "+=0.1"
+      )
+      .to(
+        [leftEdgeLineRef.current, rightEdgeLineRef.current],
+        { height: "100%", duration: 1.4 },
+        "<"
+      )
 
-    
-      await Promise.all([
-        leftCurtain.start({ x: "-100%", transition: { duration: 1, ease: "easeInOut" } }),
-        rightCurtain.start({ x: "100%", transition: { duration: 1, ease: "easeInOut" } }),
-      ]);
+      // Hold for a moment
+      .to({}, { duration: 1 })
 
-      setTimeout(() => setShowContent(true), 0);
-    };
+      // Line shrink animation
+      .to(
+        [leftCenterLineRef.current, rightCenterLineRef.current],
+        { height: 0, duration: 1.4 },
+        0
+      )
+      .to(
+        [leftEdgeLineRef.current, rightEdgeLineRef.current],
+        { height: 0, duration: 1.4 },
+        "<"
+      )
 
-    sequence();
+      // Curtains slide out
+      .to(
+        leftCurtainRef.current,
+        { x: "-100%", duration: 1 },
+        "+=0.3"
+      )
+      .to(
+        rightCurtainRef.current,
+        { x: "100%", duration: 1 },
+        "<"
+      );
+
+    return () => tl.kill();
   }, []);
 
   if (showContent) return children;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex pointer-events-none">
-    
-      <motion.div
-        className="w-1/2 h-full bg-[#f5ebd3]  relative"
-        initial={{ x: "-100%" }}
-        animate={leftCurtain}
+    <div className="fixed inset-0 z-[9999] flex pointer-events-none overflow-hidden">
+      {/* Left Curtain */}
+      <div
+        ref={leftCurtainRef}
+        className="w-1/2 h-full bg-[#1a2332] relative"
       >
-        <motion.div
-          className="w-[1px] bg-black absolute left-[10%] bottom-0 origin-bottom"
-          initial={{ height: 0 }}
-          animate={leftEdgeLine}
+        <div
+          ref={leftEdgeLineRef}
+          className="w-[1px] bg-white absolute left-[10%] bottom-0 origin-bottom h-0"
         />
-        <motion.div
-          className="w-[1px] bg-black absolute right-[0%] bottom-0 origin-bottom"
-          initial={{ height: 0 }}
-          animate={leftCenterLine}
+        <div
+          ref={leftCenterLineRef}
+          className="w-[1px] bg-white absolute right-[0%] bottom-0 origin-bottom h-0"
         />
-      </motion.div>
+      </div>
 
-      
-      <motion.div
-        className="w-1/2 h-full bg-[#f5ebd3]  relative"
-        initial={{ x: "100%" }}
-        animate={rightCurtain}
+      {/* Right Curtain */}
+      <div
+        ref={rightCurtainRef}
+        className="w-1/2 h-full bg-[#1a2332] relative"
       >
-        <motion.div
-          className="w-[1px] bg-black absolute right-[10%] top-0 origin-top"
-          initial={{ height: 0 }}
-          animate={rightEdgeLine}
+        <div
+          ref={rightEdgeLineRef}
+          className="w-[1px] bg-white absolute right-[10%] top-0 origin-top h-0"
         />
-        <motion.div
-          className="w-[1px] bg-black absolute left-[0%] top-0 origin-top"
-          initial={{ height: 0 }}
-          animate={rightCenterLine}
+        <div
+          ref={rightCenterLineRef}
+          className="w-[1px] bg-white absolute left-[0%] top-0 origin-top h-0"
         />
-      </motion.div>
+      </div>
     </div>
   );
 };
