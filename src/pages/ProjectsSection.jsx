@@ -66,7 +66,7 @@ const ProjectsSection = () => {
 
   return (
     <div className="">
-      <div className="relative h-screen bg-black w-full overflow-hidden text-white flex flex-col justify-between px-6 sm:px-10 md:px-16 lg:px-20 py-8">
+      <div className="relative h-screen bg-black w-full overflow-hidden text-[#FBF0DA] flex flex-col justify-between px-6 sm:px-10 md:px-16 lg:px-20 py-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentProject.id}
@@ -88,9 +88,9 @@ const ProjectsSection = () => {
             <h2 className="text-lg sm:text-base md:text-xl font-light tracking-wide">
               OUR PROJECTS
             </h2>
-            <p className="text-sm sm:text-base md:text-lg">
+            <h6 className="text-sm sm:text-base md:text-lg">
               {current + 1} / {projects.length}
-            </p>
+            </h6>
           </div>
 
           <div className="flex flex-col items-center justify-center flex-1 text-center">
@@ -128,7 +128,7 @@ const ProjectsSection = () => {
                   <motion.img
                     src={currentProject.image}
                     alt={currentProject.name}
-                    className="object-cover shadow-lg rounded-sm w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] h-[40vh] sm:h-[55vh] md:h-[60vh]"
+                    className="object-cover shadow-lg r w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] h-[40vh] sm:h-[55vh] md:h-[60vh]"
                     whileHover={{ 
                       scale: 1.05,
                       rotateY: 5,
@@ -172,13 +172,13 @@ const ProjectsSection = () => {
               </button>
             </div>
 
-            <div className="flex gap-2 items-end mx-auto sm:mx-0">
+            <div className="flex  gap-3 items-end mx-auto sm:mx-0">
               {projects.map((_, index) => (
                 <motion.div
                   key={index}
-                  className="w-[2px] bg-white"
+                  className="w-[4px] rounded-3xl bg-[#FBF0DA]"
                   animate={{
-                    height: current === index ? 40 : 20,
+                    height: current === index ? 60 : 40,
                     opacity: current === index ? 1 : 0.5,
                   }}
                   transition={{ duration: 0.4 }}

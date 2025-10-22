@@ -71,18 +71,18 @@ const Navbar = () => {
       .to(overlayRef.current, {
         opacity: 1,
         duration: 0.3,
-        ease: "power2.out",
+        ease: "circOut",
       })
       .fromTo(
         leftPanelRef.current,
         { x: "-100%" },
-        { x: "0%", duration: 0.8, ease: "power3.out" },
+        { x: "0%", duration: 0.8, ease: "circOut" },
         0.1
       )
       .fromTo(
         rightPanelRef.current,
         { x: "100%" },
-        { x: "0%", duration: 0.8, ease: "power3.out" },
+        { x: "0%", duration: 0.8, ease: "circOut" },
         0.1
       );
   };
@@ -95,15 +95,15 @@ const Navbar = () => {
 
     tl.to([leftPanelRef.current, rightPanelRef.current], {
       x: (index) => (index === 0 ? "-100%" : "100%"),
-      duration: 0.7,
-      ease: "power3.in",
+      duration: 1,
+      ease: "circOut",
     })
       .to(
         overlayRef.current,
         {
           opacity: 1,
           duration: 0.3,
-          ease: "power2.in",
+          ease: "circOut",
         },
         "-=0.3"
       )
@@ -160,7 +160,7 @@ const Navbar = () => {
       transition: {
         delay: i * 0.1 + 0.5,
         duration: 0.8,
-        ease: "easeOut",
+        ease: "circOut",
       },
     }),
   };
@@ -188,7 +188,7 @@ const Navbar = () => {
       x: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: "circOut",
       },
     },
   };
@@ -231,7 +231,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <button
                 onClick={toggleMenu}
-                className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-300 z-50 relative"
+                className="p-2 rounded-md hover:cursor-pointer z-50 relative"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               >
                 <img
