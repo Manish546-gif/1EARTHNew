@@ -8,7 +8,7 @@ function ImgHarmony() {
     <> 
     
       <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-20">
-        <div className="max-w-7xl w-full mx-auto px-4 lg:px-8">
+        <div className="max-w-8xl w-full mx-auto px-4 lg:px-8">
           <div className="relative">
             {/* SERVICE Label - Top Left */}
             <div className="absolute -top-12 left-0">
@@ -24,7 +24,7 @@ function ImgHarmony() {
             </div>
 
             {/* Row 1: DESIGN IN - Centered */}
-            <div className="text-center mb-4 lg:mb-4">
+            <div className="text-center">
               <motion.div
                 className="overflow-hidden"
                 initial={{ y: 100, opacity: 0 }}
@@ -32,14 +32,14 @@ function ImgHarmony() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
               >
-                <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[7rem] xl:text-[8rem] leading-none text-black tracking-tight">
+                <h1 className=" text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[7rem] xl:text-[11rem] leading-none text-black tracking-tighter">
                   DESIGN IN
                 </h1>
               </motion.div>
             </div>
 
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center mb-4 lg:mb-4">
+            <div className="grid grid-cols-1 lg:grid-cols-12  items-center ">
               {/* HARMONY Text */}
               <div className="lg:col-span-7">
                 <motion.div
@@ -49,7 +49,7 @@ function ImgHarmony() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
                 >
-                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[8rem] leading-none text-black tracking-tight">
+                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[10.2rem] leading-none text-black tracking-tight">
                     HARMONY
                   </h1>
                 </motion.div>
@@ -137,7 +137,7 @@ function ImgHarmony() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.5 }}
                 >
-                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[8rem] leading-none text-black tracking-tight text-right lg:text-left">
+                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[10rem] leading-none text-black tracking-tight text-right lg:text-left">
                     WITH EARTH
                   </h1>
                 </motion.div>

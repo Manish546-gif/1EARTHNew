@@ -9,10 +9,10 @@ import img6 from "../../assets/centerbottom.png";
 const ParallaxGallery = () => {
   return (
     <section
-      className="relative h-[70vh] mt-20 flex  justify-center "
+      className="relative h-[80vh] mt-20 flex  justify-center "
     >
       
-      <div className="relative w-[400px] h-[400px]">
+      <div className="relative w-[550px] h-[600px]">
         <img
           
           src={img1}
@@ -23,47 +23,47 @@ const ParallaxGallery = () => {
 
       
       <img
-        data-scroll
-        data-scroll-speed="-0.2"
+         data-scroll
+        data-scroll-speed="0.05"
         src={img2}
         alt=""
-        className="absolute z-2 top-[20%] left-[10%] w-[160px] h-[120px] object-cover "
+        className="absolute z-2 top-[100%] left-[5%] w-[250px] h-[170px] object-cover "
       />
 
      
       <img
-        data-scroll
-        data-scroll-speed="-0.2"
+       data-scroll
+        data-scroll-speed="0.05"
         src={img3}
         alt=""
-        className="absolute z-2 top-[20%] right-[10%] w-[160px] h-[120px] object-cover "
+        className="absolute z-2 top-[100%] right-[5%] w-[220px] h-[150px] object-cover "
       />
 
       
       <img
-        data-scroll
-        data-scroll-speed="-0.2"
+       data-scroll
+        data-scroll-speed="0.05"
         src={img4}
         alt=""
-        className="absolute z-2 -bottom-[45%] left-[8%] w-[220px] h-[120px] object-cover "
+        className="absolute z-2 -bottom-[75%] left-[5%] w-[260px] h-[140px] object-cover "
       />
 
     
       <img
         data-scroll
-        data-scroll-speed="-0.2"
+        data-scroll-speed="0.05"
         src={img5}
         alt=""
-        className="absolute z-2 -bottom-[45%] right-[8%] w-[220px] h-[130px] object-cover "
+        className="absolute z-2 -bottom-[75%] right-[5%] w-[260px] h-[140px] object-cover "
       />
 
       
       <img
-        data-scroll
-        data-scroll-speed="-0.2"
+            data-scroll
+        data-scroll-speed="0.05"
         src={img6}
         alt=""
-        className="absolute z-2 -bottom-[70%] left-[45%] w-[140px] h-[100px] object-cover "
+        className="absolute z-2 -bottom-[100%] left-[45%] w-[180px] h-[130px] object-cover "
       />
     </section>
   );

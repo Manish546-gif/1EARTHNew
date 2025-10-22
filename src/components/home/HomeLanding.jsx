@@ -46,14 +46,14 @@ const HeroSection = () => {
       </video>
 
       
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* <div className="absolute inset-0 bg-black/40"></div> */}
 
       {/* Content */}
       <div className="relative z-10 flex w-full justify-between  items-end">
         {/* Left Text */}
-        <div className="max-w-xs text-[#FBF0DA] space-y-1">
+        <div className="max-w-xs text-[#FBF0DA] ">
           {leftText.map((line, i) => (
-            <motion.span
+            <motion.p
               key={i}
               className="block text-xl font-Grenda"
               variants={textVariant}
@@ -63,9 +63,9 @@ const HeroSection = () => {
               custom={i}
             >
               {line}
-            </motion.span>
+            </motion.p>
           ))}
-            <div className="text-[#FBF0DA] text-4xl md:text-8xl md:mt-20  leading-tight text-left">
+            <div className="text-[#FBF0DA] text-4xl md:text-9xl md:mt-20   text-left">
           {heading.map((word, i) => (
             <motion.span
               key={i}
@@ -86,9 +86,9 @@ const HeroSection = () => {
       
 
         {/* Right Text */}
-        <div className="max-w-md text-[#FBF0DA] text-sm md:text-base  text-left space-y-1">
+        <div className="max-w-60 text-[#FBF0DA] text-sm md:text-base  text-left font-Grenda">
           {rightText.map((line, i) => (
-            <motion.span
+            <motion.p
               key={i}
               className="block"
               variants={textVariant}
@@ -98,7 +98,7 @@ const HeroSection = () => {
               custom={i + 6}
             >
               {line}
-            </motion.span>
+            </motion.p>
           ))}
         </div>
       </div>

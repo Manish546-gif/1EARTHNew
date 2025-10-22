@@ -25,7 +25,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                 className="overflow-hidden"
               >
-                <Link to="/" className="hover:underline">(01) HOME</Link>
+                <Link to="/" className="hover:underline">(1) HOME</Link>
               </motion.li>
               <motion.li
                 initial={{ y: 20, opacity: 0 }}
@@ -33,7 +33,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 className="overflow-hidden"
               >
-                <Link to="/about" className="hover:underline">(02) ABOUT</Link>
+                <Link to="/about" className="hover:underline">(2) ABOUT</Link>
               </motion.li>
               <motion.li
                 initial={{ y: 20, opacity: 0 }}
@@ -41,7 +41,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                 className="overflow-hidden"
               >
-                <Link to="/project" className="hover:underline">(03) PROJECT</Link>
+                <Link to="/project" className="hover:underline">(3) PROJECT</Link>
               </motion.li>
               <motion.li
                 initial={{ y: 20, opacity: 0 }}
@@ -49,7 +49,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                 className="overflow-hidden"
               >
-                <Link to="/services" className="hover:underline">(04) SERVICE</Link>
+                <Link to="/services" className="hover:underline">(4) SERVICE</Link>
               </motion.li>
               <motion.li
                 initial={{ y: 20, opacity: 0 }}
@@ -57,7 +57,7 @@ export default function Footer() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
                 className="overflow-hidden"
               >
-                <Link to="/contact" className="hover:underline">(05) CONTACT</Link>
+                <Link to="/contact" className="hover:underline">(5) CONTACT</Link>
               </motion.li>
             </ul>
           </nav>
@@ -92,7 +92,7 @@ export default function Footer() {
           </motion.h1>
 
           {/* PROPERTIES */}
-          <motion.h2 className="text-white text-lg sm:text-2xl md:text-[40px] lg:text-[60px] tracking-[0.8em] -mt-2 select-none flex justify-center md:justify-start flex-wrap">
+          <motion.h2 className="text-white text-lg sm:text-2xl md:text-[40px] lg:text-[60px] tracking-[1em] -mt-2 select-none flex justify-center md:justify-start flex-wrap">
             {["P","R","O","P","E","R","T","I","E","S"].map((char, i) => (
               <motion.span
                 key={i}
@@ -108,7 +108,7 @@ export default function Footer() {
           </motion.h2>
 
           {/* Contact Info */}
-          <div className="flex flex-col md:flex-row gap-10 mt-8 md:mt-10 w-full">
+          <div className="flex flex-col md:flex-row gap-80 mt-8 md:mt-10 w-full">
             {/* Left Column */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}

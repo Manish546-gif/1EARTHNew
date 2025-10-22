@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,8 +30,8 @@ export default function LetterParallax () {
       scrollTrigger: {
         trigger: container,
         start: "-15% 60%",
-       markers:false,
-        end: "50% 60%",
+      //  markers:true,
+        end: "90% 60%",
         scrub: 1.5,
       }
     });
@@ -75,9 +77,16 @@ export default function LetterParallax () {
   return (
     <div
       ref={containerRef}
-      className="relative h-[70vh]  bg-[#FBF0DA] overflow-hidden flex  justify-center"
+      className="relative h-[80vh] md:mt-25 bg-[#FBF0DA] overflow-hidden  justify-center"
       style={{ perspective: '2000px' }}
     >
+      <div className='flex justify-center uppercase text-2xl mb-10 text-gray-500'>
+        <motion.h2 
+         initial={{y:10 , opacity:0}}
+         whileInView={{y:0, opacity:1}}
+         transition={{duration:0.7, ease:"circOut", delay:0.1}}
+        >Innovation</motion.h2>
+      </div>
       <div className="relative z-10 text-center" style={{ transformStyle: 'preserve-3d' }}>
         <div 
           ref={textRef}

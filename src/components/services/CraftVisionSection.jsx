@@ -8,11 +8,11 @@ export default function CraftVisionSection() {
   return (
    <div>
     <Line />
-     <div className="min-h-screen bg-[#FBF0DA]  flex  items-center justify-center p-4">
+     <div className="min-h-screen bg-[#FBF0DA]  flex  md:px-10 items-center justify-center p-4">
       <div className="max-w-8xl w-full  mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 items-center">
           <div className="hidden lg:block">
-            <motion.div className="bg-gray-300 relative md:mt-80 overflow-hidden  h-80 w-full md:w-3/4 md:ml-20 ">
+            <motion.div className="relative md:mt-80 overflow-hidden  h-70 w-full md:w-4/6  ">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
@@ -26,7 +26,7 @@ export default function CraftVisionSection() {
           </div>
 
            <motion.div 
-            className="lg:col-span-1 text-left lg:px-8"
+            className="lg:col-span-1 text-left  lg:px-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
@@ -53,7 +53,7 @@ export default function CraftVisionSection() {
             </div>
 
 
-           <h1 className="text-4xl lg:text-5xl xl:text-6xl font-light text-black mb-6 leading-tight">
+           <h1 className="text-4xl lg:text-5xl xl:text-8xl font-light text-black ">
               <div className="overflow-hidden">
                 <motion.span 
                   className="block"
@@ -102,7 +102,7 @@ export default function CraftVisionSection() {
             </h1>
           <div className="overflow-hidden">
               <motion.p 
-                className="text-gray-700 text-lg md:w-5/6 leading-relaxed mb-8 max-w-md"
+                className="text-gray-700 text-lg md:w-5/8 mb-8 max-w-md"
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -132,7 +132,7 @@ export default function CraftVisionSection() {
           </motion.div>
 
           <div className="hidden lg:block">
-            <motion.div className=" relative h-140 mt-10 overflow-hidden w-full ">
+            <motion.div className=" relative h-155 overflow-hidden w-full ">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}

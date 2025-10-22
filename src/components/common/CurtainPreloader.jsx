@@ -119,7 +119,7 @@ if (logoCircleRef.current) {
     }
 
     // 1. Wait before starting logo fill animation
-    tl.to({}, { duration: 0.5 });
+    tl.to({}, { duration: 0.6 });
 
     // 2. Animate the logo fill (bottom to top)
     tl.fromTo(
@@ -131,7 +131,7 @@ if (logoCircleRef.current) {
       {
         clipPath: "inset(0% 0% 0% 0%)",
         height: "80%",
-        duration: 2,
+        duration: 1.5,
         ease: "power2.inOut",
       },
       "+=0.5"
@@ -142,36 +142,36 @@ if (logoCircleRef.current) {
       const circleLength = circleArcRef.current.getTotalLength();
       tl.to(circleArcRef.current, {
         strokeDashoffset: circleLength,
-        duration: 1.5,
+        duration: 1.2,
         ease: "power2.inOut",
       }, "-=1");
     }
 
     // 4. Hide logo and shrink lines FROM PERIMETER TOWARDS EDGES
-    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.5 }, "+=0.3")
+    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.4 }, "+=0.3")
       .to(
         [
           leftEdgeLineRef.current,
           rightEdgeLineRef.current,
         ],
-        { scaleY: 0, duration: 1, ease: "power3.inOut", stagger: 0.1 },
+        { scaleY: 0, duration: 0.7, ease: "power3.inOut", stagger: 0.1 },
         "<"
       )
       // Shrink center lines from perimeter edge (transformOrigin already set)
       .to(
         [topLineRef.current, bottomLineRef.current],
-        { scaleY: 0, duration: 1, ease: "power3.inOut", stagger: 0.1 },
+        { scaleY: 0, duration: 0.7, ease: "power3.inOut", stagger: 0.1 },
         "<"
       );
 
     // 5. Open curtains
     tl.to(
       leftCurtainRef.current,
-      { x: "-100%", duration: 1.5, ease: "power3.inOut" },
+      { x: "-100%", duration: 0.7, ease: "power3.inOut" },
       "+=0.1"
     ).to(
       rightCurtainRef.current,
-      { x: "100%", duration: 1.5, ease: "power3.inOut" },
+      { x: "100%", duration: 0.7, ease: "power3.inOut" },
       "<"
     );
 

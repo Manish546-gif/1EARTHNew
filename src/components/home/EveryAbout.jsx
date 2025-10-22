@@ -9,10 +9,10 @@ function EverySpaceSection() {
     <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-20">
       <div className="max-w-[1600px] w-full mx-auto px-4 lg:px-8">
         {/* Three Column Grid with Equal Widths */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 xl:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 xl:gap-0">
           
           {/* Column 1: ABOUT Label (top) + Heading (bottom) - Fixed Width */}
-          <div className="flex flex-col justify-between min-h-[600px] w-full">
+          <div className="flex flex-col justify-between min-h-[600px] sm:w-full md:w-2/3">
             {/* ABOUT Label at top */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
@@ -20,9 +20,9 @@ function EverySpaceSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
             >
-              <p className="text-xs lg:text-sm font-light tracking-[0.3em] text-black">
+              <h5 className="text-xs lg:text-sm font-light tracking-[0.3em] text-black">
                 ABOUT
-              </p>
+              </h5>
             </motion.div>
 
             {/* Heading at bottom */}
@@ -40,7 +40,7 @@ function EverySpaceSection() {
                 }
               }}
             >
-              <h1 className="font-serif text-[3.5rem] sm:text-[4rem] lg:text-[4rem] xl:text-[4.5rem] leading-[0.85] text-black tracking-tight">
+              <h1 className=" text-[3.5rem] sm:text-[4rem] lg:text-[4rem] xl:text-[4.5rem] leading-[0.85] text-black tracking-tight">
                 <motion.div
                   className="overflow-hidden"
                   variants={{
@@ -82,13 +82,13 @@ function EverySpaceSection() {
           </div>
 
           {/* Column 2: Large Tall Image - Fixed Width */}
-          <div className="flex items-center w-full">
+          <div className="flex items-center -ml-20 w-6/5 ">
             <motion.div
               className="w-full h-[600px] lg:h-[650px] xl:h-[700px] overflow-hidden relative"
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 1, scale: 1 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
+              transition={{ duration: 1, ease: "circOut", delay: 0.3 }}
             >
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
@@ -107,7 +107,7 @@ function EverySpaceSection() {
           </div>
 
           {/* Column 3: Description + Button (top) + Small Image (bottom) - Fixed Width */}
-          <div className="flex flex-col justify-between gap-8 w-full">
+          <div className="flex flex-col justify-between  gap-8 w-full">
             {/* Description and Button at top */}
             <motion.div
               className="space-y-6"
@@ -124,9 +124,9 @@ function EverySpaceSection() {
                 }
               }}
             >
-              <div className="overflow-hidden">
+              <div className="overflow-hidden w-4/8 md:ml-40">
                 <motion.p
-                  className="text-sm lg:text-base leading-relaxed text-gray-700"
+                  className="text-sm lg:text-base leading-relaxed text-gray-800"
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
@@ -136,7 +136,7 @@ function EverySpaceSection() {
                 </motion.p>
               </div>
 
-              <div className="overflow-hidden">
+              <div className="overflow-hidden md:ml-40 md:mt-10">
                 <Link to="/about">
                   <motion.button
                     className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
@@ -159,7 +159,7 @@ function EverySpaceSection() {
 
             {/* Small Image at bottom */}
             <motion.div
-              className="w-3/5 self-end h-[280px] lg:h-[300px] xl:h-[160px] overflow-hidden relative"
+              className="w-8/12 self-end h-[280px] lg:h-[300px] xl:h-[180px] overflow-hidden relative"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

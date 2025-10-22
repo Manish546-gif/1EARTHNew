@@ -8,12 +8,12 @@ export default function OverDesign() {
   return (
    <div>
     <Line />
-     <div className="h-screen bg-[#FBF0DA] flex items-center md:mb-10 justify-center p-12">
+     <div className="h-screen bg-[#FBF0DA] flex items-center md:mb-20 mt-20 justify-center p-12">
       <div className="max-w-8xl w-full mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Image */}
-          <div className="lg:col-span-5 hidden lg:block">
-            <motion.div className="bg-gray-300 relative overflow-hidden h-full w-full ">
+          <div className="lg:col-span-5 hidden mt-10 lg:block">
+            <motion.div className=" relative overflow-hidden h-full w-full ">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
@@ -28,7 +28,7 @@ export default function OverDesign() {
 
           {/* Center Text Content */}
           <motion.div 
-            className="lg:col-span-4 md:mt-100  text-start lg:px-8"
+            className="lg:col-span-4 self-end text-start lg:px-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
@@ -42,7 +42,7 @@ export default function OverDesign() {
               }
             }}
           >
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-light text-black mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-6xl xl:text-7xl  text-black ">
               <div className="overflow-hidden">
                 <motion.span 
                   className="block"
@@ -139,9 +139,9 @@ export default function OverDesign() {
                 }
               }}
             >
-              <div className="overflow-hidden w-3/4">
+              <div className="overflow-hidden w-3/5">
                 <motion.p 
-                  className="text-gray-700 text-sm leading-relaxed mb-6 md:mb-20"
+                  className="text-gray-700 text-sm mb-6 md:mb-20"
                   initial={{ y: 40, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}

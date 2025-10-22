@@ -34,17 +34,17 @@ const ProjectSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-screen md:h-[110vh] text-[#FBF0DA] overflow-hidden bg-black">
+    <div className="relative w-full h-screen md:h-[100vh] text-[#FBF0DA] overflow-hidden bg-black">
       {/* Arrow Buttons */}
       <button
         onClick={() => paginate(-1)}
-        className="absolute left-5 top-1/2 -translate-y-1/2 z-20  text-6xl  hover:text-gray-300 hover:cursor-pointer transition-colors"
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 font-light  text-5xl  hover:text-gray-300 hover:cursor-pointer transition-colors"
       >
         {'<'}
       </button>
       <button
         onClick={() => paginate(1)}
-        className="absolute right-5 top-1/2 -translate-y-1/2 z-20  text-6xl  hover:text-gray-300 hover:cursor-pointer transition-colors"
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20  font-extralight text-5xl  hover:text-gray-300 hover:cursor-pointer transition-colors"
       >
         {'>'}
       </button>
@@ -85,7 +85,7 @@ const ProjectSlider = () => {
           {/* Slide Content */}
           <div className="relative z-10 max-w-screen-2xl mx-auto px-5 sm:px-10 w-full h-full flex flex-col justify-between py-10 sm:py-20">
             {/* Page Number */}
-            <div className="flex justify-end  text-xl font-light">
+            <div className="flex justify-end mt-10 text-xl font-light">
               {projects[page].id} / {projects.length}
             </div>
 
