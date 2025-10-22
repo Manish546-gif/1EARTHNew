@@ -28,7 +28,7 @@ export default function LetterParallax () {
       scrollTrigger: {
         trigger: container,
         start: "-15% 50%",
-       markers:true,
+       markers:false,
         end: "50% 30%",
         scrub: 1.5,
       }

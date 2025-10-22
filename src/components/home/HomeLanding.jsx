@@ -33,7 +33,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden flex items-end md:py-10 md:px-10 justify-between px-6 ">
+    <section className="relative bg-black w-full h-screen overflow-hidden flex items-end md:py-10 md:px-10 justify-between px-6 ">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         autoPlay
