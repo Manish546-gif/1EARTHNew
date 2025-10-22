@@ -1,84 +1,108 @@
-import { motion, stagger } from "framer-motion";
 import React from "react";
-import { Power4 } from "gsap/all";
-import img from "../../assets/1.png";
+import { motion } from "framer-motion";
+import bgVideo from "../../assets/HomeLanding.mp4"; // replace with your video file path
 
-function HomeLanding() {
+const textVariant = {
+  hidden: { y: 40, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  }),
+};
+
+const HeroSection = () => {
+  const leftText = [
+    "Creating timeless spaces where",
+    "nature, culture, and design coexist",
+    "in perfect balance.",
+  ];
+
+  const heading = ["SUSTAINABLE", "LIVING", "EXPERIENCES"];
+
+  const rightText = [
+    "We craft destinations that inspire",
+    "a deeper connection with the Earth, where architecture",
+    "breathes with the landscape, and every detail embodies mindful",
+    "luxury. Our spaces invite you to",
+    "live consciously, in harmony with the rhythms of nature.",
+  ];
+
   return (
-    <div className="relative overflow-hidden w-full h-[150vh]   sm:h-[250vh]" data-scroll-section>
-      <div className="picture w-full h-full overflow-hidden">
-        <img
-          data-scroll
-          data-scroll-speed="-1"
-          className="w-full h-full object-cover"
-          src={img}
-          alt=""
-        />
-      </div>
-      <div className="absolute w-full top-0">
-        <div className="text max-w-screen-2xl mx-auto h-full  px-5 sm:px-10 text-white">
-          <div className="para mt-72 sm:mt-[32rem] ">
-            {[
-              "Creating timeless spaces where",
-              "nature, culture, and design coexist",
-              "in perfect balance.",
-            ].map((item, index) => {
-              return (
-                <p
-                  key={index}
-                  className="text-md masker  sm:text-3xl overflow-hidden "
-                >
-                  <motion.span
-                    initial={{ rotate: 9, y: "100%", opacity: 0 }}
-                    animate={{ rotate: 0, y: 0, opacity: 1 }}
-                    transition={{
-                      ease: [0.22, 1, 0.36, 1],
-                      duration: 1.5,
-                      delay: index * 0.2,
-                    }}
-                    className="inline-block origin-left "
-                  >
-                    {item}
-                  </motion.span>
-                </p>
-              );
-            })}
-          </div>
-          <div className="headings mt-5 sm:mt-17 py-10 overflow-hidden ">
-            {["Sustainable", "Design", "Experience"].map((item, index) => {
-              return (
-                <h1 className="text-5xl tracking-tighter font-light leading-none sm:-mt-20 sm:py-10 py-2 sm:text-[12rem] overflow-hidden  ">
-                  <motion.span
-                    initial={{ rotate: 9, y: "100%", opacity: 0 }}
-                    animate={{ rotate: 0, y: 0, opacity: 1 }}
-                    transition={{
-                      ease: [0.22, 1, 0.36, 1],
-                      duration: 7,
-                      delay: index * 0.2,
-                    }}
-                    className="inline-block origin-left "
-                  >
-                    {item}
-                  </motion.span>
-                </h1>
-              );
-            })}
-          </div>
-          <div className="para2 sm:w-1/3  mt-10 sm:mt-20">
-            <p className="sm:text-xl">
-We craft destinations that inspire a deeper connection with the Earth, where architecture breathes with the landscape, and every detail embodies mindful luxury. Our spaces invite you to live consciously, in harmony with the rhythms of nature.
-            </p>
-            <a
-              className="sm:text-xl sm:border-b-[1px] border-b-[.3px] border-zinc-100 pb-1 inline-block mt-10"
-              href=""
+    <section className="relative w-full h-screen overflow-hidden flex items-end md:py-10 md:px-10 justify-between px-6 ">
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src={bgVideo} type="video/mp4" />
+      </video>
+
+      
+      {/* <div className="absolute inset-0 bg-black/10"></div> */}
+
+      {/* Content */}
+      <div className="relative z-10 flex w-full justify-between  items-end">
+        {/* Left Text */}
+        <div className="max-w-xs text-white space-y-1">
+          {leftText.map((line, i) => (
+            <motion.span
+              key={i}
+              className="block text-xl font-Grenda"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i}
             >
-              The Studio
-            </a>
-          </div>
+              {line}
+            </motion.span>
+          ))}
+            <div className="text-white text-4xl md:text-7xl md:mt-20  leading-tight text-left">
+          {heading.map((word, i) => (
+            <motion.span
+              key={i}
+              className="block"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i + 3}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </div>
+        </div>
+
+        
+      
+
+        {/* Right Text */}
+        <div className="max-w-md text-white text-sm md:text-base  text-left space-y-1">
+          {rightText.map((line, i) => (
+            <motion.span
+              key={i}
+              className="block"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i + 6}
+            >
+              {line}
+            </motion.span>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
-export default HomeLanding;
+export default HeroSection;
