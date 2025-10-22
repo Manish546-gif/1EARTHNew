@@ -34,7 +34,8 @@ const HeroSection = () => {
 
   return (
     <section className="relative bg-black w-full h-screen overflow-hidden flex items-end md:py-10 md:px-10 justify-between px-6 ">
-      <video
+      <video data-scroll
+      data-scroll-speed='-0.3'
         className="absolute top-0 left-0 w-full h-full object-cover"
         autoPlay
         muted
@@ -45,12 +46,12 @@ const HeroSection = () => {
       </video>
 
       
-      {/* <div className="absolute inset-0 bg-black/10"></div> */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Content */}
       <div className="relative z-10 flex w-full justify-between  items-end">
         {/* Left Text */}
-        <div className="max-w-xs text-white space-y-1">
+        <div className="max-w-xs text-[#FBF0DA] space-y-1">
           {leftText.map((line, i) => (
             <motion.span
               key={i}
@@ -64,7 +65,7 @@ const HeroSection = () => {
               {line}
             </motion.span>
           ))}
-            <div className="text-white text-4xl md:text-7xl md:mt-20  leading-tight text-left">
+            <div className="text-[#FBF0DA] text-4xl md:text-8xl md:mt-20  leading-tight text-left">
           {heading.map((word, i) => (
             <motion.span
               key={i}
@@ -85,7 +86,7 @@ const HeroSection = () => {
       
 
         {/* Right Text */}
-        <div className="max-w-md text-white text-sm md:text-base  text-left space-y-1">
+        <div className="max-w-md text-[#FBF0DA] text-sm md:text-base  text-left space-y-1">
           {rightText.map((line, i) => (
             <motion.span
               key={i}
