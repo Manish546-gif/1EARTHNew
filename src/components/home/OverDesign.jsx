@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Line from "../common/Line.jsx";
 import craft1 from '../../assets/111.jpg';
 import craft2 from '../../assets/2222.jpg';
@@ -155,26 +156,27 @@ export default function OverDesign() {
               </div>
 
               <div className="overflow-hidden">
-                <motion.button 
-                  className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group"
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.8, 
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                    delay: 0.6 
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-                    CONTACT US
-                  </span>
-                  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-                    CONTACT US
-                  </span>
-                </motion.button>
+                <Link to="/contact">
+                  <motion.button
+                    className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group"
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      delay: 0.6
+                    }}
+
+                  >
+                    <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                      CONTACT US
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                      CONTACT US
+                    </span>
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
           </div>

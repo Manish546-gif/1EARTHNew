@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import Line from "../common/Line";
 
 export default function OurProcess() {
   const processSteps = [
@@ -78,21 +79,14 @@ export default function OurProcess() {
                          <h3 className="text-lg lg:text-xl font-bold text-black uppercase tracking-wide mb-3">
                            {step.title}
                          </h3>
-                         <p className="text-sm lg:text-base text-black leading-relaxed">
+                         <p className="text-sm lg:text-base md:mb-5 text-black leading-relaxed">
                            {step.description}
                          </p>
                        </div>
                      </div>
                      
-                     {index < processSteps.length - 1 && (
-                       <motion.div
-                         className="mt-8 h-px bg-black origin-left"
-                         initial={{ scaleX: 0 }}
-                         viewport={{ once: true }}
-                         whileInView={{ scaleX: 1 }}
-                         transition={{ duration: 0.6, delay: 0.2 }}
-                         style={{ transformOrigin: "left" }}
-                       />
+                     {index < processSteps.length  && (
+                       <Line/>
                      )}
                    </motion.div>
                  ))}

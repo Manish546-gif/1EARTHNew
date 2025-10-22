@@ -63,7 +63,7 @@ export default function Philosophy() {
       </div>
         <div>
           <h3 className="font-bold mb-2">OUR PHILOSOPHY</h3>
-          <ul className="text-gray-700 space-y-1">
+          <ul className="text-gray-800 space-y-1">
             <li>Harmony</li>
             <Line />
             <li>Integrity</li>

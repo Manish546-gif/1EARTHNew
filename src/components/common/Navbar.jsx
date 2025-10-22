@@ -4,13 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import logo from "../../assets/1earthcompletelogo.svg";
 import menuIcon from "../../assets/menu.svg";
+import Line from "./Line";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-
   // GSAP Refs
   const leftPanelRef = useRef(null);
   const rightPanelRef = useRef(null);
@@ -213,9 +212,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`w-full fixed top-0 z-40 border-b ${
-          isDarkPage ? "border-black" : "border-white"
-        }`}
+        className="w-full fixed top-0 z-40 border-b  border-white"
       >
         <div className="max-w-8xl mx-auto px-8 sm:px-10 lg:px-12 py-2">
           <div className="flex items-center justify-between h-16">

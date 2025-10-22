@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import React from "react";
+import img1 from '../../assets/team1.png'
+import img2 from '../../assets/team2.png'
+import Line from "../common/Line";
 
 export default function OurTeam() {
   return (
@@ -24,7 +27,7 @@ export default function OurTeam() {
           <div className="flex-1 flex flex-col lg:flex-row gap-22 lg:gap-26">
             <div className="flex flex-col items-center lg:items-start">
               <div className="w-64 bg-gray-300 h-64 lg:w-102 lg:h-102 mb-6 overflow-hidden">
-                <img src="" alt="" className="w-full h-full object-cover" />
+                <img src={img1} alt="" className="w-full h-full object-cover" />
               </div>
 
               <div className="text-center lg:text-left w-full">
@@ -34,20 +37,13 @@ export default function OurTeam() {
                 <p className="text-sm lg:text-base  font-sans text-black uppercase tracking-wide">
                   MANAGING DIRECTOR
                 </p>
-                <motion.div
-                  className="h-px bg-black origin-left"
-                  initial={{ scaleX: 0 }}
-                  viewport={{ once: true }}
-                  whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  style={{ transformOrigin: "left" }}
-                />
+                <Line/>
               </div>
             </div>
 
             <div className="flex flex-col items-center lg:items-start">
               <div  className="w-64 bg-gray-300 h-64 lg:w-102 lg:h-102 mb-6 overflow-hidden">
-                <img src="" alt="" className="w-full h-full object-cover" />
+                <img src={img2} alt="" className="w-full h-full object-cover" />
               </div>
 
               <div className="text-center lg:text-left w-full">
@@ -58,14 +54,7 @@ export default function OurTeam() {
                 <p className="text-sm lg:text-base font-sans text-black uppercase tracking-wide">
                   CHIEF ARCHITECT
                 </p>
-                <motion.div
-                  className="h-px bg-black origin-left"
-                  initial={{ scaleX: 0 }}
-                  viewport={{ once: true }}
-                  whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  style={{ transformOrigin: "left" }}
-                />
+               <Line/>
               </div>
             </div>
           </div>

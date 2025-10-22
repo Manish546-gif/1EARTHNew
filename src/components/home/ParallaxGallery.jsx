@@ -9,7 +9,7 @@ import img6 from "../../assets/centerbottom.png";
 const ParallaxGallery = () => {
   return (
     <section
-      className="relative h-[100vh] mt-20 flex  justify-center "
+      className="relative h-[150vh] mt-20 flex  justify-center "
     >
       
       <div className="relative w-[400px] h-[400px]">
@@ -27,7 +27,7 @@ const ParallaxGallery = () => {
         data-scroll-speed="-0.2"
         src={img2}
         alt=""
-        className="absolute z-2 top-[30%] left-[10%] w-[160px] h-[120px] object-cover "
+        className="absolute z-2 top-[20%] left-[10%] w-[160px] h-[120px] object-cover "
       />
 
      
@@ -36,7 +36,7 @@ const ParallaxGallery = () => {
         data-scroll-speed="-0.2"
         src={img3}
         alt=""
-        className="absolute z-2 top-[30%] right-[10%] w-[160px] h-[120px] object-cover "
+        className="absolute z-2 top-[20%] right-[10%] w-[160px] h-[120px] object-cover "
       />
 
       
@@ -45,7 +45,7 @@ const ParallaxGallery = () => {
         data-scroll-speed="-0.2"
         src={img4}
         alt=""
-        className="absolute z-2 bottom-[0%] left-[8%] w-[220px] h-[120px] object-cover "
+        className="absolute z-2 bottom-[20%] left-[8%] w-[220px] h-[120px] object-cover "
       />
 
     
@@ -54,7 +54,7 @@ const ParallaxGallery = () => {
         data-scroll-speed="-0.2"
         src={img5}
         alt=""
-        className="absolute z-2 bottom-[0%] right-[8%] w-[220px] h-[130px] object-cover "
+        className="absolute z-2 bottom-[20%] right-[8%] w-[220px] h-[130px] object-cover "
       />
 
       
@@ -63,7 +63,7 @@ const ParallaxGallery = () => {
         data-scroll-speed="-0.2"
         src={img6}
         alt=""
-        className="absolute z-2 -bottom-[20%] left-[45%] w-[140px] h-[100px] object-cover "
+        className="absolute z-2 bottom-[5%] left-[45%] w-[140px] h-[100px] object-cover "
       />
     </section>
   );

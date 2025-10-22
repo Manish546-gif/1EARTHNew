@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import craft2 from "../../assets/Rectangle 79.png";
 
 function ImgHarmony() {
@@ -107,22 +108,23 @@ function ImgHarmony() {
                 </div>
 
                 <div className="overflow-hidden">
-                  <motion.button
-                    className="relative overflow-hidden bg-[#C9A961] hover:bg-black text-white px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
-                    initial={{ y: 30, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.7 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-                      OUR SERVICES
-                    </span>
-                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-                      OUR SERVICES
-                    </span>
-                  </motion.button>
+                  <Link to="/services">
+                    <motion.button
+                      className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
+                      initial={{ y: 30, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.7 }}
+
+                    >
+                      <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                        OUR SERVICES
+                      </span>
+                      <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                        OUR SERVICES
+                      </span>
+                    </motion.button>
+                  </Link>
                 </div>
               </motion.div>
 

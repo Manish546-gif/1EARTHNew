@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Line from "../common/Line.jsx";
 import craft1 from '../../assets/craft1.png';
 import craft2 from '../../assets/craft2.png';
@@ -118,14 +119,16 @@ export default function CraftVisionSection() {
               </motion.p>
             </div>
 
-            <button className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
-  <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-    GET IN TOUCH
-  </span>
-  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-    GET IN TOUCH
-  </span>
-</button>
+            <Link to="/contact">
+              <button className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
+                <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                  GET IN TOUCH
+                </span>
+                <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                  GET IN TOUCH
+                </span>
+              </button>
+            </Link>
           </motion.div>
 
           <div className="hidden lg:block">

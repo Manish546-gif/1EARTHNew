@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import img1 from "../../assets/lake-geneva-3524431.png";
 import img2 from "../../assets/house-1477041_1920.png";
 import img3 from "../../assets/Rectangle 2.png";
@@ -98,14 +99,16 @@ const ProjectSlider = () => {
                 </h2>
               </div>
 
-              <button className="relative overflow-hidden bg-transparent border border-white text-white hover:bg-white hover:text-black px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-medium transition-colors duration-300 group">
-                <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-                  See Project
-                </span>
-                <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-                  See Project
-                </span>
-              </button>
+              <Link to="/project">
+                <button className="relative overflow-hidden bg-transparent border border-white text-white hover:bg-white hover:text-black px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-medium transition-colors duration-300 group">
+                  <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                    See Project
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                    See Project
+                  </span>
+                </button>
+              </Link>
             </div>
           </div>
         </motion.div>

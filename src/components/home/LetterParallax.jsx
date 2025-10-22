@@ -27,9 +27,9 @@ export default function LetterParallax () {
     const mainTl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
-        start: "-15% 70%",
-       markers:false,
-        end: "50% 40%",
+        start: "-15% 50%",
+       markers:true,
+        end: "50% 30%",
         scrub: 1.5,
       }
     });
@@ -75,7 +75,7 @@ export default function LetterParallax () {
   return (
     <div
       ref={containerRef}
-      className="relative h-[60vh]  bg-[#FBF0DA] overflow-hidden flex items-center justify-center"
+      className="relative h-[80vh]  bg-[#FBF0DA] overflow-hidden flex items-center justify-center"
       style={{ perspective: '2000px' }}
     >
       <div className="relative z-10 text-center" style={{ transformStyle: 'preserve-3d' }}>
