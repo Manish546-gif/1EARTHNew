@@ -113,7 +113,7 @@ if (logoCircleRef.current) {
       gsap.set(circleArcRef.current, {
         strokeDasharray: circleLength,
         strokeDashoffset: 0,
-        stroke: "#ffffff",
+        stroke: "#FBF0DA",
         strokeWidth: 1
       });
     }
@@ -247,10 +247,10 @@ if (logoCircleRef.current) {
               width: '1px',
               height: '100%',
               position: 'absolute',
-              left: '20%',
+              left: '15%',
               bottom: 0,
               transformOrigin: 'bottom',
-              backgroundColor: '#ffffff',
+              backgroundColor: '#FBF0DA',
               opacity: 0.8
             }}
           />
@@ -263,7 +263,7 @@ if (logoCircleRef.current) {
     width: '1px',
     position: 'absolute',
     right: 0,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FBF0DA',
     opacity: 0, // Hidden initially - GSAP will set everything
     visibility: 'hidden' // Extra safety to prevent flash
   }}
@@ -276,7 +276,7 @@ if (logoCircleRef.current) {
     width: '1px',
     position: 'absolute',
     right: 0,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FBF0DA',
     opacity: 0, // Hidden initially - GSAP will set everything
     visibility: 'hidden' // Extra safety to prevent flash
   }}
@@ -304,10 +304,10 @@ if (logoCircleRef.current) {
               width: '1px',
               height: '100%',
               position: 'absolute',
-              right: '20%',
+              right: '15%',
               top: 0,
               transformOrigin: 'top',
-              backgroundColor: '#ffffff',
+              backgroundColor: '#FBF0DA',
               opacity: 0.8
             }}
           />
@@ -408,7 +408,7 @@ if (logoCircleRef.current) {
               cx="50"
               cy="50"
               r="50"
-              stroke="#ffffff"
+              stroke="#FBF0DA"
               strokeWidth="1"
               fill="none"
             />
