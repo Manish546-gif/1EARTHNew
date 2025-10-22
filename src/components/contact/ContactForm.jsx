@@ -132,7 +132,7 @@ export default function ContactForm() {
                   transition={{ duration: 0.6, delay: 0.5 }}
                   style={{ transformOrigin: 'left' }} className='h-[0.7px] w-full bg-black mt-5 origin-left'/>
                             </div>
-                            <button className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
+                            <button className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
   <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
     SUBMIT MESSAGE
   </span>

@@ -160,13 +160,13 @@ const ProjectsSection = () => {
             <div className="flex gap-6 sm:gap-8 mx-auto sm:mx-0">
               <button
                 onClick={prevProject}
-                className="text-xs sm:text-sm tracking-widest hover:opacity-70 transition"
+                className="text-xs sm:text-sm tracking-widest hover:opacity-70 hover:cursor-pointer transition"
               >
                 PREV
               </button>
               <button
                 onClick={nextProject}
-                className="text-xs sm:text-sm tracking-widest hover:opacity-70 transition"
+                className="text-xs sm:text-sm tracking-widest hover:opacity-70 hover:cursor-pointer transition"
               >
                 NEXT
               </button>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Button = () => {
   return (
-    <button className="relative overflow-hidden bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg transition-colors duration-300 group">
+    <button className="relative overflow-hidden bg-blue-500 hover:bg-blue-600 hover:cursor-pointer text-white px-8 py-3 rounded-lg transition-colors duration-300 group">
       <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
         Click on me
       </span>

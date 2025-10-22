@@ -120,7 +120,7 @@ export default function CraftVisionSection() {
             </div>
 
             <Link to="/contact">
-              <button className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
+              <button className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
                 <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                   GET IN TOUCH
                 </span>

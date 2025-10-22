@@ -38,13 +38,13 @@ const ProjectSlider = () => {
       {/* Arrow Buttons */}
       <button
         onClick={() => paginate(-1)}
-        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 text-white text-6xl font-bold hover:text-gray-300 transition-colors"
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 text-white text-6xl font-bold hover:text-gray-300 hover:cursor-pointer transition-colors"
       >
         ←
       </button>
       <button
         onClick={() => paginate(1)}
-        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 text-white text-6xl font-bold hover:text-gray-300 transition-colors"
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 text-white text-6xl font-bold hover:text-gray-300 hover:cursor-pointer transition-colors"
       >
         →
       </button>
@@ -100,7 +100,7 @@ const ProjectSlider = () => {
               </div>
 
               <Link to="/project">
-                <button className="relative overflow-hidden bg-transparent border border-white text-white hover:bg-white hover:text-black px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-medium transition-colors duration-300 group">
+                <button className="relative overflow-hidden bg-transparent border border-white text-white hover:bg-white hover:text-black hover:cursor-pointer px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-medium transition-colors duration-300 group">
                   <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                     See Project
                   </span>
