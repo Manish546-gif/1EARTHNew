@@ -4,7 +4,30 @@ import Line from "../common/Line.jsx";
 import craft1 from '../../assets/craft1.png';
 import craft2 from '../../assets/craft2.png';
 
+const textVariant = {
+  hidden: { y: 40, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  }),
+};
+
 export default function CraftVisionSection() {
+  const paragraphLines = [
+    "One Earth blends mindful design",
+    "and regenerative innovation to",
+    "create spaces that not only inspire",
+    "but endure. Together, we shape",
+    "environments that reflect your",
+    "vision, rooted in nature, built with",
+    "purpose, and alive with meaning."
+  ];
+
   return (
    <div>
     <Line />
@@ -40,9 +63,9 @@ export default function CraftVisionSection() {
               }
             }}
           >
-            <div className="overflow-hidden">
+            <div className="overflow-hidden mb-6">
               <motion.p 
-                className="text-lg font-medium text-gray-black mb-4 tracking-wider"
+                className="text-lg font-medium text-gray-black tracking-wider"
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -53,7 +76,7 @@ export default function CraftVisionSection() {
             </div>
 
 
-           <h1 className="text-4xl lg:text-5xl xl:text-8xl font-light text-black ">
+           <h1 className="text-4xl lg:text-6xl xl:text-7xl text-black mb-8">
               <div className="overflow-hidden">
                 <motion.span 
                   className="block"
@@ -100,34 +123,39 @@ export default function CraftVisionSection() {
                 </motion.span>
               </div>
             </h1>
-          <div className="overflow-hidden">
-              <motion.p 
-                className="text-gray-700 text-lg md:w-5/8 mb-8 max-w-md"
-                initial={{ y: 40, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.8, 
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  delay: 0.4 
-                }}
-              >
-                One Earth blends mindful design and regenerative innovation to
-                create spaces that not only inspire but endure. Together, we shape
-                environments that reflect your vision, rooted in nature, built
-                with purpose, and alive with meaning.
-              </motion.p>
+
+            <div className="md:w-3/5 mb-10">
+              {paragraphLines.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="text-gray-700 text-sm leading-relaxed"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={i}
+                >
+                  {line}
+                </motion.p>
+              ))}
             </div>
 
             <Link to="/contact">
-              <button className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
+              <motion.button 
+                className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={paragraphLines.length}
+              >
                 <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                   GET IN TOUCH
                 </span>
                 <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
                   GET IN TOUCH
                 </span>
-              </button>
+              </motion.button>
             </Link>
           </motion.div>
 

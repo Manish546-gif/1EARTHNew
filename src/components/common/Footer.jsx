@@ -11,6 +11,28 @@ export default function Footer() {
     }),
   };
 
+  const textVariant = {
+    hidden: { y: 40, opacity: 0 },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    }),
+  };
+
+  const paragraphLines = [
+    "More than a real estate brand, One",
+    "Earth is a vision shaped by legacy,",
+    "balance, and purpose. Guided by",
+    "nature's rhythm and India's heritage,",
+    "crafting spaces that nurture life and",
+    "inspire belonging."
+  ];
+
   return (
     <footer className="bg-[#0b1c24] text-[#d3d3d3] py-12 md:py-16 lg:py-20">
       <div className="flex flex-col md:flex-row flex-wrap justify-between gap-10 md:gap-16 px-6 md:px-16">
@@ -62,15 +84,21 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-sm sm:text-base leading-relaxed mt-5"
-          >
-            More than a real estate brand, One Earth is a vision shaped by legacy, balance, and purpose.
-            Guided by nature’s rhythm and India’s heritage, crafting spaces that nurture life and inspire belonging.
-          </motion.p>
+          <div className="mt-5">
+            {paragraphLines.map((line, i) => (
+              <motion.p
+                key={i}
+                className="text-sm sm:text-base leading-relaxed"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i + 6}
+              >
+                {line}
+              </motion.p>
+            ))}
+          </div>
         </div>
 
         {/* Right Column: Brand + Info */}
@@ -165,7 +193,7 @@ export default function Footer() {
 
       {/* Footer Bottom */}
       <div className="px-6 md:px-16 pt-4 flex flex-col md:flex-row justify-between text-xs sm:text-sm text-gray-400 gap-2 md:gap-0">
-        <p className="text-center md:text-left">©2025 ONE EARTH PROPERTIES - ALL RIGHTS RESERVED</p>
+        <p className="text-center md:text-left">Â©2025 ONE EARTH PROPERTIES - ALL RIGHTS RESERVED</p>
         <p className="cursor-pointer hover:underline text-center md:text-right">TERM OF SERVICE</p>
         <p className="cursor-pointer hover:underline text-center md:text-right">PRIVACY POLICY</p>
       </div>

@@ -5,10 +5,12 @@ import { gsap } from "gsap";
 import logo from "../../assets/1earthcompletelogo.svg";
 import menuIcon from "../../assets/menu.svg";
 import Line from "./Line";
+import { usePageTransition } from "./CurtainPreloader";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { startPageTransition } = usePageTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   // GSAP Refs
@@ -129,7 +131,13 @@ const Navbar = () => {
   };
 
   const handleNavigation = (path) => {
-    navigate(path);
+    if (startPageTransition) {
+      startPageTransition(() => {
+        navigate(path);
+      });
+    } else {
+      navigate(path);
+    }
     closeMenu();
   };
 

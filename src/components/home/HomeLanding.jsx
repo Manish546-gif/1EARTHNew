@@ -26,10 +26,13 @@ const HeroSection = () => {
 
   const rightText = [
     "We craft destinations that inspire",
-    "a deeper connection with the Earth, where architecture",
-    "breathes with the landscape, and every detail embodies mindful",
+    "a deeper connection with the",
+    "Earth, where architecture",
+    "breathes with the landscape, and",
+    "every detail embodies mindful",
     "luxury. Our spaces invite you to",
-    "live consciously, in harmony with the rhythms of nature.",
+    "live consciously, in harmony with",
+    "the Earth.",
   ];
 
   return (

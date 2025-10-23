@@ -4,7 +4,31 @@ import Line from "../common/Line.jsx";
 import craft1 from '../../assets/111.jpg';
 import craft2 from '../../assets/2222.jpg';
 
+const textVariant = {
+  hidden: { y: 40, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  }),
+};
+
 export default function OverDesign() {
+  const paragraphLines = [
+    "At One Earth, architecture is an",
+    "expression of coexistence. Every",
+    "structure is shaped to breathe",
+    "with the landscape integrating",
+    "sustainability, craftsmanship, and",
+    "conscious innovation. We design",
+    "just for today, but for generations",
+    "that will inherit this living planet."
+  ];
+
   return (
    <div>
     <Line />
@@ -124,50 +148,32 @@ export default function OverDesign() {
             </div>
 
             {/* Text Description and Button */}
-            <motion.div 
-              className="text-left"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.15
-                  }
-                }
-              }}
-            >
-              <div className="overflow-hidden w-3/5">
-                <motion.p 
-                  className="text-gray-700 text-sm mb-6 md:mb-20"
-                  initial={{ y: 40, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.8, 
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                    delay: 0.5 
-                  }}
-                >
-                  At One Earth, architecture is an expression of coexistence. Every structure is shaped to breathe with the landscape integrating sustainability, craftsmanship, and conscious innovation. We design not just for today, but for generations that will inherit this living planet.
-                </motion.p>
+            <div className="text-left">
+              <div className="w-2/3">
+                {paragraphLines.map((line, i) => (
+                  <motion.p
+                    key={i}
+                    className="text-gray-700 text-sm leading-relaxed"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={i}
+                  >
+                    {line}
+                  </motion.p>
+                ))}
               </div>
 
-              <div className="overflow-hidden">
+              <div className="md:mt-10">
                 <Link to="/contact">
                   <motion.button
-                    className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group"
-                    initial={{ y: 30, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
+                    className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{
-                      duration: 0.8,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                      delay: 0.6
-                    }}
-
+                    custom={paragraphLines.length}
                   >
                     <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                       CONTACT US
@@ -178,7 +184,7 @@ export default function OverDesign() {
                   </motion.button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
