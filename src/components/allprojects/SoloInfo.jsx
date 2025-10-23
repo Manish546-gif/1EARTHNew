@@ -14,9 +14,9 @@ const SoloInfo = () => {
   ];
 
   return (
-    <div className="flex flex-col bg  bg-[#FBF0DA] md:flex-row p-6 gap-26 mt-40 mb-20 max-w-8xl mx-auto">
+    <div className="flex flex-col bg   md:flex-row p-6 gap-26 md:gap-50 mt-40 mb-20 max-w-8xl mx-auto">
       <motion.div
-        className="bg-gray-300 w-full md:w-6/11  md:h-200  relative overflow-hidden sm:h-150 h-110 rounded"
+        className=" w-full md:w-6/11  md:h-230  relative overflow-hidden sm:h-150 h-110"
       >
         <motion.div  initial={{ scaleX: 1, opacity: 1 }}
         whileInView={{ scaleX: 0, opacity: 1 }}
@@ -26,10 +26,10 @@ const SoloInfo = () => {
         <img className=" h-full w-full object-cover" src={projectimg} alt="" />
       </motion.div>
 
-      <div className="flex flex-col md:pr-20 w-full md:w-2/5 space-y-6">
+      <div className="flex flex-col md:pr-20 w-full md:w-2/6 space-y-6">
         <div>
           <h3 className="font-bold mb-2">INFO</h3>
-          <p className="text-lg text-gray-700">
+          <p className="text-lg">
             The Velhe Estate by One Earth Properties is a 100-acre gated
             farmland community in the serene outskirts of Pune, surrounded by
             the majestic Rajgad and Torna Forts. Blending nature, heritage, and
@@ -43,7 +43,7 @@ const SoloInfo = () => {
         </div>
 
         <motion.div
-          className="w-full h-50 rounded overflow-hidden relative"
+          className="w-full h-50  overflow-hidden relative"
         >
            <motion.div  initial={{ scaleX: 1, opacity: 1 }}
         whileInView={{ scaleX: 0, opacity: 1 }}

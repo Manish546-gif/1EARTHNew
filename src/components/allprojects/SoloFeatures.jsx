@@ -4,10 +4,10 @@ import feature1 from '../../assets/feature1.png';
 import feature2 from '../../assets/feature2.png';
 
 export default function SoloFeatures() {
-  return (
-    <section className="max-w-8xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-32 ">
+  return ( 
+    <section className="max-w-8xl mx-auto  md:mb-10 md:mt-10 px-6 py-12 flex flex-col lg:flex-row gap-32 ">
       <motion.div
-        className="relative overflow-hidden flex-shrink-0 w-full mt-20 md:mb-10  lg:w-1/2 rounded"
+        className="relative overflow-hidden flex-shrink-0 w-full  md:mb-10  lg:w-1/2 "
        
       >
          <motion.div  initial={{ scaleX: 1, opacity: 1 }}
@@ -30,10 +30,10 @@ export default function SoloFeatures() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h3 className="font-bold uppercase flex items-center gap-2 mb-2">
-            <span>•</span>
+          <p className="font-bold  text-xl uppercase flex items-center gap-2 mb-2">
+            <span className='text-2xl'>•</span>
             ECO-RESPONSIVE DESIGN
-          </h3>
+          </p>
           <p className="text-base leading-relaxed max-w-prose">
             A thoughtfully planned layout that follows the natural terrain, preserving native trees and enhancing the landscape's organic flow.
           </p>
@@ -50,10 +50,10 @@ export default function SoloFeatures() {
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h3 className="font-bold uppercase flex items-center gap-2 mb-2">
-            <span>•</span>
+          <p className="font-bold text-xl uppercase flex items-center gap-2 mb-2">
+            <span className='text-2xl'>•</span>
             SUSTAINABLE INFRASTRUCTURE
-          </h3>
+          </p>
           <p className="text-base leading-relaxed max-w-prose">
             Equipped with solar-ready provisions, rainwater harvesting, and a sewage treatment system to minimize ecological impact and promote self-sufficiency.
           </p>
@@ -70,10 +70,10 @@ export default function SoloFeatures() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h3 className="font-bold uppercase flex items-center gap-2 mb-2">
-            <span>•</span>
+          <p className="font-bold text-xl uppercase flex items-center gap-2 mb-2">
+            <span className='text-2xl'>•</span>
             WELLNESS & NATURE INTEGRATION
-          </h3>
+          </p>
           <p className="text-base leading-relaxed max-w-prose">
             Includes meditation decks, acupressure pathways, and green parks designed to nurture physical and mental well-being amid serene surroundings.
           </p>
@@ -90,10 +90,10 @@ export default function SoloFeatures() {
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h3 className="font-bold uppercase flex items-center gap-2 mb-2">
-            <span>•</span>
+          <p className="font-bold text-xl uppercase flex items-center gap-2 mb-2">
+            <span className='text-2xl'>•</span>
             COMMUNITY & LIFESTYLE SPACES
-          </h3>
+          </p>
           <p className="text-base leading-relaxed max-w-prose">
             Features a premium clubhouse, jogging trails, and cultural zones that encourage connection, recreation, and a balanced countryside lifestyle.
           </p>
@@ -106,7 +106,7 @@ export default function SoloFeatures() {
       </ul>
 
         <motion.div 
-          className="mt-10 w-5/11 md:mr-20  relative overflow-hidden rounded self-end"
+          className="mt-18 w-5/9 md:mr-20  relative overflow-hidden  self-end"
 
         >
            <motion.div  initial={{ scaleX: 1, opacity: 1 }}

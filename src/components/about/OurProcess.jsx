@@ -43,7 +43,7 @@ export default function OurProcess() {
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           <div className="flex-shrink-0 md:w-4/11">
             <div className="text-center  lg:text-left">
-              <h2 className="text-6xl lg:text-7xl font-serif text-black tracking-wider leading-tight">
+              <h2 className="text-6xl lg:text-8xl  text-black">
                 <span className="block">OUR</span>
                 <span className="block">PROCESS</span>
               </h2>
@@ -76,10 +76,10 @@ export default function OurProcess() {
                        </div>
                        
                        <div className="flex-1">
-                         <h3 className="text-lg lg:text-xl font-bold text-black uppercase tracking-wide mb-3">
+                         <p className="text-lg lg:text-xl font-bold text-black uppercase  mb-3">
                            {step.title}
-                         </h3>
-                         <p className="text-sm lg:text-base md:mb-5 text-black leading-relaxed">
+                         </p>
+                         <p className="text-sm lg:text-base md:mb-5 text-black ">
                            {step.description}
                          </p>
                        </div>

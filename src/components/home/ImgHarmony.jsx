@@ -39,9 +39,9 @@ function ImgHarmony() {
             </div>
 
             
-            <div className="grid grid-cols-1 lg:grid-cols-12  items-center ">
+            <div className="grid grid-cols-1 lg:grid-cols-12   items-center ">
               {/* HARMONY Text */}
-              <div className="lg:col-span-7">
+              <div className="lg:col-span-8">
                 <motion.div
                   className="overflow-hidden"
                   initial={{ y: 100, opacity: 0 }}
@@ -49,16 +49,16 @@ function ImgHarmony() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
                 >
-                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[10.2rem] leading-none text-black tracking-tight">
+                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[9.6rem] leading-none text-black tracking-tight">
                     HARMONY
                   </h1>
                 </motion.div>
               </div>
 
               {/* Image */}
-              <div className="lg:col-span-5 flex p-1 justify-end">
+              <div className="lg:col-span-4 flex p-1 justify-end">
                 <motion.div
-                  className="w-full lg:w-[400px] xl:w-[450px] h-[200px] lg:h-[200px] overflow-hidden  relative"
+                  className="w-full lg:w-[400px] xl:w-[450px] h-[200px] lg:h-[160px] overflow-hidden  relative"
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -97,7 +97,7 @@ function ImgHarmony() {
               >
                 <div className="overflow-hidden">
                   <motion.p
-                    className="text-sm leading-relaxed text-gray-700 max-w-sm"
+                    className="text-sm leading-relaxed  max-w-xs"
                     initial={{ y: 30, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -137,7 +137,7 @@ function ImgHarmony() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.5 }}
                 >
-                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[10rem] leading-none text-black tracking-tight text-right lg:text-left">
+                  <h1 className=" text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[8rem] xl:text-[10rem] leading-none text-black tracking-tight">
                     WITH EARTH
                   </h1>
                 </motion.div>

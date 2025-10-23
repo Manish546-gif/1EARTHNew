@@ -39,7 +39,7 @@ const TestimonialSection = () => {
           <h3 className="text-lg font-semibold tracking-wide">
             ANANYA MEHTA
           </h3>
-          <p className="text-sm text-gray-300 mt-1">Managing Director</p>
+          <p className="text-sm  mt-1">Managing Director</p>
         </div>
       </div>
     </section>

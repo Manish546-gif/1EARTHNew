@@ -23,9 +23,9 @@ const WhyChoose = () => {
         <div className="grid grid-cols-2 gap-6 w-full">
          
           <div className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80">
-            <h3 className="text-lg font-semibold tracking-wide mb-2">
+            <p className="text-lg font-semibold tracking-wide mb-2">
               TRANSPARENCY & TRUST
-            </h3>
+            </p>
             <p className="text-sm text-gray-300">
               Complete clarity in pricing, approvals, and documentation.
             </p>
@@ -33,9 +33,9 @@ const WhyChoose = () => {
 
           
           <div className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80">
-            <h3 className="text-lg font-semibold tracking-wide mb-2">
+            <p className="text-lg font-semibold tracking-wide mb-2">
               QUALITY & PLANNING
-            </h3>
+            </p>
             <p className="text-sm text-gray-300">
               Meticulous planning and infrastructure development.
             </p>
@@ -43,18 +43,18 @@ const WhyChoose = () => {
 
          
           <div className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80">
-            <h3 className="text-lg font-semibold tracking-wide mb-2">
+            <p className="text-lg font-semibold tracking-wide mb-2">
               TIMELY DELIVERY
-            </h3>
+            </p>
             <p className="text-sm text-gray-300">
               We respect your time and deliver on commitments.
             </p>
           </div>
 
           <div className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80">
-            <h3 className="text-lg font-semibold tracking-wide mb-2">
+            <p className="text-lg font-semibold tracking-wide mb-2">
               CUSTOMER-CENTRIC APPROACH
-            </h3>
+            </p>
             <p className="text-sm text-gray-300">
               We provide continuous support and guidance.
             </p>

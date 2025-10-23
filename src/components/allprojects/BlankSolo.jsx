@@ -6,7 +6,7 @@ import blank from '../../assets/blank1.png';
 const BlankSolo = () => {
   return (
     <div className='h-[130vh]  md:mb-20 mt-20  '>
-      <div className='w-full  h-full relative overflow-hidden  bg-gray-300'>
+      <div className='w-full  h-full relative overflow-hidden '>
       <motion.div  initial={{ scaleX: 1, opacity: 1 }}
         whileInView={{ scaleX: 0, opacity: 1 }}
         transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}

@@ -4,8 +4,8 @@ import blank2 from '../../assets/blank2.png';
 
 function Blank2(){
     return (
-<div className='h-[100vh]  md:mb-20 mt-20 mx-30 '>
-      <div className='w-full  h-full relative overflow-hidden rounded  bg-gray-300'>
+<div className='h-[100vh]  md:mb-30 mt-30 mx-30 '>
+      <div className='w-full  h-full relative overflow-hidden '>
       <motion.div  initial={{ scaleX: 1, opacity: 1 }}
         whileInView={{ scaleX: 0, opacity: 1 }}
         transition={{ duration: 1.5, delay:0.4 , ease:"circOut" }}

@@ -7,7 +7,7 @@ export default function NextProject() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 w-full items-center">
             
             <div className="space-y-8 lg:space-y-52">
-              <div className="text-sm font-medium text-gray-600 tracking-wider">
+              <div className="text-sm font-medium  tracking-wider">
                 NEXT PROJECT
               </div>
               <div>
@@ -30,7 +30,7 @@ export default function NextProject() {
             <div className="relative">
               <motion.div 
               
-                className="aspect-[4/3] lg:aspect-[1] bg-gray-400 relative rounded-lg overflow-hidden"
+                className="aspect-[4/3] lg:aspect-[1]  relative overflow-hidden"
               >
                  <motion.div  initial={{ scaleX: 1, opacity: 1 }}
         whileInView={{ scaleX: 0, opacity: 1 }}
