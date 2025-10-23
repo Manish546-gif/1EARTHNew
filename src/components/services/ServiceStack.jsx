@@ -76,7 +76,7 @@ const services = [
   },
 ];
 
-const ServiceCard = ({ service }) => {
+const ServiceCard = ({ service, bgColor, textColor }) => {
   const cardRef = useRef(null);
   const titleRef = useRef(null);
   const numberRef = useRef(null);
@@ -184,7 +184,7 @@ const ServiceCard = ({ service }) => {
       ref={cardRef}
       className="sticky top-0 h-screen flex items-center justify-center snap-start snap-always"
     >
-      <div className="relative w-full h-full bg-[#0A1F2E] text-white overflow-hidden">
+      <div className={`relative w-full h-full overflow-hidden`} style={{ backgroundColor: bgColor, color: textColor }}>
         <div className="max-w-[1600px] mx-auto h-full px-6 lg:px-12 py-12 lg:py-16">
           {/* Header with horizontal line */}
           <div className="mb-8 lg:mb-12">
@@ -198,7 +198,8 @@ const ServiceCard = ({ service }) => {
             </div>
             <div
               ref={lineRef}
-              className="w-full h-px bg-white origin-left"
+              className={`w-full h-px origin-left`}
+              style={{ backgroundColor: textColor }}
             ></div>
           </div>
 
@@ -251,7 +252,8 @@ const ServiceCard = ({ service }) => {
                   {service.features.map((feature, idx) => (
                     <li
                       key={idx}
-                      className="text-sm lg:text-base pl-4 border-l-2 border-white/30 opacity-90"
+                      className="text-sm lg:text-base pl-4 opacity-90"
+                      style={{ borderLeft: `2px solid ${textColor}30` }}
                     >
                       {feature}
                     </li>
@@ -262,14 +264,14 @@ const ServiceCard = ({ service }) => {
 
             {/* Right Column - Image */}
             <div className="hidden lg:flex items-center justify-center">
-              <div className="w-full h-[400px] xl:h-[500px] overflow-hidden rounded-lg relative">
+              <div className="w-full h-[400px] xl:h-[500px] overflow-hidden relative">
                 <motion.div
                   initial={{ scaleX: 1, opacity: 1 }}
                   whileInView={{ scaleX: 0, opacity: 1 }}
                   transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
                   viewport={{ once: true }}
-                  style={{ transformOrigin: "right" }}
-                  className="w-full origin-right absolute z-10 h-full bg-[#0A1F2E]"
+                  style={{ transformOrigin: "right", backgroundColor: bgColor }}
+                  className="w-full origin-right absolute z-10 h-full"
                 ></motion.div>
                 <img
                   ref={imageRef}
@@ -283,14 +285,14 @@ const ServiceCard = ({ service }) => {
 
           {/* Mobile Image */}
           <div className="lg:hidden mt-6">
-            <div className="w-full h-[300px] overflow-hidden rounded-lg relative">
+            <div className="w-full h-[300px] overflow-hidden relative">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
                 transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
                 viewport={{ once: true }}
-                style={{ transformOrigin: "right" }}
-                className="w-full origin-right absolute z-10 h-full bg-[#0A1F2E]"
+                style={{ transformOrigin: "right", backgroundColor: bgColor }}
+                className="w-full origin-right absolute z-10 h-full"
               ></motion.div>
               <img
                 src={service.image}
@@ -305,14 +307,28 @@ const ServiceCard = ({ service }) => {
   );
 };
 
+const colors = [
+  { bgColor: "#0A1F2E", textColor: "#FBF0DA" },
+  { bgColor: "#FBF0DA", textColor: "#000000" },
+];
+
 function ServiceStack() {
   return (
     <div className="relative">
-     
+
       <div className="relative" style={{ height: `${services.length * 100}vh` }}>
-        {services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
-        ))}
+        {services.map((service) => {
+          const index = (service.id - 1) % 2;
+          const color = colors[index];
+          return (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              bgColor={color.bgColor}
+              textColor={color.textColor}
+            />
+          );
+        })}
       </div>
     </div>
   );

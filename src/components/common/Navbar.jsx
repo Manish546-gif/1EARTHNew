@@ -296,7 +296,7 @@ const Navbar = () => {
           <div className="h-full flex flex-col justify-center px-8 lg:px-12 xl:px-0 overflow-hidden">
             <motion.button
               onClick={closeMenu}
-              className="absolute top-6 right-6 lg:top-8 lg:right-8 text-gray-700 hover:text-gray-900 text-2xl font-light"
+              className="absolute top-6 right-6 lg:top-8 bg-yellow-600 px-2 rounded-3xl lg:right-8  hover:text-gray-900 text-xl cursor-pointer"
               initial={{ opacity: 0, rotate: -90 }}
               animate={{ opacity: 1, rotate: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
@@ -304,7 +304,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.9 }}
               aria-label="Close menu"
             >
-              ✕
+              <p>close</p>
             </motion.button>
 
             <nav className="space-y-4 lg:space-y-6">
@@ -550,7 +550,8 @@ const Navbar = () => {
             height: "100vh",
           }}
         >
-          <div className="h-full flex flex-col justify-between px-8 lg:px-12 xl:px-16 py-8 lg:py-12 text-white overflow-hidden">
+          <div className="h-full flex flex-col justify-between px-8 lg:px-12 xl:px-16 py-8 lg:py-12 
+          text-[#FBF0DA] overflow-hidden">
             <AnimatePresence>
               {isMenuOpen && (
                 <motion.div
@@ -569,7 +570,7 @@ const Navbar = () => {
                       ONE EARTH
                     </motion.h1>
                     <motion.h2
-                      className="text-base lg:text-lg xl:text-5xl ml-13 font-light tracking-[0.7em] text-gray-300"
+                      className="text-base lg:text-lg xl:text-5xl ml-13 font-light tracking-[0.7em] "
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8, duration: 0.8 }}
@@ -586,7 +587,7 @@ const Navbar = () => {
                       {" "}
                       <motion.div variants={rightContentVariants}>
                         <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider text-gray-400 mb-2"
+                          className="text-xs lg:text-sm font-medium tracking-wider  mb-2"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 1.0 }}
@@ -595,7 +596,8 @@ const Navbar = () => {
                         </motion.h3>
                         <motion.a
                           href="mailto:oneearthpropertiesllp@gmail.com"
-                          className="text-xs lg:text-sm xl:text-base text-gray-300 hover:text-white transition-colors block"
+                          className="text-xs lg:text-sm xl:text-base 
+                           transition-colors block"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 1.1, duration: 0.6 }}
@@ -606,7 +608,7 @@ const Navbar = () => {
                       </motion.div>
                       <motion.div variants={rightContentVariants}>
                         <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider text-gray-400 mb-2"
+                          className="text-xs lg:text-sm font-medium tracking-wider  mb-2"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 1.2 }}
@@ -615,7 +617,8 @@ const Navbar = () => {
                         </motion.h3>
                         <motion.a
                           href="tel:+919860372727"
-                          className="text-xs lg:text-sm xl:text-base text-gray-300 hover:text-white transition-colors"
+                          className="text-xs lg:text-sm xl:text-base 
+                           transition-colors"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 1.3, duration: 0.6 }}
@@ -626,7 +629,7 @@ const Navbar = () => {
                       </motion.div>
                       <motion.div variants={rightContentVariants}>
                         <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider text-gray-400 mb-2"
+                          className="text-xs lg:text-sm font-medium tracking-wider  mb-2"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 1.4 }}
@@ -634,7 +637,8 @@ const Navbar = () => {
                           OFFICE
                         </motion.h3>
                         <motion.address
-                          className="text-xs lg:text-sm xl:text-base text-gray-300 not-italic leading-relaxed"
+                          className="text-xs lg:text-sm xl:text-base 
+                          not-italic leading-relaxed"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 1.5, duration: 0.6 }}
@@ -644,7 +648,7 @@ const Navbar = () => {
                           KOTHRUD, PUNE, 411038
                         </motion.address>
                         <motion.p
-                          className="text-xs text-gray-400 mt-2"
+                          className="text-xs  mt-2"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 1.6 }}
@@ -660,7 +664,7 @@ const Navbar = () => {
                       {" "}
                       <motion.div variants={rightContentVariants}>
                         <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider text-gray-400 mb-3"
+                          className="text-xs lg:text-sm font-medium tracking-wider  mb-3"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 1.7 }}
@@ -673,7 +677,8 @@ const Navbar = () => {
                               <motion.a
                                 key={social}
                                 href="#"
-                                className="block text-xs lg:text-sm text-gray-300 hover:text-white transition-colors"
+                                className="block text-xs lg:text-sm 
+                                 transition-colors"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{
@@ -690,7 +695,7 @@ const Navbar = () => {
                       </motion.div>
                       <motion.div variants={rightContentVariants}>
                         <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider text-gray-400 mb-3"
+                          className="text-xs lg:text-sm font-medium tracking-wider  mb-3"
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 2.0 }}
@@ -703,7 +708,8 @@ const Navbar = () => {
                               <motion.a
                                 key={legal}
                                 href="#"
-                                className="block text-xs lg:text-sm text-gray-300 hover:text-white transition-colors"
+                                className="block text-xs lg:text-sm 
+                                 transition-colors"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{
@@ -728,13 +734,13 @@ const Navbar = () => {
                     transition={{ delay: 2.3, duration: 0.8 }}
                   >
                     <motion.hr
-                      className="border-gray-600 mb-4 lg:mb-6 origin-left"
+                      className="mb-4 lg:mb-6 origin-left"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       transition={{ delay: 2.4, duration: 1.2 }}
                     />
                     <motion.p
-                      className="text-xs text-gray-500 tracking-wider"
+                      className="text-xs  tracking-wider"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 2.6, duration: 0.6 }}

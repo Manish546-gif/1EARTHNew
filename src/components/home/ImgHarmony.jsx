@@ -59,7 +59,7 @@ function ImgHarmony() {
             </div>
 
             
-            <div className="grid grid-cols-1 lg:grid-cols-12  items-center ">
+            <div className="grid grid-cols-1 lg:grid-cols-12  items-center justify-center ">
               {/* HARMONY Text */}
               <div className="lg:col-span-7">
                 <motion.div
@@ -76,7 +76,7 @@ function ImgHarmony() {
               </div>
 
               {/* Image */}
-              <div className="lg:col-span-5 flex p-1 justify-end">
+              <div className="lg:col-span-5 flex p-1 ">
                 <motion.div
                   className="w-full lg:w-[400px] xl:w-[450px] h-[200px] lg:h-[200px] overflow-hidden  relative"
                   initial={{ opacity: 0, x: 50 }}
@@ -98,10 +98,10 @@ function ImgHarmony() {
             </div>
 
             {/* Row 3: Description + Button (left) + WITH EARTH (right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+            <div className="grid  grid-cols-1 lg:grid-cols-12  items-center">
               {/* Description and Button */}
               <motion.div
-                className="lg:col-span-4 space-y-6"
+                className="lg:w-xl mx-auto space-y-6"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
@@ -119,7 +119,7 @@ function ImgHarmony() {
                   {paragraphLines.map((line, i) => (
                     <motion.p
                       key={i}
-                      className="text-sm leading-relaxed text-gray-700"
+                      className="text-sm leading-relaxed "
                       variants={textVariant}
                       initial="hidden"
                       whileInView="visible"
@@ -153,7 +153,7 @@ function ImgHarmony() {
               </motion.div>
 
               {/* WITH EARTH Text */}
-              <div className="lg:col-span-8">
+              <div className=" ml-40 md:w-5xl">
                 <motion.div
                   className="overflow-hidden"
                   initial={{ y: 100, opacity: 0 }}
@@ -161,7 +161,7 @@ function ImgHarmony() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.5 }}
                 >
-                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[10rem] leading-none text-black tracking-tight text-right lg:text-left">
+                  <h1 className=" text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[10rem] leading-none text-black tracking-tight">
                     WITH EARTH
                   </h1>
                 </motion.div>

@@ -34,13 +34,13 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0b1c24] text-[#d3d3d3] py-12 md:py-16 lg:py-20">
-      <div className="flex flex-col md:flex-row flex-wrap justify-between gap-10 md:gap-16 px-6 md:px-16">
+    <footer className="bg-[#0b1c24] text-[#FBF0DA] py-12 md:py-16 lg:py-20">
+      <div className="flex flex-col md:flex-row flex-wrap justify-between gap-10 md:gap-26 px-6 md:px-16">
 
         {/* Left Column: Nav + Description */}
         <div className="flex flex-col space-y-6 max-w-full md:max-w-sm">
           <nav>
-            <ul className="space-y-4 sm:space-y-6 text-white text-sm sm:text-base md:text-2xl lg:text-3xl">
+            <ul className="space-y-4 sm:space-y-6  text-sm sm:text-base md:text-2xl lg:text-3xl">
               <motion.li
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -104,7 +104,7 @@ export default function Footer() {
         {/* Right Column: Brand + Info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left flex-grow max-w-full">
           {/* Brand Name */}
-          <motion.h1 className="text-white text-4xl sm:text-6xl md:text-[120px] lg:text-[160px] leading-none select-none flex flex-wrap justify-center md:justify-start">
+          <motion.h1 className=" text-4xl sm:text-6xl md:text-[120px] lg:text-[160px] leading-none select-none flex flex-wrap justify-center md:justify-start">
             {["O","N","E","\u00A0","E","A","R","T","H"].map((char, i) => (
               <motion.span
                 key={i}
@@ -120,7 +120,7 @@ export default function Footer() {
           </motion.h1>
 
           {/* PROPERTIES */}
-          <motion.h2 className="text-white text-lg sm:text-2xl md:text-[40px] lg:text-[60px] tracking-[1em] -mt-2 select-none flex justify-center md:justify-start flex-wrap">
+          <motion.h2 className=" text-lg sm:text-2xl md:text-[40px] lg:text-[60px] tracking-[1em] -mt-2 select-none flex justify-center md:justify-start flex-wrap">
             {["P","R","O","P","E","R","T","I","E","S"].map((char, i) => (
               <motion.span
                 key={i}
@@ -145,15 +145,15 @@ export default function Footer() {
               className="flex flex-col space-y-6 text-left md:max-w-lg text-sm sm:text-base md:text-lg"
             >
               <div>
-                <p className="text-white uppercase mb-1 text-base sm:text-lg md:text-xl">EMAIL</p>
+                <p className=" uppercase mb-1 text-base sm:text-lg md:text-xl">EMAIL</p>
                 <p>oneearthpropertiesllp@gmail.com</p>
               </div>
               <div>
-                <p className="text-white uppercase mb-1 text-base sm:text-lg md:text-xl">PHONE</p>
+                <p className=" uppercase mb-1 text-base sm:text-lg md:text-xl">PHONE</p>
                 <p>+91 9690372727</p>
               </div>
               <div>
-                <p className="text-white uppercase mb-1 text-base sm:text-lg md:text-xl">SOCIAL</p>
+                <p className=" uppercase mb-1 text-base sm:text-lg md:text-xl">SOCIAL</p>
                 <p>
                   Instagram <br /> Facebook <br /> LinkedIn
                 </p>
@@ -168,7 +168,7 @@ export default function Footer() {
               className="flex flex-col space-y-6 text-left md:max-w-xs text-sm sm:text-base md:text-lg"
             >
               <div>
-                <p className="text-white uppercase mb-1 text-base sm:text-lg md:text-xl">OFFICE</p>
+                <p className=" uppercase mb-1 text-base sm:text-lg md:text-xl">OFFICE</p>
                 <p>
                   A105, Gokhale Business Bay, <br /> Kothrud, Pune, 411038
                 </p>
@@ -192,7 +192,7 @@ export default function Footer() {
       />
 
       {/* Footer Bottom */}
-      <div className="px-6 md:px-16 pt-4 flex flex-col md:flex-row justify-between text-xs sm:text-sm text-gray-400 gap-2 md:gap-0">
+      <div className="px-6 md:px-16 pt-4 flex flex-col md:flex-row justify-between text-xs sm:text-sm  gap-2 md:gap-0">
         <p className="text-center md:text-left">Â©2025 ONE EARTH PROPERTIES - ALL RIGHTS RESERVED</p>
         <p className="cursor-pointer hover:underline text-center md:text-right">TERM OF SERVICE</p>
         <p className="cursor-pointer hover:underline text-center md:text-right">PRIVACY POLICY</p>
