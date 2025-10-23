@@ -38,7 +38,7 @@ export default function OurProcess() {
   ];
 
   return (
-    <div className="min-h-screen  flex items-start justify-center px-6 lg:px-8 py-16">
+    <div className="min-h-screen  flex items-start mt-10 mb-10 justify-center px-6 lg:px-8 py-16">
       <div className="max-w-8xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           <div className="flex-shrink-0 md:w-4/11">

@@ -15,7 +15,9 @@ const About = () => {
 
       <AboutLanding />
       <Origin />
+      <Line />
       <Philosophy />
+      <Line />
       <OurTeam/>
       <WhyChoose/>
       <Line />

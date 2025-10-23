@@ -4,7 +4,7 @@ import React from "react";
 
 function Line(){
     return(
-          <motion.div className="h-px bg-gray-800  origin-left"
+          <motion.div className="h-px bg-[#585254] origin-left"
           initial={{ scaleX: 0 }}
           viewport={{ once: true }}
           whileInView={{ scaleX: 1 }}

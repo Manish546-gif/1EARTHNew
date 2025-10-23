@@ -81,7 +81,7 @@ const ProjectsSection = () => {
           />
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
         <div className="relative mt-20 z-10 flex flex-col justify-between h-full">
           <div className="flex justify-between items-start">

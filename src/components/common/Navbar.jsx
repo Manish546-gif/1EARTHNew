@@ -10,15 +10,31 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   // GSAP Refs
   const leftPanelRef = useRef(null);
   const rightPanelRef = useRef(null);
   const overlayRef = useRef(null);
 
-  const isDarkPage =
-    location.pathname === "/contact" || location.pathname === "";
+  const isLightPage = location.pathname !== "/contact";
 
+  // Hide/Show navbar on scroll
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
 
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Lock/Unlock body scroll when menu is open
   useEffect(() => {
@@ -211,8 +227,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav
-        className="w-full fixed top-0 z-40 border-b  border-white"
+      <motion.nav
+        className="w-full fixed top-0 z-40 bg-transparent"
+        animate={{ y: isHidden ? -100 : 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <div className="max-w-8xl mx-auto px-8 sm:px-10 lg:px-12 py-2">
           <div className="flex items-center justify-between h-16">
@@ -221,9 +239,10 @@ const Navbar = () => {
                 <img
                   src={logo}
                   alt="Earth logo"
-                  className={`h-12 w-auto ${
-                    isDarkPage ? "filter brightness-0 invert-0" : ""
-                  }`}
+                  className="h-12 w-auto"
+                  style={{
+                    filter: isLightPage ? 'brightness(0)' : 'invert(88%) sepia(20%) saturate(300%) hue-rotate(15deg) brightness(105%) contrast(95%)'
+                  }}
                 />
               </Link>
             </div>
@@ -237,15 +256,17 @@ const Navbar = () => {
                 <img
                   src={menuIcon}
                   alt="Open menu"
-                  className={`h-8 w-8 ${
-                    isDarkPage ? "filter brightness-0 invert-0" : ""
-                  }`}
+                  className="h-8 w-8"
+                  style={{
+                    filter: isLightPage ? 'brightness(0)' : 'invert(88%) sepia(20%) saturate(300%) hue-rotate(15deg) brightness(105%) contrast(95%)'
+                  }}
                 />
               </button>
             </div>
           </div>
         </div>
-      </nav>
+        <Line />
+      </motion.nav>
 
       <div
         ref={overlayRef}
@@ -283,7 +304,7 @@ const Navbar = () => {
                 {isMenuOpen && (
                   <>
                     <motion.div
-                      className="flex items-center gap-6 lg:gap-8 cursor-pointer overflow-hidden group"
+                      className="flex items-center gap-6 lg:gap-0 cursor-pointer overflow-hidden group"
                       onClick={() => handleNavigation("/")}
                       variants={menuItemVariants}
                       initial="hidden"
@@ -295,15 +316,16 @@ const Navbar = () => {
                         stiffness: 400,
                         damping: 30,
                       }}
-                      whileHover={{ scale: 1.05 }}
+                      
                     >
+                     
                       <motion.span
-                        className="text-xs lg:text-4xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
+                        className="text-xs lg:text-xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
                       >
-                        (01)
+                        (1)
                       </motion.span>
                       <motion.span
                         className="text-2xl lg:text-4xl hover:ml-7 duration-300 xl:text-5xl font-light text-gray-900 tracking-wide"
@@ -328,7 +350,7 @@ const Navbar = () => {
                     />
 
                     <motion.div
-                      className="flex items-center gap-6 lg:gap-8 overflow-hidden cursor-pointer group"
+                      className="flex items-center gap-6 lg:gap-0 overflow-hidden cursor-pointer group"
                       onClick={() => handleNavigation("/about")}
                       variants={menuItemVariants}
                       initial="hidden"
@@ -340,15 +362,15 @@ const Navbar = () => {
                         stiffness: 400,
                         damping: 30,
                       }}
-                      whileHover={{ scale: 1.05 }}
+                     
                     >
                       <motion.span
-                        className="text-xs lg:text-4xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
+                        className="text-xs lg:text-xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
                       >
-                        (02)
+                        (2)
                       </motion.span>
                       <motion.span
                         className="text-2xl lg:text-3xl hover:ml-7 duration-300 xl:text-5xl font-light text-gray-900 tracking-wide"
@@ -373,7 +395,7 @@ const Navbar = () => {
                     />
 
                     <motion.div
-                      className="flex items-center gap-6 lg:gap-8 overflow-hidden cursor-pointer group"
+                      className="flex items-center gap-6 lg:gap-0 overflow-hidden cursor-pointer group"
                       onClick={() => handleNavigation("/project")}
                       variants={menuItemVariants}
                       initial="hidden"
@@ -385,15 +407,15 @@ const Navbar = () => {
                         stiffness: 400,
                         damping: 30,
                       }}
-                      whileHover={{ scale: 1.05 }}
+                     
                     >
                       <motion.span
-                        className="text-xs lg:text-4xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
+                        className="text-xs lg:text-xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.6 }}
                       >
-                        (03)
+                        (3)
                       </motion.span>
                       <motion.span
                         className="text-2xl lg:text-3xl hover:ml-7 duration-300 xl:text-5xl font-light text-gray-900 tracking-wide"
@@ -418,7 +440,7 @@ const Navbar = () => {
                     />
 
                     <motion.div
-                      className="flex items-center gap-6 lg:gap-8 overflow-hidden cursor-pointer group"
+                      className="flex items-center gap-6 lg:gap-0 overflow-hidden cursor-pointer group"
                       onClick={() => handleNavigation("/services")}
                       variants={menuItemVariants}
                       initial="hidden"
@@ -430,15 +452,15 @@ const Navbar = () => {
                         stiffness: 400,
                         damping: 30,
                       }}
-                      whileHover={{ scale: 1.05 }}
+                     
                     >
                       <motion.span
-                        className="text-xs lg:text-4xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
+                        className="text-xs lg:text-xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.7 }}
                       >
-                        (04)
+                        (4)
                       </motion.span>
                       <motion.span
                         className="text-2xl lg:text-3xl hover:ml-7 duration-300 xl:text-5xl font-light text-gray-900 tracking-wide"
@@ -463,7 +485,7 @@ const Navbar = () => {
                     />
 
                     <motion.div
-                      className="flex items-center gap-6 lg:gap-8 overflow-hidden cursor-pointer group"
+                      className="flex items-center gap-6 lg:gap-0 overflow-hidden cursor-pointer group"
                       onClick={() => handleNavigation("/contact")}
                       variants={menuItemVariants}
                       initial="hidden"
@@ -474,15 +496,15 @@ const Navbar = () => {
                         stiffness: 400,
                         damping: 30,
                       }}
-                      whileHover={{ scale: 1.05 }}
+                     
                     >
                       <motion.span
-                        className="text-xs lg:text-4xl ml-5 font-light text-gray-600 min-w-[30px] lg:min-w-[40px]"
+                        className="text-xs lg:text-xl ml-5 font-light text-gray-600 min-w-[30px] lg:min-w-[40px]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.8 }}
                       >
-                        (05)
+                        (5)
                       </motion.span>
                       <motion.span
                         className="text-2xl lg:text-3xl hover:ml-7 duration-300 xl:text-5xl font-light text-gray-900 tracking-wide"

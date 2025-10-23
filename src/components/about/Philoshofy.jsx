@@ -21,9 +21,9 @@ export default function Philosophy() {
   const heading = "WHAT WE STAND FOR".split(" ");
 
   return (
-    <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center h-screen p-8 gap-15 md:mt-20">
+    <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center min-h-screen mb-20 p-8 gap-15 md:mt-20">
       <motion.div
-        className="text-5xl md:text-6xl  mb-8 md:mb-0 md:mr-12 text-left"
+        className="text-5xl md:text-7xl  mb-8 md:mb-0 md:mr-20 text-left"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -39,17 +39,17 @@ export default function Philosophy() {
           </motion.span>
         ))}
       </motion.div>
-      <div className="mb-6 md:w-3/5 md:ml-10">
+      <div className="mb-6 md:w-3/6 md:ml-10">
           <h3 className=" mb-2">OUR ORIGINS</h3>
-          <p className="text-gray-700 mb-2 md:mb-28">
+          <p className="md:text-lg mb-2 md:mb-28">
             One Earth Properties was founded with a singular vision – to redefine real estate by uniting sustainability, culture, and modern living. Rooted in Pune’s serene landscapes, our journey began with a simple belief: that land is not just to be developed, but to be nurtured.
           </p>
-          <p className="text-gray-700">
+          <p className="md:text-lg">
             Inspired by India’s deep connection to nature and timeless craftsmanship, we create spaces that coexist with their surroundings – where innovation serves the Earth, and design becomes an expression of balance. Each project stands as a testament to harmony, integrity, and renewal.
           </p>
         </div>
      
-      <div className="md:ml-32 w-full md:w-6/7 text-left">
+      <div className="md:ml-32 w-full md:w-6/9 text-left">
       <div className="flex-shrink-0  md:h-130 relative w-full md:w-full mb-8 overflow-hidden md:mb-5">
       <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
@@ -63,7 +63,7 @@ export default function Philosophy() {
       </div>
         <div>
           <h3 className="font-bold mb-2">OUR PHILOSOPHY</h3>
-          <ul className="text-gray-800 space-y-1">
+          <ul className=" space-y-1">
             <li>Harmony</li>
             <Line />
             <li>Integrity</li>
