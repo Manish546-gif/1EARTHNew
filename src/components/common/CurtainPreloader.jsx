@@ -97,7 +97,7 @@ const CurtainPreloader = ({ children }) => {
       const circleLength = circleArcRef.current.getTotalLength();
       gsap.set(circleArcRef.current, {
         strokeDasharray: circleLength,
-        strokeDashoffset: 0,
+        strokeDashoffset: -1,
         stroke: "#FBF0DA",
         strokeWidth: 0.5
       });
@@ -111,8 +111,8 @@ const CurtainPreloader = ({ children }) => {
       const radiusPx = rect.width / 2;
 
       gsap.set(topLineRef.current, {
-        height: `calc(50% - ${radiusPx}px)`,
-        bottom: `calc(50% + ${radiusPx}px)`,
+        height: `calc(40% - ${radiusPx}px)`,
+        bottom: `calc(40% + ${radiusPx}px)`,
         top: 'auto',
         scaleY: 0,
         opacity: 1,
@@ -199,7 +199,7 @@ const CurtainPreloader = ({ children }) => {
       const circleLength = circleArcRef.current.getTotalLength();
       gsap.set(circleArcRef.current, {
         strokeDasharray: circleLength,
-        strokeDashoffset: 0,
+        strokeDashoffset: -1,
         stroke: "#FBF0DA",
         strokeWidth: 0.5
       });
@@ -358,7 +358,7 @@ const CurtainPreloader = ({ children }) => {
       const circleLength = circleArcRef.current.getTotalLength();
       gsap.set(circleArcRef.current, {
         strokeDasharray: circleLength,
-        strokeDashoffset: 0,
+        strokeDashoffset: -1,
         stroke: "#FBF0DA",
         strokeWidth: 0.5,
       });
@@ -592,10 +592,11 @@ const CurtainPreloader = ({ children }) => {
                 transform="rotate(0 50 50)"
                 cx="50"
                 cy="50"
-                r="50"
+                r="49.5"
                 stroke="#FBF0DA"
                 strokeWidth="0.5"
                 fill="none"
+                strokeLinecap="round"
               />
             </svg>
           </div>
