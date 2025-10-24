@@ -13,12 +13,52 @@ const Navbar = () => {
   const { startPageTransition } = usePageTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const [isLightBackground, setIsLightBackground] = useState(false);
+  
   // GSAP Refs
   const leftPanelRef = useRef(null);
   const rightPanelRef = useRef(null);
   const overlayRef = useRef(null);
+  const navRef = useRef(null);
+  const logoRef = useRef(null);
 
   const isLightPage = location.pathname !== "/contact";
+
+  // Detect background color behind navbar
+  useEffect(() => {
+    const detectBackgroundColor = () => {
+      if (!navRef.current) return;
+
+      const navRect = navRef.current.getBoundingClientRect();
+      const centerX = navRect.left + navRect.width / 2;
+      const centerY = navRect.top + navRect.height / 2;
+
+      // Get element behind navbar
+      navRef.current.style.pointerEvents = 'none';
+      const elementBehind = document.elementFromPoint(centerX, centerY);
+      navRef.current.style.pointerEvents = 'auto';
+
+      if (elementBehind) {
+        const bgColor = window.getComputedStyle(elementBehind).backgroundColor;
+        const rgb = bgColor.match(/\d+/g);
+
+        if (rgb) {
+          // Check if background is #FBF0DA (light cream color)
+          const isLightCream = parseInt(rgb[0]) === 251 && parseInt(rgb[1]) === 240 && parseInt(rgb[2]) === 218;
+          setIsLightBackground(isLightCream);
+        }
+      }
+    };
+
+    detectBackgroundColor();
+    window.addEventListener('scroll', detectBackgroundColor);
+    window.addEventListener('resize', detectBackgroundColor);
+
+    return () => {
+      window.removeEventListener('scroll', detectBackgroundColor);
+      window.removeEventListener('resize', detectBackgroundColor);
+    };
+  }, [location.pathname]);
 
   // Hide/Show navbar on scroll
   useEffect(() => {
@@ -80,7 +120,6 @@ const Navbar = () => {
   const openMenu = () => {
     setIsMenuOpen(true);
 
-    
     const tl = gsap.timeline();
 
     tl.set([leftPanelRef.current, rightPanelRef.current], {
@@ -106,7 +145,6 @@ const Navbar = () => {
   };
 
   const closeMenu = () => {
-    
     const tl = gsap.timeline({
       onComplete: () => setIsMenuOpen(false),
     });
@@ -141,8 +179,6 @@ const Navbar = () => {
     closeMenu();
   };
 
-  
-  
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === "Escape" && isMenuOpen) {
@@ -154,7 +190,6 @@ const Navbar = () => {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isMenuOpen]);
 
- 
   const menuItemVariants = {
     hidden: {
       opacity: 0,
@@ -236,6 +271,7 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
+        ref={navRef}
         className="w-full fixed top-0 z-40 bg-transparent"
         animate={{ y: isHidden ? -100 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -244,12 +280,12 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Link to="/" className="flex items-center gap-3">
-                <img
+                <motion.img
                   src={logo}
                   alt="Earth logo"
-                  className="h-12 w-auto"
+                  className="h-12 w-auto transition-all duration-300"
                   style={{
-                    filter: isLightPage ? 'brightness(0)' : 'invert(88%) sepia(20%) saturate(300%) hue-rotate(15deg) brightness(105%) contrast(95%)'
+                    filter: isLightBackground ? 'brightness(0)' : 'none'
                   }}
                 />
               </Link>
@@ -261,12 +297,12 @@ const Navbar = () => {
                 className="p-2 rounded-md hover:cursor-pointer z-50 relative"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               >
-                <img
+                <motion.img
                   src={menuIcon}
                   alt="Open menu"
-                  className="h-8 w-8"
+                  className="h-8 w-8 transition-all duration-300"
                   style={{
-                    filter: isLightPage ? 'brightness(0)' : 'invert(88%) sepia(20%) saturate(300%) hue-rotate(15deg) brightness(105%) contrast(95%)'
+                    filter: isLightBackground ? 'brightness(0)' : 'none'
                   }}
                 />
               </button>
@@ -296,7 +332,7 @@ const Navbar = () => {
           <div className="h-full flex flex-col justify-center px-8 lg:px-12 xl:px-0 overflow-hidden">
             <motion.button
               onClick={closeMenu}
-              className="absolute top-6 right-6 lg:top-8 bg-yellow-600 px-2 rounded-3xl lg:right-8  hover:text-gray-900 text-xl cursor-pointer"
+              className="absolute top-6 right-6 lg:top-8 lg:right-8 text-gray-700 hover:text-gray-900 text-2xl font-light"
               initial={{ opacity: 0, rotate: -90 }}
               animate={{ opacity: 1, rotate: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
@@ -304,7 +340,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.9 }}
               aria-label="Close menu"
             >
-              <p>close</p>
+              ✕
             </motion.button>
 
             <nav className="space-y-4 lg:space-y-6">
@@ -318,15 +354,12 @@ const Navbar = () => {
                       initial="hidden"
                       animate="visible"
                       custom={0}
-
                       transition={{
                         type: "spring",
                         stiffness: 400,
                         damping: 30,
                       }}
-                      
                     >
-                     
                       <motion.span
                         className="text-xs lg:text-xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
                         initial={{ opacity: 0 }}
@@ -364,13 +397,11 @@ const Navbar = () => {
                       initial="hidden"
                       animate="visible"
                       custom={1}
-
                       transition={{
                         type: "spring",
                         stiffness: 400,
                         damping: 30,
                       }}
-                     
                     >
                       <motion.span
                         className="text-xs lg:text-xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
@@ -409,13 +440,11 @@ const Navbar = () => {
                       initial="hidden"
                       animate="visible"
                       custom={2}
-
                       transition={{
                         type: "spring",
                         stiffness: 400,
                         damping: 30,
                       }}
-                     
                     >
                       <motion.span
                         className="text-xs lg:text-xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
@@ -454,13 +483,11 @@ const Navbar = () => {
                       initial="hidden"
                       animate="visible"
                       custom={3}
-
                       transition={{
                         type: "spring",
                         stiffness: 400,
                         damping: 30,
                       }}
-                     
                     >
                       <motion.span
                         className="text-xs lg:text-xl ml-5 font-light text-gray-800 min-w-[30px] lg:min-w-[40px]"
@@ -504,7 +531,6 @@ const Navbar = () => {
                         stiffness: 400,
                         damping: 30,
                       }}
-                     
                     >
                       <motion.span
                         className="text-xs lg:text-xl ml-5 font-light text-gray-600 min-w-[30px] lg:min-w-[40px]"
@@ -550,8 +576,7 @@ const Navbar = () => {
             height: "100vh",
           }}
         >
-          <div className="h-full flex flex-col justify-between px-8 lg:px-12 xl:px-16 py-8 lg:py-12 
-          text-[#FBF0DA] overflow-hidden">
+          <div className="h-full flex flex-col justify-between px-8 lg:px-12 xl:px-16 py-8 lg:py-12 text-white overflow-hidden">
             <AnimatePresence>
               {isMenuOpen && (
                 <motion.div
@@ -570,7 +595,7 @@ const Navbar = () => {
                       ONE EARTH
                     </motion.h1>
                     <motion.h2
-                      className="text-base lg:text-lg xl:text-5xl ml-13 font-light tracking-[0.7em] "
+                      className="text-base lg:text-lg xl:text-5xl ml-13 font-light tracking-[0.7em] text-gray-300"
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8, duration: 0.8 }}
@@ -582,171 +607,87 @@ const Navbar = () => {
                   <motion.div
                     className="flex space-y-6 lg:space-y-8 gap-30 overflow-hidden"
                     variants={rightPanelVariants}
+                    initial="hidden"
+                    animate="visible"
                   >
-                    <div className="space-y-6 lg:space-y-8">
-                      {" "}
-                      <motion.div variants={rightContentVariants}>
-                        <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider  mb-2"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 1.0 }}
-                        >
-                          EMAIL
-                        </motion.h3>
-                        <motion.a
-                          href="mailto:oneearthpropertiesllp@gmail.com"
-                          className="text-xs lg:text-sm xl:text-base 
-                           transition-colors block"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 1.1, duration: 0.6 }}
-                          whileHover={{ scale: 1.02 }}
-                        >
-                          ONEEARTHPROPERTIESLLP@GMAIL.COM
-                        </motion.a>
-                      </motion.div>
-                      <motion.div variants={rightContentVariants}>
-                        <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider  mb-2"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 1.2 }}
-                        >
-                          PHONE
-                        </motion.h3>
-                        <motion.a
-                          href="tel:+919860372727"
-                          className="text-xs lg:text-sm xl:text-base 
-                           transition-colors"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 1.3, duration: 0.6 }}
-                          whileHover={{ scale: 1.02 }}
-                        >
-                          +91 9860372727
-                        </motion.a>
-                      </motion.div>
-                      <motion.div variants={rightContentVariants}>
-                        <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider  mb-2"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 1.4 }}
-                        >
-                          OFFICE
-                        </motion.h3>
-                        <motion.address
-                          className="text-xs lg:text-sm xl:text-base 
-                          not-italic leading-relaxed"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 1.5, duration: 0.6 }}
-                        >
-                          A1105, RACHALE BUSINESS BAY,
-                          <br />
-                          KOTHRUD, PUNE, 411038
-                        </motion.address>
+                    <motion.div
+                      className="flex-1"
+                      variants={rightContentVariants}
+                    >
+                      <motion.h3
+                        className="text-sm lg:text-base xl:text-lg font-light uppercase tracking-wider mb-3 lg:mb-4 text-gray-400"
+                        variants={rightContentVariants}
+                      >
+                        Contact
+                      </motion.h3>
+                      <motion.p
+                        className="text-xs lg:text-sm xl:text-base font-light leading-relaxed text-gray-300"
+                        variants={rightContentVariants}
+                      >
+                        oneearthpropertiesllp@gmail.com
+                      </motion.p>
+                      <motion.p
+                        className="text-xs lg:text-sm xl:text-base font-light leading-relaxed text-gray-300 mt-2"
+                        variants={rightContentVariants}
+                      >
+                        +91 9690372727
+                      </motion.p>
+                    </motion.div>
+
+                    <motion.div
+                      className="flex-1"
+                      variants={rightContentVariants}
+                    >
+                      <motion.h3
+                        className="text-sm lg:text-base xl:text-lg font-light uppercase tracking-wider mb-3 lg:mb-4 text-gray-400"
+                        variants={rightContentVariants}
+                      >
+                        Address
+                      </motion.h3>
+                      <motion.p
+                        className="text-xs lg:text-sm xl:text-base font-light leading-relaxed text-gray-300"
+                        variants={rightContentVariants}
+                      >
+                        A105, Gokhale Business Bay,
+                        <br />
+                        Kothrud, Pune, 411038
+                      </motion.p>
+                    </motion.div>
+
+                    <motion.div
+                      className="flex-1"
+                      variants={rightContentVariants}
+                    >
+                      <motion.h3
+                        className="text-sm lg:text-base xl:text-lg font-light uppercase tracking-wider mb-3 lg:mb-4 text-gray-400"
+                        variants={rightContentVariants}
+                      >
+                        Follow Us
+                      </motion.h3>
+                      <motion.div
+                        className="space-y-2"
+                        variants={rightContentVariants}
+                      >
                         <motion.p
-                          className="text-xs  mt-2"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 1.6 }}
+                          className="text-xs lg:text-sm xl:text-base font-light text-gray-300 hover:text-white cursor-pointer transition-colors"
+                          variants={rightContentVariants}
                         >
-                          MONDAY TO FRIDAY
-                          <br />
-                          9:00 AM - 6:00 PM
+                          Instagram
+                        </motion.p>
+                        <motion.p
+                          className="text-xs lg:text-sm xl:text-base font-light text-gray-300 hover:text-white cursor-pointer transition-colors"
+                          variants={rightContentVariants}
+                        >
+                          Facebook
+                        </motion.p>
+                        <motion.p
+                          className="text-xs lg:text-sm xl:text-base font-light text-gray-300 hover:text-white cursor-pointer transition-colors"
+                          variants={rightContentVariants}
+                        >
+                          LinkedIn
                         </motion.p>
                       </motion.div>
-                    </div>
-
-                    <div className="space-y-6 lg:space-y-8">
-                      {" "}
-                      <motion.div variants={rightContentVariants}>
-                        <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider  mb-3"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 1.7 }}
-                        >
-                          SOCIAL
-                        </motion.h3>
-                        <div className="space-y-1 lg:space-y-2">
-                          {["INSTAGRAM", "FACEBOOK", "LINKEDIN"].map(
-                            (social, index) => (
-                              <motion.a
-                                key={social}
-                                href="#"
-                                className="block text-xs lg:text-sm 
-                                 transition-colors"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                  delay: 1.8 + index * 0.1,
-                                  duration: 0.6,
-                                }}
-                                whileHover={{ x: 5 }}
-                              >
-                                {social}
-                              </motion.a>
-                            )
-                          )}
-                        </div>
-                      </motion.div>
-                      <motion.div variants={rightContentVariants}>
-                        <motion.h3
-                          className="text-xs lg:text-sm font-medium tracking-wider  mb-3"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 2.0 }}
-                        >
-                          LEGAL
-                        </motion.h3>
-                        <div className="space-y-1 lg:space-y-2">
-                          {["PRIVACY POLICY", "TERMS & CONDITIONS"].map(
-                            (legal, index) => (
-                              <motion.a
-                                key={legal}
-                                href="#"
-                                className="block text-xs lg:text-sm 
-                                 transition-colors"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                  delay: 2.1 + index * 0.1,
-                                  duration: 0.6,
-                                }}
-                                whileHover={{ x: 5 }}
-                              >
-                                {legal}
-                              </motion.a>
-                            )
-                          )}
-                        </div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    className="mt-6 lg:mt-8 pt-4 lg:pt-6"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 2.3, duration: 0.8 }}
-                  >
-                    <motion.hr
-                      className="mb-4 lg:mb-6 origin-left"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: 2.4, duration: 1.2 }}
-                    />
-                    <motion.p
-                      className="text-xs  tracking-wider"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 2.6, duration: 0.6 }}
-                    >
-                      ©2025 ONE EARTH PROPERTIES - ALL RIGHT RESERVED
-                    </motion.p>
+                    </motion.div>
                   </motion.div>
                 </motion.div>
               )}

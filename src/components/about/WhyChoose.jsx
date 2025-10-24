@@ -14,7 +14,7 @@ const WhyChoose = () => {
 />
 
       
-      <div className="absolute inset-0 bg-black/90"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
 
       
       <div className="relative z-10 max-w-7xl w-full grid lg:grid-cols-2 gap-8 text-[#FBF0DA]">
