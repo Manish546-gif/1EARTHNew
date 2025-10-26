@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
@@ -182,7 +182,7 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
   return (
     <div
       ref={cardRef}
-      className="sticky top-0 h-screen flex items-center justify-center snap-start snap-always"
+      className="sticky top-0 min-h-screen  flex items-center justify-center snap-start snap-always"
     >
       <div className={`relative w-full h-full overflow-hidden`} style={{ backgroundColor: bgColor, color: textColor }}>
         <div className="max-w-[1600px] mx-auto h-full px-6 lg:px-12 py-12 lg:py-16">
@@ -313,10 +313,24 @@ const colors = [
 ];
 
 function ServiceStack() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const height = isMobile ? `${services.length * 165}vh` : `${services.length * 100}vh`;
+
   return (
     <div className="relative">
-
-      <div className="relative" style={{ height: `${services.length * 100}vh` }}>
+      <div className="relative" style={{ height }}>
         {services.map((service) => {
           const index = (service.id - 1) % 2;
           const color = colors[index];

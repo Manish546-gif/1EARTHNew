@@ -23,14 +23,14 @@ export default function  ServiceLanding() {
           </h1>
         </div>
 
-        <div className="absolute bottom-12 left-6 lg:left-8">
+        <div className="absolute lg:bottom-12 bottom-0 md:bottom-12 left-6 lg:left-8">
           <h5 className=" text-xl font-light tracking-widest transform  origin-left">
             SCROLL
           </h5>
         </div>
 
-        <div className="absolute bottom-20 right-6 lg:right-8 max-w-md xl:max-w-xs">
-          <div className="space-y-4 ">
+        <div className="absolute bottom-20 right-6 ml-6  md:ml-0 lg:ml-0  lg:right-8 max-w-lg xl:max-w-xs">
+          <div className="space-y-4">
             <p className="text-sm lg:text-base">
               At One Earth, service is rooted in purpose—a commitment to design, integrity, and the land itself. Our approach goes beyond development; it's about creating spaces that reflect your vision while honoring the Earth.
             </p>

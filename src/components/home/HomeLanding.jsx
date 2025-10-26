@@ -36,9 +36,11 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative bg-black w-full h-screen overflow-hidden flex items-end md:py-10 md:px-10 justify-between px-6 ">
-      <video data-scroll
-      data-scroll-speed='-0.3'
+    <section className="relative bg-black w-full h-screen overflow-hidden flex flex-col md:flex-row justify-end md:justify-between px-6 md:px-10 py-6 md:py-10">
+      {/* Video Background */}
+      <video
+        data-scroll
+        data-scroll-speed='-0.3'
         className="absolute top-0 left-0 w-full h-full object-cover"
         autoPlay
         muted
@@ -48,17 +50,14 @@ const HeroSection = () => {
         <source src={bgVideo} type="video/mp4" />
       </video>
 
-      
-      {/* <div className="absolute inset-0 bg-black/40"></div> */}
-
-      {/* Content */}
-      <div className="relative z-10 flex w-full justify-between  items-end">
+      {/* Content Overlay */}
+      <div className="relative z-10 flex w-full flex-col md:flex-row justify-end md:justify-between items-start md:items-end gap-8 md:gap-0 mt-auto">
         {/* Left Text */}
-        <div className="max-w-xs text-[#FBF0DA] ">
+        <div className="max-w-xs md:max-w-sm text-[#FBF0DA] sm:text-left">
           {leftText.map((line, i) => (
             <motion.p
               key={i}
-              className="block text-xl font-Grenda"
+              className="block text-xl md:text-2xl font-Grenda"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -68,28 +67,25 @@ const HeroSection = () => {
               {line}
             </motion.p>
           ))}
-            <div className="text-[#FBF0DA] text-4xl md:text-9xl md:mt-20   text-left">
-          {heading.map((word, i) => (
-            <motion.span
-              key={i}
-              className="block"
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i + 3}
-            >
-              {word}
-            </motion.span>
-          ))}
+          <div className="text-[#FBF0DA] text-4xl sm:text-5xl md:text-9xl mt-6 md:mt-20 text-left">
+            {heading.map((word, i) => (
+              <motion.span
+                key={i}
+                className="block"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i + 3}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </div>
         </div>
-        </div>
-
-        
-      
 
         {/* Right Text */}
-        <div className="max-w-60 text-[#FBF0DA] text-sm md:text-base  text-left font-Grenda">
+        <div className="max-w-full md:max-w-xs text-[#FBF0DA] text-sm sm:text-base md:text-base text-left font-Grenda">
           {rightText.map((line, i) => (
             <motion.p
               key={i}

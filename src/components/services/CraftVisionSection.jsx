@@ -76,7 +76,7 @@ export default function CraftVisionSection() {
             </div>
 
 
-           <h1 className="text-4xl lg:text-6xl xl:text-7xl text-black mb-8">
+           <h1 className="text-6xl lg:text-6xl xl:text-7xl text-black mb-8">
               <div className="overflow-hidden">
                 <motion.span 
                   className="block"
@@ -124,11 +124,11 @@ export default function CraftVisionSection() {
               </div>
             </h1>
 
-            <div className="md:w-3/5 mb-10">
+            <div className="md:w-3/5 w-full sm:mb-10 lg:mb-10 mb-5 md:mb-10">
               {paragraphLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="text-gray-700 text-sm leading-relaxed"
+                  className=" md:text-sm lg:text-sm text-lg "
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -176,7 +176,7 @@ export default function CraftVisionSection() {
 
         <div className="lg:hidden mt-12 space-y-6 ">
           <div
-            className="bg-gray-300 h-48 w-full relative overflow-hidden rounded "
+            className=" h-48 w-full relative overflow-hidden rounded "
           >
             <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
@@ -186,13 +186,12 @@ export default function CraftVisionSection() {
                 style={{ transformOrigin: "right" }}
                 className="w-full origin-right absolute  h-full bg-[#FBF0DA]"
               />
-              <img data-scroll
-          data-scroll-speed="-1" src={craft1} className="w-full h-full bg-cover" alt="" />
+              <img  src={craft1} className="w-full h-full bg-cover" alt="" />
           </div>
           <div
-            className="bg-gray-300 h-48 w-full relative overflow-hidden rounded "
+            className=" h-48 w-full relative overflow-hidden  "
           >
-            <motion.div
+             <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
                 transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
@@ -200,8 +199,7 @@ export default function CraftVisionSection() {
                 style={{ transformOrigin: "right" }}
                 className="w-full origin-right absolute  h-full bg-[#FBF0DA]"
               />
-              <img data-scroll
-          data-scroll-speed="-1" src={craft2} className="w-full h-full bg-cover" alt="" />
+              <img  src={craft2} alt="" className="w-full h-full bg-cover"/>
           </div>
         </div>
       </div>

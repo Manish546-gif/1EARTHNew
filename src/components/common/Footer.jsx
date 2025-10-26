@@ -1,7 +1,7 @@
+import React from 'react';
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Line from "./Line";
-
 
 export default function Footer() {
   const letterAnimation = {
@@ -40,9 +40,10 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#041C28] text-[#FBF0DA] pt-16 md:pt-14 pb-10 md:pb-14">
-      <div className="flex mb-20 flex-col md:flex-row justify-between gap-12 px-6 md:px-16 lg:px-10">
+      <div className="flex flex-col md:flex-row mb-20 justify-between gap-12 px-6 md:px-16 lg:px-10">
+
         {/* LEFT SIDE — Nav + Paragraph */}
-        <div className="flex flex-col space-y-8 max-w-xl">
+        <div className="flex flex-col space-y-8 max-w-xl sm:text-left sm:items-start">
           {/* Navigation */}
           <nav>
             <ul className="space-y-3 md:space-y-4 text-base md:text-lg">
@@ -58,7 +59,7 @@ export default function Footer() {
                   <span className="text-xs text-gray-400">({item.num})</span>
                   <Link
                     to={item.path}
-                    className=" md:text-3xl transition-all duration-300"
+                    className=" md:text-3xl transition-all duration-300 sm:text-base"
                   >
                     {item.label}
                   </Link>
@@ -68,7 +69,7 @@ export default function Footer() {
           </nav>
 
           {/* Paragraph */}
-          <div className="space-y-1 text-xs md:text-sm md:max-w-sm ">
+          <div className="space-y-1 text-xs md:text-sm md:max-w-sm sm:text-[0.7rem]">
             {paragraphLines.map((line, i) => (
               <motion.p
                 key={i}
@@ -85,10 +86,10 @@ export default function Footer() {
         </div>
 
         {/* RIGHT SIDE — Logo + Info */}
-        <div className="flex flex-col items-start md:items-center text-right w-full md:w-auto">
+        <div className="flex flex-col items-start text-left w-full md:w-auto mt-10 md:mt-0">
           {/* Logo */}
-          <div className="text-center md:text-left select-none">
-            <motion.h1 className="text-5xl sm:text-7xl md:text-[100px] lg:text-[120px] leading-none  flex flex-wrap justify-center md:justify-start">
+          <div className="text-left select-none">
+            <motion.h1 className="text-5xl sm:text-6xl md:text-[100px] lg:text-[120px] leading-none flex flex-wrap justify-start">
               {["O", "N", "E", "\u00A0", "E", "A", "R", "T", "H"].map(
                 (char, i) => (
                   <motion.span
@@ -105,7 +106,7 @@ export default function Footer() {
               )}
             </motion.h1>
 
-            <motion.h2 className="text-2xl sm:text-3xl md:text-[40px] lg:text-[50px] tracking-[0.85em] mt-2 md:mt-4">
+            <motion.h2 className="text-2xl sm:text-2xl md:text-[40px] lg:text-[50px] tracking-[0.85em] mt-2 md:mt-4">
               {["P", "R", "O", "P", "E", "R", "T", "I", "E", "S"].map(
                 (char, i) => (
                   <motion.span
@@ -124,7 +125,7 @@ export default function Footer() {
           </div>
 
           {/* Info Section */}
-          <div className="mt-10 flex text-start flex-col md:flex-row md:justify-start md:gap-20 lg:gap-32 text-xs sm:text-sm md:text-base">
+          <div className="mt-10 flex flex-col md:flex-row md:justify-start md:gap-20 lg:gap-32 text-xs sm:text-sm md:text-base gap-8 sm:items-start sm:text-left">
             {/* Left Info */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -134,7 +135,7 @@ export default function Footer() {
               className="space-y-5"
             >
               <div>
-                <p className="uppercase  font-medium mb-1">EMAIL</p>
+                <p className="uppercase font-medium mb-1">EMAIL</p>
                 <p className="text-gray-200">
                   oneearthpropertiesllp@gmail.com
                 </p>
@@ -174,14 +175,15 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-    <Line  />
+      <Line />
 
       {/* Footer Bottom */}
-      <div className="px-6 md:px-10 lg:px-10 pt-4 flex flex-col md:flex-row justify-between items-center text-[0.7rem] sm:text-xs text-gray-400 tracking-wider gap-2 md:gap-0">
+      <div className="px-6 md:px-10 lg:px-10 pt-4 flex flex-col md:flex-row justify-between items-start sm:items-start text-[0.7rem] sm:text-xs text-gray-400 tracking-wider gap-2 md:gap-0">
         <p>©2025 ONE EARTH PROPERTIES - ALL RIGHTS RESERVED</p>
-       
+        <div className="flex gap-2 sm:flex-col sm:items-start md:flex-row">
           <p className="cursor-pointer hover:underline">TERM OF SERVICE</p>
           <p className="cursor-pointer hover:underline">PRIVACY POLICY</p>
+        </div>
       </div>
     </footer>
   );

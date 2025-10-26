@@ -17,18 +17,18 @@ export default function  AboutLanding() {
         <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-8 w-full h-screen flex items-center">
           
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <h1 className="text-6xl md:text-4xl lg:text-4xl xl:text-7xl ">
+            <h1 className="text-4xl md:text-4xl lg:text-4xl xl:text-7xl ">
               ABOUT US
             </h1>
           </div>
   
-          <div className="absolute bottom-12 left-6 lg:left-8">
+          <div className="absolute lg:bottom-12 bottom-4 left-2 lg:left-8">
             <h5 className=" text-xl font-light tracking-widest transform  origin-left">
               SCROLL
             </h5>
           </div>
   
-          <div className="absolute bottom-20 right-6 lg:right-8 max-w-md xl:max-w-xs">
+          <div className="absolute lg:bottom-20 bottom-28 right-6 px-3 lg:right-8 max-w-md xl:max-w-xs">
             <div className="space-y-6 ">
               <p className="text-sm lg:text-base leading-relaxed font-light">
               One Earth Properties creates spaces that live in harmony with nature. Guided by sustainability, balance, and purpose, each project is designed to evolve with time while hovering the land it stands on. We don’t just build, we nurture legacies that connect with people, place, and planet.              </p>

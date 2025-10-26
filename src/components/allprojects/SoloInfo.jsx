@@ -59,7 +59,7 @@ const SoloInfo = () => {
             {details.map((item, index) => (
               <motion.div
                 key={index}
-                className="text-sm relative overflow-hidden"
+                className="text-sm relative "
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}

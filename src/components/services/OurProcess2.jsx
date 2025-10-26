@@ -132,7 +132,7 @@ const OurProcess2 = () => {
       <div className="max-w-7xl mb-12 mx-auto">
         
         <motion.div 
-          className="mb-16"
+          className="mb-10 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -140,7 +140,7 @@ const OurProcess2 = () => {
         >
           <div className="overflow-hidden">
             <motion.span 
-              className="block text-4xl sm:text-5xl md:text-6xl font-light text-gray-900 mb-4"
+              className="block text-5xl sm:text-5xl md:text-6xl font-light text-gray-900 mb-2"
               variants={textVariants}
             >
               OUR
@@ -148,7 +148,7 @@ const OurProcess2 = () => {
           </div>
           <div className="overflow-hidden">
             <motion.span 
-              className="block text-4xl sm:text-5xl md:text-6xl font-light text-gray-900"
+              className="block text-5xl sm:text-5xl md:text-6xl font-light text-gray-900"
               variants={textVariants}
             >
               PROCESS
