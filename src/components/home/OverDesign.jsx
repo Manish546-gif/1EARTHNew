@@ -32,7 +32,7 @@ export default function OverDesign() {
   return (
    <div>
     <Line />
-     <div className="h-screen bg-[#FBF0DA] flex items-center md:mb-20 mt-20 justify-center p-12">
+     <div className="min-h-screen bg-[#FBF0DA] flex items-center md:mb-20 mt-20 justify-center p-12">
       <div className="max-w-8xl w-full mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Image */}

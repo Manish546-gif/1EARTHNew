@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Line from "./Line";
+
 
 export default function Footer() {
   const letterAnimation = {
@@ -16,84 +18,65 @@ export default function Footer() {
     visible: (i) => ({
       y: 0,
       opacity: 1,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.8,
-        ease: "easeOut",
-      },
+      transition: { delay: i * 0.1, duration: 0.8, ease: "easeOut" },
     }),
   };
 
   const paragraphLines = [
-    "More than a real estate brand, One",
-    "Earth is a vision shaped by legacy,",
-    "balance, and purpose. Guided by",
-    "nature's rhythm and India's heritage,",
-    "crafting spaces that nurture life and",
-    "inspire belonging."
+    "More than a real estate brand, One Earth is a vision shaped by legacy, balance, and purpose.",
+    "We are guided by nature’s rhythm and India’s timeless heritage, crafting spaces that nurture life and inspire belonging.",
+    "Every creation reflects our belief in integrity, sustainability, and enduring design—",
+    "where development honors the land and living feels grounded yet luxurious.",
+    "At One Earth, we don’t just build properties; we cultivate legacies that stand the test of time.",
+  ];
+
+  const navItems = [
+    { num: "1", label: "HOME", path: "/" },
+    { num: "2", label: "ABOUT", path: "/about" },
+    { num: "3", label: "PROJECT", path: "/project" },
+    { num: "4", label: "SERVICE", path: "/services" },
+    { num: "5", label: "CONTACT", path: "/contact" },
   ];
 
   return (
-    <footer className="bg-[#0b1c24] text-[#FBF0DA] py-12 md:py-16 lg:py-20">
-      <div className="flex flex-col md:flex-row flex-wrap justify-between gap-10 md:gap-26 px-6 md:px-16">
-
-        {/* Left Column: Nav + Description */}
-        <div className="flex flex-col space-y-6 max-w-full md:max-w-sm">
+    <footer className="bg-[#041C28] text-[#FBF0DA] pt-16 md:pt-14 pb-10 md:pb-14">
+      <div className="flex mb-20 flex-col md:flex-row justify-between gap-12 px-6 md:px-16 lg:px-10">
+        {/* LEFT SIDE — Nav + Paragraph */}
+        <div className="flex flex-col space-y-8 max-w-xl">
+          {/* Navigation */}
           <nav>
-            <ul className="space-y-4 sm:space-y-6  text-sm sm:text-base md:text-2xl lg:text-3xl">
-              <motion.li
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                className="overflow-hidden"
-              >
-                <Link to="/" className="hover:underline">(1) HOME</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="overflow-hidden"
-              >
-                <Link to="/about" className="hover:underline">(2) ABOUT</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                className="overflow-hidden"
-              >
-                <Link to="/project" className="hover:underline">(3) PROJECT</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-                className="overflow-hidden"
-              >
-                <Link to="/services" className="hover:underline">(4) SERVICE</Link>
-              </motion.li>
-              <motion.li
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
-                className="overflow-hidden"
-              >
-                <Link to="/contact" className="hover:underline">(5) CONTACT</Link>
-              </motion.li>
+            <ul className="space-y-3 md:space-y-4 text-base md:text-lg">
+              {navItems.map((item, i) => (
+                <motion.li
+                  key={item.num}
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: i * 0.15 }}
+                  viewport={{ once: true }}
+                  className="flex items-baseline gap-2 overflow-hidden"
+                >
+                  <span className="text-xs text-gray-400">({item.num})</span>
+                  <Link
+                    to={item.path}
+                    className=" md:text-3xl transition-all duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.li>
+              ))}
             </ul>
           </nav>
 
-          <div className="mt-5">
+          {/* Paragraph */}
+          <div className="space-y-1 text-xs md:text-sm md:max-w-sm ">
             {paragraphLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="text-sm sm:text-base leading-relaxed"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                custom={i + 6}
+                custom={i}
               >
                 {line}
               </motion.p>
@@ -101,78 +84,87 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Right Column: Brand + Info */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left flex-grow max-w-full">
-          {/* Brand Name */}
-          <motion.h1 className=" text-4xl sm:text-6xl md:text-[120px] lg:text-[160px] leading-none select-none flex flex-wrap justify-center md:justify-start">
-            {["O","N","E","\u00A0","E","A","R","T","H"].map((char, i) => (
-              <motion.span
-                key={i}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={letterAnimation}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.h1>
+        {/* RIGHT SIDE — Logo + Info */}
+        <div className="flex flex-col items-start md:items-center text-right w-full md:w-auto">
+          {/* Logo */}
+          <div className="text-center md:text-left select-none">
+            <motion.h1 className="text-5xl sm:text-7xl md:text-[100px] lg:text-[120px] leading-none  flex flex-wrap justify-center md:justify-start">
+              {["O", "N", "E", "\u00A0", "E", "A", "R", "T", "H"].map(
+                (char, i) => (
+                  <motion.span
+                    key={i}
+                    custom={i}
+                    variants={letterAnimation}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                  >
+                    {char}
+                  </motion.span>
+                )
+              )}
+            </motion.h1>
 
-          {/* PROPERTIES */}
-          <motion.h2 className=" text-lg sm:text-2xl md:text-[40px] lg:text-[60px] tracking-[1em] -mt-2 select-none flex justify-center md:justify-start flex-wrap">
-            {["P","R","O","P","E","R","T","I","E","S"].map((char, i) => (
-              <motion.span
-                key={i}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={letterAnimation}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </motion.h2>
+            <motion.h2 className="text-2xl sm:text-3xl md:text-[40px] lg:text-[50px] tracking-[0.85em] mt-2 md:mt-4">
+              {["P", "R", "O", "P", "E", "R", "T", "I", "E", "S"].map(
+                (char, i) => (
+                  <motion.span
+                    key={i}
+                    custom={i}
+                    variants={letterAnimation}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                  >
+                    {char}
+                  </motion.span>
+                )
+              )}
+            </motion.h2>
+          </div>
 
-          {/* Contact Info */}
-          <div className="flex flex-col md:flex-row gap-80 mt-8 md:mt-10 w-full">
-            {/* Left Column */}
+          {/* Info Section */}
+          <div className="mt-10 flex text-start flex-col md:flex-row md:justify-start md:gap-20 lg:gap-32 text-xs sm:text-sm md:text-base">
+            {/* Left Info */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col space-y-6 text-left md:max-w-lg text-sm sm:text-base md:text-lg"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="space-y-5"
             >
               <div>
-                <p className=" uppercase mb-1 text-base sm:text-lg md:text-xl">EMAIL</p>
-                <p>oneearthpropertiesllp@gmail.com</p>
+                <p className="uppercase  font-medium mb-1">EMAIL</p>
+                <p className="text-gray-200">
+                  oneearthpropertiesllp@gmail.com
+                </p>
               </div>
               <div>
-                <p className=" uppercase mb-1 text-base sm:text-lg md:text-xl">PHONE</p>
-                <p>+91 9690372727</p>
+                <p className="uppercase font-medium mb-1">PHONE</p>
+                <p className="text-gray-300">+91 9960372727</p>
               </div>
               <div>
-                <p className=" uppercase mb-1 text-base sm:text-lg md:text-xl">SOCIAL</p>
-                <p>
+                <p className="uppercase font-medium mb-1">SOCIAL</p>
+                <p className="text-gray-300 leading-relaxed">
                   Instagram <br /> Facebook <br /> LinkedIn
                 </p>
               </div>
             </motion.div>
 
-            {/* Right Column */}
+            {/* Right Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="flex flex-col space-y-6 text-left md:max-w-xs text-sm sm:text-base md:text-lg"
+              transition={{ duration: 0.8, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="space-y-4 mt-8 md:mt-0"
             >
               <div>
-                <p className=" uppercase mb-1 text-base sm:text-lg md:text-xl">OFFICE</p>
-                <p>
-                  A105, Gokhale Business Bay, <br /> Kothrud, Pune, 411038
+                <p className="uppercase font-medium mb-1">OFFICE</p>
+                <p className="text-gray-300 leading-relaxed">
+                  A1105, Gokhale Business Bay, <br /> Kothrud, Pune, 411038
                 </p>
-                <p className="mt-3">
+                <p className="mt-3 text-gray-400">
                   Monday to Friday <br /> 9:00 AM - 6:00 PM
                 </p>
               </div>
@@ -182,20 +174,14 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        viewport={{ once: true }}
-        whileInView={{ scaleX: 1 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        style={{ transformOrigin: 'left' }}
-        className="h-px w-full bg-white mt-10 md:mt-16"
-      />
+    <Line  />
 
       {/* Footer Bottom */}
-      <div className="px-6 md:px-16 pt-4 flex flex-col md:flex-row justify-between text-xs sm:text-sm  gap-2 md:gap-0">
-        <p className="text-center md:text-left">Â©2025 ONE EARTH PROPERTIES - ALL RIGHTS RESERVED</p>
-        <p className="cursor-pointer hover:underline text-center md:text-right">TERM OF SERVICE</p>
-        <p className="cursor-pointer hover:underline text-center md:text-right">PRIVACY POLICY</p>
+      <div className="px-6 md:px-10 lg:px-10 pt-4 flex flex-col md:flex-row justify-between items-center text-[0.7rem] sm:text-xs text-gray-400 tracking-wider gap-2 md:gap-0">
+        <p>©2025 ONE EARTH PROPERTIES - ALL RIGHTS RESERVED</p>
+       
+          <p className="cursor-pointer hover:underline">TERM OF SERVICE</p>
+          <p className="cursor-pointer hover:underline">PRIVACY POLICY</p>
       </div>
     </footer>
   );

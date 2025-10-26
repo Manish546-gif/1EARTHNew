@@ -1,177 +1,145 @@
+import React from "react";
 import { motion } from "framer-motion";
-import craft2 from "../../assets/Rectangle 79.png";
+
+import craft2 from "../../assets/Rectangle 79.png"; // replace with your image
 import { Link } from "react-router-dom";
 
+// Reusable text animation
 const textVariant = {
-  hidden: { y: 40, opacity: 0 },
-  visible: (i) => ({
+  hidden: { y: 80, opacity: 0 },
+  show: (i) => ({
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.1,
-      duration: 0.8,
-      ease: "easeOut",
+      duration: 1,
+      delay: i * 0.25,
+      ease: [0.16, 1, 0.3, 1], // smooth premium curve
     },
   }),
 };
 
-function ImgHarmony() {
-  const paragraphLines = [
-    "Each One Earth creation blends",
-    "thoughtful design with sustainable",
-    "innovation crafting spaces that",
-    "reflect your vision while honoring",
-    "the land they stand on."
-  ];
-
+const ImgHarmony = () => {
   return (
-    <> 
-    
-      <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-20">
-        <div className="max-w-8xl w-full mx-auto px-4 lg:px-8">
-          <div className="relative">
-            {/* SERVICE Label - Top Left */}
-            <div className="absolute -top-12 left-0">
-              <motion.p
-                className="text-xs lg:text-sm font-light tracking-[0.3em] text-black"
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
-              >
-                SERVICE
-              </motion.p>
-            </div>
+    <section className="bg-[#FBF0DA] min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-14 py-20 overflow-hidden text-[#0a0a0a]  relative">
+      {/* Top Label */}
+      <motion.p
+        variants={textVariant}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        custom={0}
+        className="tracking-[0.3em] text-xs md:text-sm mb-12 uppercase text-gray-900"
+      >
+        SERVICE
+      </motion.p>
 
-            {/* Row 1: DESIGN IN - Centered */}
-            <div className="text-center">
-              <motion.div
-                className="overflow-hidden"
-                initial={{ y: 100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.3 }}
-              >
-                <h1 className=" text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[7rem] xl:text-[11rem] leading-none text-black tracking-tighter">
-                  DESIGN IN
-                </h1>
-              </motion.div>
-            </div>
+      {/* Headings section */}
+      <div className="w-full relative leading-[0.95] text-black">
+        {/* DESIGN IN (center aligned) */}
+        <motion.h1
+          custom={1}
+          variants={textVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-[clamp(2.8rem,9vw,11rem)]  text-center"
+        >
+          DESIGN IN
+        </motion.h1>
 
-            
-            <div className="grid grid-cols-1 lg:grid-cols-12  items-center justify-center ">
-              {/* HARMONY Text */}
-              <div className="lg:col-span-7">
-                <motion.div
-                  className="overflow-hidden"
-                  initial={{ y: 100, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
-                >
-                  <h1 className="font-serif text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[10.2rem] leading-none text-black tracking-tight">
-                    HARMONY
-                  </h1>
-                </motion.div>
-              </div>
+        {/* HARMONY + Image in same line */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 mt-2 lg:mt-4 relative">
+          <motion.h1
+            custom={2}
+            variants={textVariant}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="text-[clamp(2.8rem,9vw,11rem)]  text-center lg:text-left"
+          >
+            HARMONY
+          </motion.h1>
 
-              {/* Image */}
-              <div className="lg:col-span-5 flex p-1 ">
-                <motion.div
-                  className="w-full lg:w-[400px] xl:w-[450px] h-[200px] lg:h-[200px] overflow-hidden  relative"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.5 }}
-                >
-                  <motion.div
-                    initial={{ scaleX: 1, opacity: 1 }}
-                    whileInView={{ scaleX: 0, opacity: 1 }}
-                    transition={{ duration: 1.5, delay: 0.7, ease: "circOut" }}
-                    viewport={{ once: true }}
-                    style={{ transformOrigin: "right" }}
-                    className="w-full origin-right absolute z-10 h-full bg-[#FBF0DA]"
-                  />
-                  <img src={craft2} alt="Interior design" className="w-full h-full  object-cover" />
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Row 3: Description + Button (left) + WITH EARTH (right) */}
-            <div className="grid  grid-cols-1 lg:grid-cols-12  items-center">
-              {/* Description and Button */}
-              <motion.div
-                className="lg:w-xl mx-auto space-y-6"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.15
-                    }
-                  }
-                }}
-              >
-                <div className="max-w-sm">
-                  {paragraphLines.map((line, i) => (
-                    <motion.p
-                      key={i}
-                      className="text-sm leading-relaxed "
-                      variants={textVariant}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      custom={i}
-                    >
-                      {line}
-                    </motion.p>
-                  ))}
-                </div>
-
-                <div className="overflow-hidden">
-                  <Link to="/services">
-                    <motion.button
-                      className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
-                      variants={textVariant}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      custom={paragraphLines.length}
-                    >
-                      <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-                        OUR SERVICES
-                      </span>
-                      <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-                        OUR SERVICES
-                      </span>
-                    </motion.button>
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* WITH EARTH Text */}
-              <div className=" ml-40 md:w-5xl">
-                <motion.div
-                  className="overflow-hidden"
-                  initial={{ y: 100, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.5 }}
-                >
-                  <h1 className=" text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[10rem] leading-none text-black tracking-tight">
-                    WITH EARTH
-                  </h1>
-                </motion.div>
-              </div>
-            </div>
+          {/* Image Reveal Container */}
+          <div className="relative w-[260px] sm:w-[340px] md:w-[440px]  overflow-hidden   lg:mt-0">
+            {/* Reveal overlay */}
+            <motion.div
+              initial={{ scaleX: 1 }}
+              whileInView={{ scaleX: 0 }}
+              transition={{ duration: 1.2, delay: 0.5, ease: "circOut" }}
+              viewport={{ once: true }}
+              style={{ transformOrigin: "right" }}
+              className="absolute inset-0 bg-[#FBF0DA] z-10"
+            />
+            {/* Actual Image */}
+            <motion.img
+              src={craft2}
+              alt="Interior Design"
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
+
+        {/* Paragraph + WITH EARTH */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-start gap-5 mt-5 lg:mt-4">
+          <motion.p
+            custom={3}
+            variants={textVariant}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="max-w-md text-sm md:text-base text-gray-800  lg:mt-8"
+          >
+            Each One Earth creation blends thoughtful design with sustainable
+            innovation — crafting spaces that reflect your vision while honoring
+            the land they stand on.
+          </motion.p>
+
+          <motion.h1
+            custom={4}
+            variants={textVariant}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="text-[clamp(2.8rem,9vw,11rem)] font-medium text-black leading-none"
+          >
+            WITH EARTH
+          </motion.h1>
+        </div>
       </div>
-    </>
+
+      {/* Button */}
+      <motion.div
+        custom={5}
+        variants={textVariant}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="mt-12 flex justify-start"
+      >
+       <Link to="/services">
+              <motion.button
+                className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
+
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+
+              >
+                <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                  OUR SERVICES
+                </span>
+                <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                  OUR SERVICES
+                </span>
+              </motion.button>
+            </Link>
+      </motion.div>
+    </section>
   );
-}
+};
 
 export default ImgHarmony;
