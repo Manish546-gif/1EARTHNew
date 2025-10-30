@@ -21,6 +21,19 @@ const App = () => {
     const scrollEl = scrollRef.current;
     if (!scrollEl) return;
 
+    
+    if (locoInstance.current) {
+      locoInstance.current.destroy();
+      locoInstance.current = null;
+    }
+
+  
+    
+    scrollEl.scrollTop = 0;
+    window.scrollTo(0, 0);
+
+ 
+    
     locoInstance.current = new LocomotiveScroll({
       el: scrollEl,
       smooth: true,
@@ -29,15 +42,18 @@ const App = () => {
       tablet: { smooth: true },
     });
 
-    locoInstance.current.scrollTo(0, { duration: 0, disableLerp: true });
-    setTimeout(() => locoInstance.current.update(), 300);
+    
+    requestAnimationFrame(() => {
+      locoInstance.current?.scrollTo(0, { duration: 0, disableLerp: true });
+    });
+    
+    setTimeout(() => locoInstance.current?.update(), 500);
 
     return () => {
-      if (locoInstance.current) locoInstance.current.destroy();
+      locoInstance.current?.destroy();
     };
   }, [location.pathname]);
-
-
+  
   useEffect(() => {
     const appContainer = scrollRef.current;
     if (appContainer) {
@@ -48,9 +64,15 @@ const App = () => {
   }, []);
 
   return (
-    <div ref={scrollRef} data-scroll-container className="overflow-hidden bg-[#FBF0DA]">
+    <div
+      ref={scrollRef}
+      data-scroll-container
+      className="overflow-hidden bg-[#FBF0DA]"
+    >
       <Navbar />
 
+    
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project" element={<Projects />} />

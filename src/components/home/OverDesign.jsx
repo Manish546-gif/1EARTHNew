@@ -37,7 +37,7 @@ export default function OverDesign() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
             {/* Left Image */}
             <div className="lg:col-span-5 hidden mt-10 lg:block">
-              <motion.div className="relative overflow-hidden h-full w-full">
+              <motion.div className="relative overflow-hidden pr-1 h-full w-full">
                 <motion.div
                   initial={{ scaleX: 1, opacity: 1 }}
                   whileInView={{ scaleX: 0, opacity: 1 }}
@@ -149,9 +149,7 @@ export default function OverDesign() {
             </div>
           </div>
 
-          {/* ❌ Removed bottom image for desktop */}
-
-          {/* ✅ Mobile Layout (only visible on mobile) */}
+        
           <div className="lg:hidden mt-10 space-y-6">
             {[craft1, craft2].map((img, i) => (
               <div
