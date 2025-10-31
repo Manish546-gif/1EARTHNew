@@ -1,5 +1,5 @@
 import React from "react";
-import whychoose from "../../assets/whychoose.png";
+import whychoose from "../../assets/aboutland.png";
 
 const WhyChoose = () => {
   return (

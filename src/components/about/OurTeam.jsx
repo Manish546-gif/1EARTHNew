@@ -39,8 +39,7 @@ export default function OurTeam() {
             <div className="flex flex-col items-center lg:items-start w-full sm:w-[45%] lg:w-[40%]">
               <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mb-6 overflow-hidden">
                 <img
-                  data-scroll
-                  data-scroll-speed="-0.05"
+                  
                   src={img1}
                   alt="Shreyash Tarawade"
                   className="w-full h-full object-cover"
@@ -61,8 +60,7 @@ export default function OurTeam() {
             <div className="flex flex-col items-center lg:items-start w-full sm:w-[45%] lg:w-[40%]">
               <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mb-6 overflow-hidden">
                 <img
-                  data-scroll
-                  data-scroll-speed="-0.05"
+                  
                   src={img2}
                   alt="Sonal Jadhav"
                   className="w-full h-full object-cover"

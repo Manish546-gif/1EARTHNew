@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import origin2 from '../../assets/origin2.png';
+import origin2 from '../../assets/origin3.png';
 import Line from "../common/Line";
 
 const containerVariants = {

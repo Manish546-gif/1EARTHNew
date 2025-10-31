@@ -79,7 +79,7 @@ export default function OurProcess() {
                          <p className="text-lg lg:text-xl font-bold text-black uppercase  mb-3">
                            {step.title}
                          </p>
-                         <p className="text-sm lg:text-base md:mb-5 text-black ">
+                         <p className="text-sm lg:text-base md:mb-5 mb-5 text-black ">
                            {step.description}
                          </p>
                        </div>

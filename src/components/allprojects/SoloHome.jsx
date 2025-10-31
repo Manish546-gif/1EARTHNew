@@ -20,10 +20,11 @@ const SoloHome = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-end items-start min-h-screen p-8">
         <h1 className="text-4xl md:text-9xl uppercase w-40 mb-2 sm:text-3xl sm:w-full">
-          project name
+          harmony <br/>
+highland
         </h1>
         <p className="text-xl md:text-4xl tracking-wider sm:text-lg">
-          project location
+         velhe, bhor, pune
         </p>
       </div>
     </div>

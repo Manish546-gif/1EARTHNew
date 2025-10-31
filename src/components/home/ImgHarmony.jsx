@@ -99,7 +99,7 @@ const ImgHarmony = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="text-[clamp(3.2rem,10vw,11rem)] font-medium text-black leading-none text-center lg:text-left"
+            className="text-[clamp(3.2rem,8.9vw,10rem)] font-medium text-black leading-none text-center lg:text-left"
           >
             WITH EARTH
           </motion.h1>

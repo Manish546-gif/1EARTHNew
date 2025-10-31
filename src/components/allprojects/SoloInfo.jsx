@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import projectimg from '../../assets/projectland.png';
+import projectimg from '../../assets/info1.png';
 import info2 from '../../assets/info2.png';
 import Line from "../common/Line";
 const SoloInfo = () => {

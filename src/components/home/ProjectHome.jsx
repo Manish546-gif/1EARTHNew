@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import img1 from "../../assets/lake-geneva-3524431.png";
-import img2 from "../../assets/house-1477041_1920.png";
-import img3 from "../../assets/Rectangle 2.png";
+import img1 from "../../assets/homeproject.png";
 
 const projects = [
-  { id: 1, title: "SHIZUKA GARDENS", image: img1 },
-  { id: 2, title: "KAWA LOFTS", image: img2 },
-  { id: 3, title: "KINSEI PAVILION", image: img3 },
+  { id: 1, title: "HARMONY HINGLAND", image: img1 },
 ];
 
 const slideVariants = {
@@ -25,8 +21,16 @@ const slideVariants = {
 
 const ProjectSlider = () => {
   const [[page, direction], setPage] = useState([0, 0]);
+  const [showComingSoon, setShowComingSoon] = useState(false);
 
   const paginate = (newDirection) => {
+    // If there's only one project, show "Coming Soon"
+    if (projects.length === 1) {
+      setShowComingSoon(true);
+      setTimeout(() => setShowComingSoon(false), 2000); // hides after 2 seconds
+      return;
+    }
+
     setPage(([prevPage]) => {
       const nextPage = (prevPage + newDirection + projects.length) % projects.length;
       return [nextPage, newDirection];
@@ -38,16 +42,40 @@ const ProjectSlider = () => {
       {/* Arrow Buttons */}
       <button
         onClick={() => paginate(-1)}
-        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 font-light  text-5xl  hover:text-gray-300 hover:cursor-pointer transition-colors"
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 font-light text-5xl hover:text-gray-300 hover:cursor-pointer transition-colors"
       >
-        {'<'}
+        {"<"}
       </button>
       <button
         onClick={() => paginate(1)}
-        className="absolute right-5 top-1/2 -translate-y-1/2 z-20  font-extralight text-5xl  hover:text-gray-300 hover:cursor-pointer transition-colors"
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 font-extralight text-5xl hover:text-gray-300 hover:cursor-pointer transition-colors"
       >
-        {'>'}
+        {">"}
       </button>
+
+      {/* Coming Soon Animation */}
+      <AnimatePresence>
+        {showComingSoon && (
+          <motion.div
+            key="coming-soon"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="absolute inset-0 flex items-center justify-center z-30 bg-black/60 backdrop-blur-sm"
+          >
+            <motion.h2
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="text-4xl md:text-6xl font-light text-[#FBF0DA] tracking-widest"
+            >
+              Coming Soon
+            </motion.h2>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
@@ -60,7 +88,7 @@ const ProjectSlider = () => {
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full flex items-center justify-center"
         >
-          {/* Background Image with parallax effect */}
+          {/* Background Image */}
           <motion.div
             className="absolute inset-0 w-full h-full overflow-hidden"
             initial={{ x: direction > 0 ? 50 : -50 }}
@@ -69,8 +97,8 @@ const ProjectSlider = () => {
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
             <motion.img
-            data-scroll
-            data-scroll-speed="-0.4"
+              data-scroll
+              data-scroll-speed="-0.4"
               src={projects[page].image}
               alt={projects[page].title}
               className="w-full h-full object-cover"
@@ -91,7 +119,7 @@ const ProjectSlider = () => {
 
             {/* Bottom Section */}
             <div className="flex justify-between items-end">
-              <div className="">
+              <div>
                 <h2 className="md:text-8xl sm:text-6xl font-light tracking-tight leading-none">
                   {projects[page].title.split(" ").map((word, i) => (
                     <div key={i}>{word}</div>

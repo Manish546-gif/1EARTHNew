@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import designConsultation from "../../assets/Rectangle 104.png";
-import customSolutions from "../../assets/Rectangle 107.png";
+import designConsultation from "../../assets/Rectangle 107.png";
+import customSolutions from "../../assets/Rectangle 108.png";
 import projectManagement from "../../assets/Rectangle 109.png";
-import sustainabilityConsulting from "../../assets/Rectangle 111.png";
+import sustainabilityConsulting from "../../assets/Rectangle 110.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,66 +13,98 @@ const services = [
   {
     id: 1,
     number: "(1)",
-    title: "DESIGN CONSULTATION",
+    title: "LAYOUT PLANNING",
     about: "ABOUT",
     description:
-      "At One Earth Properties, every project begins with understanding your relationship with the land. Our design consultation service guides you from concept to creation—shaping ideas into meaningful plans that balance aesthetics, functionality, and nature. From initial layouts to refined design strategies, we ensure every detail reflects your vision and our shared commitment to sustainable living.",
-    whatIncluded: "WHAT'S INCLUDED",
+      "Our layout planning process blends design intelligence with environmental sensitivity. We craft well-structured, sustainable layouts that enhance functionality while preserving the natural character of the land. Every project is meticulously planned to optimize space, connectivity, and long-term livability.",
+    whatIncluded: "WHAT’S INCLUDED",
     features: [
-      "Initial concept meetings and workshops",
-      "Sustainability assessments",
-      "Site analysis and feasibility studies",
-      "Design development and refinement",
+      "Site analysis and terrain evaluation",
+      "Conceptual zoning and master layout design",
+      "Optimization of plots, roads, and open spaces",
+      "Integration of sustainability and natural features",
     ],
     image: designConsultation,
   },
   {
     id: 2,
     number: "(2)",
-    title: "CUSTOM SOLUTIONS",
+    title: "REGISTRATION ASSISTANCE",
     about: "ABOUT",
     description:
-      "No two landscapes are alike, and neither are our creations. At One Earth Properties, we craft bespoke land development solutions tailored to your vision—whether it's designing a serene retreat, a farmland estate, or an eco-luxury community. Every plan is shaped by the land's character, blending innovation, sustainability, and cultural context to create spaces that truly belong.",
-    whatIncluded: "WHAT'S INCLUDED",
+      "We simplify the complex legalities of property ownership with seamless registration support. Our experts handle the documentation, verification, and compliance process end-to-end, ensuring every transaction is transparent, secure, and stress-free for our clients.",
+    whatIncluded: "WHAT’S INCLUDED",
     features: [
-      "Tailored design and material selection",
-      "Adaptable and scalable architectural solutions",
-      "Integration of cultural and environmental elements",
-      "Innovative design technologies and methods",
+      "Guidance through legal documentation and procedures",
+      "Verification of property titles and ownership records",
+      "Coordination with government registration offices",
+      "Transparent handling of fees and compliance requirements",
     ],
     image: customSolutions,
   },
   {
     id: 3,
     number: "(3)",
-    title: "PROJECT MANAGEMENT",
+    title: "PROPERTY CONSULTATION",
     about: "ABOUT",
     description:
-      "Flawless execution is at the heart of every successful development. One Earth Properties' project management ensures each phase—from site planning to plot delivery—is handled with meticulous care. We oversee timelines, maintain quality standards, and coordinate every detail, ensuring your vision is realized while honoring both the land and your investment.",
-    whatIncluded: "WHAT'S INCLUDED",
+      "With deep market insight and local expertise, we help you make informed investment decisions. Whether you’re buying your first plot or expanding your portfolio, our consultants provide tailored advice that aligns with your goals, budget, and vision for the future.",
+    whatIncluded: "WHAT’S INCLUDED",
     features: [
-      "Full project coordination",
-      "Timeline and budget management",
-      "Quality control and site supervision",
-      "Stakeholder communication and reporting",
+      "One-on-one expert consultations and advisory sessions",
+      "Market and investment potential assessments",
+      "Assistance in selecting ideal plots or projects",
+      "Personalized solutions aligned with client goals",
     ],
     image: projectManagement,
   },
   {
     id: 4,
     number: "(4)",
-    title: "SUSTAINABILITY CONSULTING",
+    title: "INFRASTRUCTURE DEVELOPMENT",
     about: "ABOUT",
     description:
-      "Sustainability guides every decision we make at One Earth Properties. Our environmental planning service brings expert guidance on integrating eco-conscious practices throughout your project. From energy-efficient infrastructure and water conservation to regenerative design and green technologies, we ensure every development nurtures the land while creating lasting value for you and future generations.",
-    whatIncluded: "WHAT'S INCLUDED",
+      "We go beyond construction to create infrastructure that enhances community life and long-term value. Our developments are thoughtfully designed with robust planning, sustainable practices, and enduring materials that ensure quality, safety, and harmony with nature.",
+    whatIncluded: "WHAT’S INCLUDED",
     features: [
-      "Green certifications and compliance",
-      "Energy efficiency planning",
-      "Resource management and waste reduction",
-      "Sustainable materials sourcing and recommendations",
+      "Planning and execution of core site infrastructure",
+      "Roads, drainage, and utility network development",
+      "Implementation of eco-conscious design principles",
+      "Quality checks and long-term maintenance planning",
     ],
     image: sustainabilityConsulting,
+  },
+  {
+    id: 5,
+    number: "(5)",
+    title: "LOAN ASSISTANCE",
+    about: "ABOUT",
+    description:
+      "We make property financing simple and accessible through trusted partnerships with leading financial institutions. Our team provides step-by-step guidance—from evaluating eligibility to final disbursement—helping you secure the best loan options without the hassle.",
+    whatIncluded: "WHAT’S INCLUDED",
+    features: [
+      "Evaluation of financing options and eligibility",
+      "Coordination with trusted banking partners",
+      "Support with documentation and approvals",
+      "Step-by-step guidance until loan disbursement",
+    ],
+    image: designConsultation,
+  },
+  {
+    id: 6,
+    number: "(6)",
+    title: "AFTER-SALES SUPPORT",
+    about: "ABOUT",
+    description:
+      "Our relationship with clients continues well beyond the purchase. From timely updates to dedicated service assistance, we ensure every buyer feels supported, informed, and valued throughout their ownership journey—building trust that lasts for years.",
+    whatIncluded: "WHAT’S INCLUDED",
+    features: [
+      "Dedicated post-purchase client assistance",
+      "Regular updates and communication after handover",
+      "Resolution of queries or service requests",
+      "Continued engagement to ensure long-term satisfaction",
+    ],
+    image: customSolutions,
   },
 ];
 
@@ -94,84 +126,67 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: cardRef.current,
-          start: "top center",
-          end: "center center",
+          start: "top 80%",
+          end: "bottom 60%",
           scrub: 1,
         },
+        defaults: { ease: "power2.out", duration: 1 },
       });
 
-      // Animate title
-      tl.fromTo(
-        titleRef.current,
-        { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
-        0
-      );
+      tl.fromTo(titleRef.current, { y: 80, opacity: 0 }, { y: 0, opacity: 1 })
+        .fromTo(
+          lineRef.current,
+          { scaleX: 0, opacity: 0 },
+          { scaleX: 1, opacity: 0.3, duration: 1.2 },
+          "-=0.6"
+        )
+        .fromTo(
+          numberRef.current,
+          { y: 100, opacity: 0, scale: 0.8 },
+          { y: 0, opacity: 0.9, scale: 1, duration: 1.2 },
+          "-=0.8"
+        )
+        .fromTo(
+          aboutRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 0.7 },
+          "-=0.6"
+        )
+        .fromTo(
+          descriptionRef.current,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1 },
+          "-=0.4"
+        )
+        .fromTo(
+          whatIncludedRef.current,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 0.8 },
+          "-=0.6"
+        );
 
-      // Animate horizontal line
-      tl.fromTo(
-        lineRef.current,
-        { scaleX: 0, opacity: 0 },
-        { scaleX: 1, opacity: 0.3, duration: 1.2, ease: "power2.out" },
-        0.2
-      );
-
-      // Animate number
-      tl.fromTo(
-        numberRef.current,
-        { y: 80, opacity: 0, scale: 0.8 },
-        { y: 0, opacity: 0.8, scale: 1, duration: 1.2, ease: "power3.out" },
-        0.3
-      );
-
-      // Animate about section
-      tl.fromTo(
-        aboutRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 0.7, duration: 0.8, ease: "power2.out" },
-        0.4
-      );
-
-      // Animate description
-      tl.fromTo(
-        descriptionRef.current,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 0.9, duration: 1, ease: "power3.out" },
-        0.5
-      );
-
-      // Animate "What's Included" heading
-      tl.fromTo(
-        whatIncludedRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 0.7, duration: 0.8, ease: "power2.out" },
-        0.6
-      );
-
-      // Animate features list
       if (featuresRef.current) {
         const featureItems = featuresRef.current.querySelectorAll("li");
         tl.fromTo(
           featureItems,
-          { x: -30, opacity: 0 },
+          { x: -25, opacity: 0 },
           {
             x: 0,
-            opacity: 0.9,
+            opacity: 1,
+            stagger: 0.15,
             duration: 0.8,
-            stagger: 0.1,
             ease: "power2.out",
           },
-          0.7
+          "-=0.5"
         );
       }
 
-      // Animate image
       if (imageRef.current) {
         tl.fromTo(
           imageRef.current,
-          { scale: 1.2, opacity: 0 },
+          { scale: 1.1, opacity: 0.9 },
           { scale: 1, opacity: 1, duration: 1.5, ease: "power2.out" },
-          0.5
+          "-=1"
         );
       }
     });
@@ -182,65 +197,64 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
   return (
     <div
       ref={cardRef}
-      className="sticky top-0 min-h-screen  flex items-center justify-center snap-start snap-always"
+      className="sticky top-0 min-h-screen flex items-center justify-center snap-start snap-always"
     >
-      <div className={`relative w-full h-full overflow-hidden`} style={{ backgroundColor: bgColor, color: textColor }}>
+      <div
+        className="relative w-full h-full overflow-hidden"
+        style={{ backgroundColor: bgColor, color: textColor }}
+      >
         <div className="max-w-[1600px] mx-auto h-full px-6 lg:px-12 py-12 lg:py-16">
-          {/* Header with horizontal line */}
+          {/* Title */}
           <div className="mb-8 lg:mb-12">
-            <div className="overflow-hidden">
-              <h1
-                ref={titleRef}
-                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light tracking-wide mb-4"
-              >
-                {service.title}
-              </h1>
-            </div>
+            <h1
+              ref={titleRef}
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light tracking-wide mb-4"
+            >
+              {service.title}
+            </h1>
             <div
               ref={lineRef}
-              className={`w-full h-px origin-left`}
+              className="w-full h-px origin-left"
               style={{ backgroundColor: textColor }}
             ></div>
           </div>
 
-          {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 h-[calc(100%-120px)]">
-            {/* Left Column - Number and About */}
+            {/* Left Section */}
             <div className="flex flex-col justify-between">
-              {/* Large Number */}
+              {" "}
+              {/* Large Number */}{" "}
               <div className="overflow-hidden">
+                {" "}
                 <div
                   ref={numberRef}
                   className="text-[120px] sm:text-[150px] lg:text-[180px] xl:text-[200px] font-light leading-none opacity-80"
                 >
-                  {service.number}
-                </div>
-              </div>
-
-              {/* About Section */}
+                  {" "}
+                  {service.number}{" "}
+                </div>{" "}
+              </div>{" "}
+              {/* About Section */}{" "}
               <div className="space-y-4">
+                {" "}
                 <h3
                   ref={aboutRef}
                   className="text-sm lg:text-base font-light tracking-[0.3em] opacity-70"
                 >
-                  {service.about}
-                </h3>
-              </div>
+                  {" "}
+                  {service.about}{" "}
+                </h3>{" "}
+              </div>{" "}
             </div>
 
-            {/* Middle Column - Description and Features */}
+            {/* Middle Section */}
             <div className="flex flex-col justify-between space-y-6 lg:space-y-8">
-              {/* Description */}
-              <div className="overflow-hidden">
-                <p
-                  ref={descriptionRef}
-                  className="text-sm lg:text-base leading-relaxed opacity-90"
-                >
-                  {service.description}
-                </p>
-              </div>
-
-              {/* What's Included */}
+              <p
+                ref={descriptionRef}
+                className="text-sm lg:text-base leading-relaxed opacity-90"
+              >
+                {service.description}
+              </p>
               <div className="space-y-4">
                 <h3
                   ref={whatIncludedRef}
@@ -262,13 +276,13 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
               </div>
             </div>
 
-            {/* Right Column - Image */}
+            {/* Right Section */}
             <div className="hidden lg:flex items-center justify-center">
-              <div className="w-full h-[400px] xl:h-[500px] overflow-hidden relative">
+              <div className="w-full h-[400px] xl:h-[500px] overflow-hidden relative ">
                 <motion.div
                   initial={{ scaleX: 1, opacity: 1 }}
                   whileInView={{ scaleX: 0, opacity: 1 }}
-                  transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+                  transition={{ duration: 1.4, delay: 0.3, ease: "circOut" }}
                   viewport={{ once: true }}
                   style={{ transformOrigin: "right", backgroundColor: bgColor }}
                   className="w-full origin-right absolute z-10 h-full"
@@ -277,7 +291,7 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
                   ref={imageRef}
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover "
                 />
               </div>
             </div>
@@ -285,11 +299,11 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
 
           {/* Mobile Image */}
           <div className="lg:hidden mt-6">
-            <div className="w-full h-[300px] overflow-hidden relative">
+            <div className="w-full h-[300px] overflow-hidden relative ">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
-                transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+                transition={{ duration: 1.2, delay: 0.3, ease: "circOut" }}
                 viewport={{ once: true }}
                 style={{ transformOrigin: "right", backgroundColor: bgColor }}
                 className="w-full origin-right absolute z-10 h-full"
@@ -297,7 +311,7 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-xl"
               />
             </div>
           </div>
@@ -316,21 +330,15 @@ function ServiceStack() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
-
-  const height = isMobile ? `${services.length * 165}vh` : `${services.length * 100}vh`;
 
   return (
     <div className="relative">
-      <div className="relative" style={{ height }}>
+      <div className={`relative ${isMobile ? "" : "min-h-screen"}`}>
         {services.map((service) => {
           const index = (service.id - 1) % 2;
           const color = colors[index];

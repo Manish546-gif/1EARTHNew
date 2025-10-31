@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import bgVideo from "../../assets/HomeLanding.mp4"; // replace with your video file path
+import bgVideo from "../../assets/HomeLanding.mp4";
 
 const textVariant = {
   hidden: { y: 40, opacity: 0 },
@@ -37,10 +37,8 @@ const HeroSection = () => {
 
   return (
     <section className="relative bg-black w-full h-screen overflow-hidden flex flex-col md:flex-row justify-end md:justify-between px-6 md:px-10 py-6 md:py-10">
-      {/* Video Background */}
+      {/* Background Video */}
       <video
-        data-scroll
-        data-scroll-speed='-0.3'
         className="absolute top-0 left-0 w-full h-full object-cover"
         autoPlay
         muted
@@ -57,7 +55,7 @@ const HeroSection = () => {
           {leftText.map((line, i) => (
             <motion.p
               key={i}
-              className="block text-xl md:text-2xl font-Grenda"
+              className="block font-Grenda text-[4vw] sm:text-[2.5vw] md:text-2xl"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -67,11 +65,12 @@ const HeroSection = () => {
               {line}
             </motion.p>
           ))}
-          <div className="text-[#FBF0DA] text-4xl sm:text-5xl md:text-9xl mt-6 md:mt-20 text-left">
+
+          <div className="text-[#FBF0DA] mt-6 md:mt-20 text-left">
             {heading.map((word, i) => (
               <motion.span
                 key={i}
-                className="block"
+                className="block font-Grenda text-[8vw] sm:text-[6vw] md:text-9xl"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -85,11 +84,11 @@ const HeroSection = () => {
         </div>
 
         {/* Right Text */}
-        <div className="max-w-full md:max-w-xs text-[#FBF0DA] text-sm sm:text-base md:text-base text-left font-Grenda">
+        <div className="max-w-full md:max-w-xs text-[#FBF0DA] font-Grenda text-left">
           {rightText.map((line, i) => (
             <motion.p
               key={i}
-              className="block"
+              className="block text-[3.5vw] sm:text-[2.2vw] md:text-base"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"

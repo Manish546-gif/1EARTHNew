@@ -27,22 +27,23 @@ const Navbar = () => {
     const detectBackgroundColor = () => {
       if (!navRef.current) return;
       const navRect = navRef.current.getBoundingClientRect();
-      const centerX = navRect.left + navRect.width / 2;
+      const leftX = navRect.left + 10; // Leftmost point near logo
       const centerY = navRect.top + navRect.height / 2;
 
       navRef.current.style.pointerEvents = "none";
-      const elementBehind = document.elementFromPoint(centerX, centerY);
+      const elementBehind = document.elementFromPoint(leftX, centerY);
       navRef.current.style.pointerEvents = "auto";
 
       if (elementBehind) {
         const bgColor = window.getComputedStyle(elementBehind).backgroundColor;
         const rgb = bgColor.match(/\d+/g);
-        if (rgb) {
-          const isLightCream =
-            parseInt(rgb[0]) === 251 &&
-            parseInt(rgb[1]) === 240 &&
-            parseInt(rgb[2]) === 218;
-          setIsLightBackground(isLightCream);
+        if (rgb && rgb.length >= 3) {
+          const r = parseInt(rgb[0]);
+          const g = parseInt(rgb[1]);
+          const b = parseInt(rgb[2]);
+          // Calculate luminance to determine if light or dark
+          const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+          setIsLightBackground(luminance > 0.5); // Light if luminance > 0.5
         }
       }
     };
@@ -232,7 +233,7 @@ const Navbar = () => {
                 <motion.img
                   src={logo}
                   alt="Earth logo"
-                  className="h-12 w-auto transition-all duration-300"
+                  className="h-12 w-auto transition-all duration-100"
                   style={{
                     filter: isLightBackground ? "brightness(0)" : "none",
                   }}
@@ -252,12 +253,11 @@ const Navbar = () => {
               <motion.img
                 src={menuIcon}
                 alt="Menu"
-                className="h-8 w-8 transition-all duration-300"
+                className="h-8 w-8 transition-all duration-100"
                 style={{
                   filter: isLightBackground ? "brightness(0)" : "none",
                 }}
-                animate={{ rotate: isMenuOpen ? 90 : 0 }}
-                whileHover={{rotate:90}}
+               
                 transition={{ duration: 0.3 }}
               />
             </motion.button>
@@ -302,7 +302,7 @@ const Navbar = () => {
                 alt="Menu"
                 className="h-8 w-8 transition-all duration-300"
                 style={{
-                  filter: isLightBackground ? "brightness(0)" : "none",
+                  filter:"brightness(0)",
                 }}
                 
                 whileHover={{rotate:90}}

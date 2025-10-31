@@ -31,7 +31,7 @@ export default function OverDesign() {
 
   return (
     <div>
-      <Line />
+      
       <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-6 sm:p-10 md:p-12 mt-10 md:mt-20 md:mb-20">
         <div className="max-w-8xl w-full mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
