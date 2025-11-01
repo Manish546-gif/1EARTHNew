@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Line from "../common/Line.jsx";
 import craft1 from "../../assets/111.jpg";
 import craft2 from "../../assets/2222.jpg";
+import TransitionLink from "../common/redirect";
+
 
 const textVariant = {
   hidden: { y: 40, opacity: 0 },
@@ -127,7 +129,7 @@ export default function OverDesign() {
                 </div>
 
                 <div className="mt-6 md:mt-10">
-                  <Link to="/contact">
+                  <TransitionLink to="/contact">
                     <motion.button
                       className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-5 sm:px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
                       variants={textVariant}
@@ -143,7 +145,7 @@ export default function OverDesign() {
                         CONTACT US
                       </span>
                     </motion.button>
-                  </Link>
+                  </TransitionLink>
                 </div>
               </div>
             </div>

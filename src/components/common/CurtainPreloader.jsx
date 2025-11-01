@@ -282,9 +282,30 @@ const CurtainPreloader = ({ children }) => {
   useEffect(() => {
     let isMounted = true;
 
+    const imagesToPreload = [
+      logoDefault,
+      "../../assets/HomeLanding.mp4", // video, but include for completeness
+      "../../assets/Rectangle 79.png",
+      "../../assets/111.jpg",
+      "../../assets/2222.jpg",
+      "../../assets/aboutland.png",
+      "../../assets/serviceland.png",
+      "../../assets/center1.png",
+      "../../assets/lefttop.png",
+      "../../assets/righttop.png",
+      "../../assets/leftbottom.png",
+      "../../assets/rightbottom.png",
+      "../../assets/centerbottom.png",
+      "../../assets/Rectangle 3.png",
+      "../../assets/Rectangle 51.png",
+      "../../assets/homeproject.png",
+      "../../assets/craft1.png",
+      "../../assets/craft2.png",
+    ];
+
     const preloadImages = () => {
       let loadedCount = 0;
-      const totalImages = 1;
+      const totalImages = imagesToPreload.length;
 
       const checkAllLoaded = () => {
         loadedCount++;
@@ -293,10 +314,22 @@ const CurtainPreloader = ({ children }) => {
         }
       };
 
-      const img1 = new Image();
-      img1.onload = checkAllLoaded;
-      img1.onerror = checkAllLoaded;
-      img1.src = logoDefault;
+      imagesToPreload.forEach(src => {
+        if (src.endsWith('.mp4')) {
+          // Handle video preload
+          const video = document.createElement('video');
+          video.preload = 'metadata';
+          video.onloadedmetadata = checkAllLoaded;
+          video.onerror = checkAllLoaded;
+          video.src = src;
+        } else {
+          // Handle image preload
+          const img = new Image();
+          img.onload = checkAllLoaded;
+          img.onerror = checkAllLoaded;
+          img.src = src;
+        }
+      });
     };
 
     preloadImages();

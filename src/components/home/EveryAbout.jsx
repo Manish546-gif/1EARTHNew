@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import mainImage from "../../assets/Rectangle 3.png";
 import smallImage from "../../assets/Rectangle 51.png";
+import TransitionLink from "../common/redirect";
 
 const textVariant = {
   hidden: { y: 40, opacity: 0 },
@@ -128,27 +129,23 @@ function EverySpaceSection() {
 
             {/* Button */}
             <div className="w-full flex justify-start lg:justify-end">
-              <Link to="/about">
-                <motion.button
-                  className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full transition-colors duration-300 group"
-                  style={{
-                    fontSize: "clamp(0.7rem, 1vw, 0.9rem)",
-                    fontWeight: 400,
-                  }}
-                  variants={textVariant}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={paragraphLines.length + 4}
-                >
-                  <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-                    ABOUT US
-                  </span>
-                  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-                    ABOUT US
-                  </span>
-                </motion.button>
-              </Link>
+                <TransitionLink to="/about">
+                  <motion.button
+                    className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={paragraphLines.length + 4}
+                  >
+                    <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                      ABOUT US
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                      ABOUT US
+                    </span>
+                  </motion.button>
+                </TransitionLink>
             </div>
 
             {/* Small Image */}

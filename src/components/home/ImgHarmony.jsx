@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import craft2 from "../../assets/Rectangle 79.png";
 import { Link } from "react-router-dom";
+import TransitionLink from "../common/redirect";
 
 const textVariant = {
   hidden: { y: 80, opacity: 0 },
@@ -115,7 +116,7 @@ const ImgHarmony = () => {
         viewport={{ once: true }}
         className="mt-14 flex justify-center lg:justify-start"
       >
-        <Link to="/services">
+        <TransitionLink to="/services">
           <motion.button
             className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-7 py-3.5 rounded-full text-base sm:text-lg font-medium transition-colors duration-300 group"
             initial="hidden"
@@ -129,7 +130,7 @@ const ImgHarmony = () => {
               OUR SERVICES
             </span>
           </motion.button>
-        </Link>
+        </TransitionLink>
       </motion.div>
     </section>
   );

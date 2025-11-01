@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import TransitionLink from "./redirect.jsx";
 import Line from "./Line";
 
 export default function Footer() {
@@ -57,12 +57,12 @@ export default function Footer() {
                   className="flex items-baseline gap-2 overflow-hidden"
                 >
                   <span className="text-xs text-gray-400">({item.num})</span>
-                  <Link
+                  <TransitionLink
                     to={item.path}
                     className=" md:text-3xl transition-all duration-300 sm:text-base"
                   >
                     {item.label}
-                  </Link>
+                  </TransitionLink>
                 </motion.li>
               ))}
             </ul>
