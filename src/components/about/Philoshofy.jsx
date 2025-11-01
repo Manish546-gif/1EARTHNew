@@ -1,0 +1,78 @@
+import React from "react";
+import { motion } from "framer-motion";
+import origin2 from '../../assets/origin3.png';
+import Line from "../common/Line";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { y: 50, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+export default function Philosophy() {
+  const heading = "WHAT WE STAND FOR".split(" ");
+
+  return (
+    <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center min-h-screen mb-10 p-8 md:gap-15 xl:gap-15 gap:10 md:mt-20">
+      <motion.div
+        className="text-5xl md:text-7xl  mb-8 md:mb-0 md:mr-20 text-left"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {heading.map((word, i) => (
+          <motion.span
+            key={i}
+            className="block"
+            variants={wordVariants}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </motion.div>
+      <div className="mb-6 md:w-3/6 md:ml-10">
+          <h3 className=" mb-2">OUR ORIGINS</h3>
+          <p className="md:text-lg mb-2 md:mb-28">
+            One Earth Properties was founded with a singular vision – to redefine real estate by uniting sustainability, culture, and modern living. Rooted in Pune’s serene landscapes, our journey began with a simple belief: that land is not just to be developed, but to be nurtured.
+          </p>
+          <p className="md:text-lg">
+            Inspired by India’s deep connection to nature and timeless craftsmanship, we create spaces that coexist with their surroundings – where innovation serves the Earth, and design becomes an expression of balance. Each project stands as a testament to harmony, integrity, and renewal.
+          </p>
+        </div>
+     
+      <div className="md:ml-32 w-full md:w-6/9 text-left">
+      <div className="flex-shrink-0  md:h-130 relative w-full md:w-full mb-8 overflow-hidden md:mb-5">
+      <motion.div
+                initial={{ scaleX: 1, opacity: 1 }}
+                whileInView={{ scaleX: 0, opacity: 1 }}
+                transition={{ duration: 1.5, delay: 0.6, ease: "circOut" }}
+                viewport={{ once: true }}
+                style={{ transformOrigin: "right" }}
+                className="w-full origin-right absolute z-10 h-full bg-[#FBF0DA]"
+              />
+              <img src={origin2} alt="" className="w-full h-full bg-cover" />
+      </div>
+        <div>
+          <h3 className="font-bold mb-2">OUR PHILOSOPHY</h3>
+          <ul className=" space-y-1">
+            <li>Harmony</li>
+            <Line />
+            <li>Integrity</li>
+            <Line />
+            <li>Sustainability</li>
+            <Line />
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
