@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import TransitionLink from "./redirect.jsx";
 import Line from "./Line";
 
 export default function Footer() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const letterAnimation = {
     hidden: { y: 20, opacity: 0 },
     visible: (i) => ({
@@ -106,7 +114,7 @@ export default function Footer() {
               )}
             </motion.h1>
 
-            <motion.h2 className="text-2xl sm:text-2xl md:text-[40px] lg:text-[50px] tracking-[0.85em] mt-2 md:mt-4">
+            <motion.h2 className="text-2xl sm:text-2xl md:text-[40px] lg:text-[50px] md:tracking-[0.85em] tracking-[0.88rem] mt-2 md:mt-4">
               {["P", "R", "O", "P", "E", "R", "T", "I", "E", "S"].map(
                 (char, i) => (
                   <motion.span
@@ -125,18 +133,18 @@ export default function Footer() {
           </div>
 
           {/* Info Section */}
-          <div className="mt-10 flex flex-col md:flex-row md:justify-start md:gap-20 lg:gap-32 text-xs sm:text-sm md:text-base gap-8 sm:items-start sm:text-left">
+          <div className={`mt-10 ${isMobile ? 'flex justify-between gap-2' : 'flex flex-col md:flex-row md:justify-start md:gap-20 lg:gap-32'} text-xs sm:text-sm md:text-base gap-8 sm:items-start sm:text-left`}>
             {/* Left Info */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
-              className="space-y-5"
+              className={`${isMobile ? 'w-2/5 space-y-3' : 'space-y-5'}`}
             >
               <div>
                 <p className="uppercase font-medium mb-1">EMAIL</p>
-                <p className="text-gray-200">
+                <p className={`text-gray-200 ${isMobile ? 'break-words' : ''}`}>
                   oneearthpropertiesllp@gmail.com
                 </p>
               </div>
@@ -158,7 +166,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
               viewport={{ once: true }}
-              className="space-y-4 mt-8 md:mt-0"
+              className={`${isMobile ? 'w-2/5 space-y-3' : 'space-y-4 mt-8 md:mt-0'}`}
             >
               <div>
                 <p className="uppercase font-medium mb-1">OFFICE</p>

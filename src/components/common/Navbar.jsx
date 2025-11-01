@@ -6,6 +6,7 @@ import logo from "../../assets/1earthcompletelogo.svg";
 import menuIcon from "../../assets/menu.svg";
 import Line from "./Line";
 import { usePageTransition } from "./CurtainPreloader";
+import TransitionLink from "./redirect";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -229,7 +230,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <Link to="/" className="flex items-center gap-3">
+              <TransitionLink to="/" className="flex items-center gap-3">
                 <motion.img
                   src={logo}
                   alt="Earth logo"
@@ -237,10 +238,10 @@ const Navbar = () => {
                   style={{
                     filter: isLightBackground ? "brightness(0)" : "none",
                   }}
-                  whileHover={{ rotate: [0, -2, 2, 0] }}
+                  whileHover={{ rotate: [0, -5, 5, 0] }}
                   transition={{ duration: 0.5 }}
                 />
-              </Link>
+              </TransitionLink>
             </motion.div>
             <motion.button
               onClick={toggleMenu}
@@ -279,18 +280,20 @@ const Navbar = () => {
         {/* LEFT PANEL */}
         <div
           ref={leftPanelRef}
-          className="absolute top-0 left-0 bg-[#FBF0DA] overflow-hidden"
+          className="absolute top-0 left-0 bg-[#FBF0DA] overflow-auto"
           style={{
             transform: "translateX(-100%)",
-            height: isMobile ? "45vh" : "100vh",
+            height: isMobile ? "50vh" : "100vh",
             width: isMobile ? "100vw" : "50vw",
           }}
         >
-          <div className="h-full flex flex-col justify-center px-8 lg:px-12 overflow-hidden">
+          <div className={`h-full flex flex-col ${isMobile ? 'justify-start py-8' : 'justify-center'} px-8 lg:px-12 overflow-hidden`}>
             <motion.button
               onClick={closeMenu}
               className="absolute top-6 right-6 lg:top-8 lg:right-8 text-gray-700 hover:text-gray-900 text-2xl font-light"
-              
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Close menu"
@@ -303,7 +306,8 @@ const Navbar = () => {
                   filter:"brightness(0)",
                 }}
                 
-             
+                whileHover={{rotate:90}}
+                transition={{ duration: 0.3 }}
               />
             </motion.button>
 
@@ -535,15 +539,15 @@ const Navbar = () => {
         {/* RIGHT PANEL */}
         <div
           ref={rightPanelRef}
-          className="absolute right-0 bg-[#1a2332] overflow-hidden"
+          className="absolute right-0 bg-[#1a2332] overflow-auto"
           style={{
             transform: "translateX(100%)",
-            height: isMobile ? "55vh" : "100vh",
+            height: isMobile ? "50vh" : "100vh",
             width: isMobile ? "100vw" : "50vw",
             bottom: isMobile ? "0" : "auto",
           }}
         >
-          <div className="h-full flex flex-col justify-between px-8 lg:px-12 xl:px-16 py-8 lg:py-12 text-[#FBF0DA] overflow-hidden">
+          <div className="h-full flex flex-col justify-between px-8 lg:px-12 xl:px-16 py-6 lg:py-8 pb-12 text-[#FBF0DA] overflow-hidden">
             <AnimatePresence>
               {isMenuOpen && (
                 <motion.div
@@ -552,7 +556,7 @@ const Navbar = () => {
                   animate="visible"
                   className="h-full flex flex-col justify-between"
                 >
-                  <motion.div className=" mb-8" variants={logoVariants}>
+                  <motion.div className={`mb-8 ${isMobile ? 'hidden' : ''}`} variants={logoVariants}>
                     <motion.h1 className="text-3xl  lg:text-8xl font-light ml-10 tracking-wider">
                       ONE EARTH
                     </motion.h1>
@@ -562,40 +566,31 @@ const Navbar = () => {
                   </motion.div>
 
                   <motion.div
-                    className="flex flex-wrap justify-between gap-8"
+                    className="flex justify-between mb-6 gap-2 md:gap-4"
                     variants={rightPanelVariants}
                     initial="hidden"
                     animate="visible"
                   >
-                    <motion.div className="flex-1" variants={rightContentVariants}>
-                      <p className="text-xl uppercase ">
-                        Contact
+                    <motion.div className="w-2/5" variants={rightContentVariants}>
+                      <p className="text-base md:text-lg uppercase">
+                        EMAIL
                       </p>
-                      <p className="text-lg lg:text-lg uppercase text-gray-400">
-                        oneearthpropertiesllp@gmail.com
+                      <p className={`text-xs md:text-sm text-gray-400 mb-10 uppercase ${isMobile ? 'break-words' : ''}`}>
+                        ONEEARTHPROPERTIESLLP@GMAIL.COM
                       </p>
-                      <p className="text-xs lg:text-lg text-gray-400">
-                        +91 9690372727
+                      <p className="text-base md:text-lg uppercase">
+                        PHONE
                       </p>
-                    </motion.div>
-
-                    <motion.div className="flex-1" variants={rightContentVariants}>
-                      <h3 className="text-sm uppercase mb-3 text-gray-400">
-                        Address
-                      </h3>
-                      <p className="text-xs lg:text-sm text-gray-300 leading-relaxed">
-                        A105, Gokhale Business Bay, Kothrud, Pune, 411038
+                      <p className="text-xs md:text-sm text-gray-400 mb-3 uppercase">
+                        +91 9960372727
                       </p>
-                    </motion.div>
-
-                    <motion.div className="flex-1" variants={rightContentVariants}>
-                      <h3 className="text-sm uppercase mb-3 text-gray-400">
-                        Follow Us
-                      </h3>
-                      {["Instagram", "Facebook", "LinkedIn"].map((s, i) => (
+                      <p className="text-base mt-6 md:text-lg uppercase">
+                        SOCIAL
+                      </p>
+                      {["INSTAGRAM", "FACEBOOK", "LINKDIEN"].map((s, i) => (
                         <motion.p
                           key={s}
-                          className="text-xs lg:text-sm text-gray-300 hover:text-white cursor-pointer"
+                          className="text-xs md:text-sm text-gray-400 hover:text-white cursor-pointer uppercase"
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
@@ -605,23 +600,41 @@ const Navbar = () => {
                         </motion.p>
                       ))}
                     </motion.div>
+
+                    <motion.div className="w-2/5" variants={rightContentVariants}>
+                      <p className="text-base md:text-lg uppercase">
+                        OFFICE
+                      </p>
+                      <p className="text-xs md:text-sm text-gray-400 mb-3 uppercase">
+                        A1105, GOKHALE BUSINESS BAY, KOTHRUD, PUNE, 411038
+                      </p>
+                      <p className="text-base md:text-lg uppercase">
+                        MONDAY TO FRIDAY
+                      </p>
+                      <p className="text-xs md:text-sm text-gray-400 mb-3 uppercase">
+                        8:00 AM - 6:00 PM
+                      </p>
+                      <p className="text-base md:text-lg uppercase">
+                        LEGAL
+                      </p>
+                      <p className="text-xs md:text-sm text-gray-400 uppercase">
+                        PRIVACY POLICY
+                      </p>
+                      <p className="text-xs md:text-sm text-gray-400 uppercase">
+                        TERMS AND CONDITION
+                      </p>
+                    </motion.div>
                   </motion.div>
 
                   <motion.div
-                    className="w-full flex sm:flex-col justify-between items-center text-xs opacity-70 border-t border-white/20 pt-3 mt-4"
+                    className="w-full flex sm:flex-col justify-between items-center text-xs opacity-70 border-t border-white/20 pt-3"
                     variants={rightContentVariants}
                   >
                     <motion.p
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8, duration: 0.4 }}
-                    >
-                      * DISCLAIMER
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.9, duration: 0.4 }}
+                      className="text-gray-400 uppercase"
                     >
                       ©2025 ONE EARTH PROPERTIES - ALL RIGHTS RESERVED
                     </motion.p>
@@ -636,4 +649,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;
