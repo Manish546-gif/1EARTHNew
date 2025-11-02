@@ -16,12 +16,12 @@ const About = () => {
       <AboutLanding />
       <Origin />
       <Line />
+      <OurTeam/>
+      <Line />
       <Philosophy />
       <Line />
-      <OurTeam/>
-      <WhyChoose/>
-      
       <OurProcess />
+      <WhyChoose/>
       <Footer />
     </div>
   )

@@ -10,19 +10,6 @@ const textVariant = {
     opacity: 1,
     transition: {
       delay: i * 0.1,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
-};
-
-const letterVariant = {
-  hidden: { y: 20, opacity: 0 },
-  visible: (i) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: i * 0.05,
       duration: 0.5,
       ease: "easeOut",
     },
@@ -31,7 +18,15 @@ const letterVariant = {
 
 export default function AboutLanding() {
   const paragraphLines = [
-    "One Earth Properties creates spaces that live in harmony with nature. Guided by sustainability, balance, and purpose, each project is designed to evolve with time while hovering the land it stands on. We don't just build, we nurture legacies that connect with people, place, and planet.",
+    "One Earth Properties creates",
+    "spaces that live in harmony with",
+    "nature. Guided by sustainability,",
+    "balance, and purpose, each project",
+    "is designed to evolve with time ",
+    "while hovering the land it stands on.",
+    "We don't just build, we nurture",
+    "legacies that connect with people,",
+    "place, and planet.",
   ];
 
   return (
@@ -52,51 +47,43 @@ export default function AboutLanding() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <motion.h1
             className="text-4xl md:text-4xl lg:text-4xl xl:text-7xl"
+            variants={textVariant}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            custom={0}
           >
-            {"ABOUT US".split("").map((char, i) => (
-              <motion.span
-                key={i}
-                custom={i}
-                variants={letterVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {char}
-              </motion.span>
-            ))}
+            ABOUT US
           </motion.h1>
         </div>
 
         <div className="absolute lg:bottom-12 bottom-4 left-2 lg:left-8">
           <motion.h5
             className="text-xl font-light tracking-widest transform origin-left"
-            initial={{ x: -20, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            custom={4}
           >
             SCROLL
           </motion.h5>
         </div>
 
         <div className="absolute lg:bottom-20 bottom-28 right-6 px-3 lg:right-8 max-w-md xl:max-w-xs">
-          <div className="space-y-6">
+          <div className="text-sm lg:text-base leading-relaxed font-light">
             {paragraphLines.map((line, i) => (
-              <motion.p
+              <motion.span
                 key={i}
-                className="text-sm lg:text-base leading-relaxed font-light"
+                className="block"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                custom={i}
+                custom={1 + i}
               >
                 {line}
-              </motion.p>
+              </motion.span>
             ))}
           </div>
         </div>

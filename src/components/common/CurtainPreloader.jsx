@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import logoDefault from "../../assets/1earthcompletelogo.svg";
 
 // Create context for page transitions
-const PageTransitionContext = createContext();
+export const PageTransitionContext = createContext();
 
 export const usePageTransition = () => {
   const context = useContext(PageTransitionContext);
@@ -43,9 +43,7 @@ const CurtainPreloader = ({ children }) => {
     }
 
     // Run combined closing-to-opening animation, then callback
-    runCombinedAnimation(() => {
-      if (callback) callback();
-    });
+    runCombinedAnimation(callback);
   };
 
   // Closing animation (reverse sequence)
@@ -145,7 +143,7 @@ const CurtainPreloader = ({ children }) => {
   };
 
   // Combined closing-to-opening animation
-  const runCombinedAnimation = (onComplete) => {
+  const runCombinedAnimation = (switchCallback) => {
     const tl = gsap.timeline({
       onComplete: () => {
         setShowContent(true);
@@ -154,7 +152,6 @@ const CurtainPreloader = ({ children }) => {
         if (containerRef.current) {
           containerRef.current.style.display = "none";
         }
-        if (onComplete) onComplete();
       },
     });
 
@@ -240,7 +237,9 @@ const CurtainPreloader = ({ children }) => {
         bottomLineRef.current,
         { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
         "<+=0.1"
-      );
+      ).call(() => {
+        if (switchCallback) switchCallback();
+      }, [], "+=0.1");
     }
 
     // 5. Once lines reach the circle, start the circle disappearing animation
@@ -284,23 +283,51 @@ const CurtainPreloader = ({ children }) => {
 
     const imagesToPreload = [
       logoDefault,
-      "../../assets/HomeLanding.mp4", // video, but include for completeness
-      "../../assets/Rectangle 79.png",
+      "../../assets/HomeLanding.mp4", // video
+      "../../assets/1.png",
+      "../../assets/1earthcompletelogo.svg",
       "../../assets/111.jpg",
       "../../assets/2222.jpg",
       "../../assets/aboutland.png",
-      "../../assets/serviceland.png",
+      "../../assets/blank1.png",
+      "../../assets/blank2.png",
       "../../assets/center1.png",
-      "../../assets/lefttop.png",
-      "../../assets/righttop.png",
-      "../../assets/leftbottom.png",
-      "../../assets/rightbottom.png",
       "../../assets/centerbottom.png",
-      "../../assets/Rectangle 3.png",
-      "../../assets/Rectangle 51.png",
-      "../../assets/homeproject.png",
       "../../assets/craft1.png",
       "../../assets/craft2.png",
+      "../../assets/earthlogo.svg",
+      "../../assets/feature1.png",
+      "../../assets/feature2.png",
+      "../../assets/homeproject.png",
+      "../../assets/house-1477041_1920.png",
+      "../../assets/info1.png",
+      "../../assets/info2.png",
+      "../../assets/LandingHome.png",
+      "../../assets/leftbottom.png",
+      "../../assets/lefttop.png",
+      "../../assets/menu.svg",
+      "../../assets/nextp.png",
+      "../../assets/origin2.png",
+      "../../assets/origin3.png",
+      "../../assets/projectland.png",
+      "../../assets/Property 1=Default.png",
+      "../../assets/Property 1=Variant2.png",
+      "../../assets/react.svg",
+      "../../assets/Rectangle 2.png",
+      "../../assets/Rectangle 3.png",
+      "../../assets/Rectangle 51.png",
+      "../../assets/Rectangle 79.png",
+      "../../assets/Rectangle 107.png",
+      "../../assets/Rectangle 108.png",
+      "../../assets/Rectangle 109.png",
+      "../../assets/Rectangle 110.png",
+      "../../assets/rightbottom.png",
+      "../../assets/righttop.png",
+      "../../assets/serviceland.png",
+      "../../assets/team1.png",
+      "../../assets/team2.png",
+      "../../assets/topleft.png",
+      "../../assets/whychoose.png",
     ];
 
     const preloadImages = () => {
@@ -479,7 +506,8 @@ const CurtainPreloader = ({ children }) => {
           inset: 0,
           zIndex: 9999,
           overflow: 'hidden',
-          display: showContent && !isTransitioning ? 'none' : 'block'
+          display: showContent && !isTransitioning ? 'none' : 'block',
+          backgroundColor: 'transparent'
         }}
       >
         {/* Left Curtain */}

@@ -3,19 +3,44 @@ import { motion } from "framer-motion";
 import origin2 from "../../assets/origin2.png";
 import Line from "../common/Line";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
+const textVariant = {
+  hidden: { y: 40, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
     },
-  },
+  }),
 };
 
-const wordVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
+const originLines = [
+  "One Earth Properties was",
+  "founded with a singular",
+  "vision – to redefine real",
+  "estate by uniting sustainability,",
+  "culture, and modern living.",
+  "Rooted in Pune’s serene",
+  "landscapes,our journey began",
+  " with a simple belief:",
+  "that land is not just to be",
+  "developed,but to be nurtured."
+];
+
+const philosophyLines = [
+  "Inspired by India’s deep",
+  "connection to nature and",
+  "timeless craftsmanship,",
+  "we create spaces that coexist",
+  "with their surroundings",
+  "where innovation serves the",
+  " Earth, and design becomes",
+  "an expression of balance. Each",
+  "project stands as a testament to",
+  "harmony, integrity, and renewal."
+];
 
 export default function Origin() {
   const heading = "DESIGNING IN HARMONY".split(" ");
@@ -23,19 +48,21 @@ export default function Origin() {
   return (
     <div className="flex flex-col lg:flex-row bg-[#FBF0DA] justify-center md:mb-10 min-h-screen gap-10 md:mt-20 px-6 sm:px-8 lg:px-0 py-10 lg:py-0">
       {/* Heading Section */}
-      <motion.div
-        className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl  md:mb-0 lg:mr-12 text-left w-full lg:w-auto"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
+      <div className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl  md:mb-0 lg:mr-12 text-left w-full lg:w-auto">
         {heading.map((word, i) => (
-          <motion.span key={i} className="block" variants={wordVariants}>
+          <motion.span
+            key={i}
+            className="block"
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={i}
+          >
             {word}
           </motion.span>
         ))}
-      </motion.div>
+      </div>
 
       {/* Image Section */}
       <div className="flex-shrink-0 relative w-full sm:w-4/5 md:w-3/5 lg:w-[40%]  overflow-hidden md:mb-0 mx-auto lg:mx-0">
@@ -53,34 +80,90 @@ export default function Origin() {
       {/* Text Content */}
       <div className="w-full lg:w-1/6 text-left md:ml-22 px-1 sm:px-0">
         <div className="mb-6">
-          <h3 className="mb-2 text-base sm:text-lg">OUR ORIGINS</h3>
-          <p className="mb-2 md:mb-28 text-sm sm:text-base leading-relaxed">
-            One Earth Properties was founded with a singular vision – to
-            redefine real estate by uniting sustainability, culture, and modern
-            living. Rooted in Pune’s serene landscapes, our journey began with a
-            simple belief: that land is not just to be developed, but to be
-            nurtured.
-          </p>
-          <p className="text-sm sm:text-base leading-relaxed">
-            Inspired by India’s deep connection to nature and timeless
-            craftsmanship, we create spaces that coexist with their surroundings
-            – where innovation serves the Earth, and design becomes an
-            expression of balance. Each project stands as a testament to
-            harmony, integrity, and renewal.
-          </p>
+          <motion.h3
+            className="mb-2 text-base sm:text-lg"
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0}
+          >
+            OUR ORIGINS
+          </motion.h3>
+          <div className="mb-2 md:mb-28">
+            {originLines.map((line, i) => (
+              <motion.span
+                key={i}
+                className="block text-sm sm:text-base leading-relaxed"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={1 + i}
+              >
+                {line}
+              </motion.span>
+            ))}
+          </div>
+          <div className="text-sm sm:text-base leading-relaxed">
+            {philosophyLines.map((line, i) => (
+              <motion.span
+                key={i}
+                className="block"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={3 + i}
+              >
+                {line}
+              </motion.span>
+            ))}
+          </div>
         </div>
         <div>
-          <h3 className="font-bold mb-2 text-base sm:text-lg">
+          <motion.h3
+            className="font-bold mb-2 text-base sm:text-lg"
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={5}
+          >
             OUR PHILOSOPHY
-          </h3>
-          <ul className="space-y-1 text-sm sm:text-base">
-            <li>Harmony</li>
+          </motion.h3>
+          <motion.ul className="space-y-1 text-sm sm:text-base">
+            <motion.li
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={6}
+            >
+              Harmony
+            </motion.li>
             <Line />
-            <li>Integrity</li>
+            <motion.li
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={7}
+            >
+              Integrity
+            </motion.li>
             <Line />
-            <li>Sustainability</li>
+            <motion.li
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={8}
+            >
+              Sustainability
+            </motion.li>
             <Line />
-          </ul>
+          </motion.ul>
         </div>
       </div>
     </div>

@@ -14,17 +14,25 @@ export default function NextProject() {
             </div>
             <div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-gray-900 leading-none sm:text-4xl">
-                PROJECT<br />
-                NAME
+                {["PROJECT", "NAME"].map((line, i) => (
+                  <motion.span
+                    key={i}
+                    className="block"
+                    initial={{ y: 40, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: (i * 0.1) + 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    {line}
+                    {i === 0 && <br />}
+                  </motion.span>
+                ))}
               </h1>
             </div>
             <div>
-              <button className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
-                <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-                  SEE PROJECT
-                </span>
-                <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-                  SEE PROJECT
+              <button disabled className="relative overflow-hidden bg-gray-400 cursor-not-allowed text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 group">
+                <span className="relative block">
+                  COMING SOON
                 </span>
               </button>
             </div>

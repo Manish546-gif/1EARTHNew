@@ -58,8 +58,7 @@ const HeroSection = () => {
               className="block font-Grenda text-[4vw] sm:text-[2.5vw] md:text-2xl"
               variants={textVariant}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               custom={i}
             >
               {line}
@@ -73,8 +72,7 @@ const HeroSection = () => {
                 className="block font-Grenda text-[8vw] sm:text-[6vw] md:text-9xl"
                 variants={textVariant}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                animate="visible"
                 custom={i + 3}
               >
                 {word}
@@ -91,8 +89,7 @@ const HeroSection = () => {
               className="block text-[3.5vw] sm:text-[2.2vw] md:text-base"
               variants={textVariant}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+              animate="visible"
               custom={i + 6}
             >
               {line}

@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { PageTransitionContext } from "../common/CurtainPreloader";
 
 export default function ContactForm() {
+  const { animationsReady } = useContext(PageTransitionContext);
+
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -19,8 +23,7 @@ export default function ContactForm() {
     <motion.div
       className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4"
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      animate={animationsReady ? "visible" : "hidden"}
       variants={containerVariants}
     >
       <div className="max-w-8xl w-full overflow-hidden flex flex-col lg:flex-row mt-20 mb-20">
@@ -110,7 +113,7 @@ export default function ContactForm() {
                 />
                 <motion.div
                   initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
+                  animate={animationsReady ? { scaleX: 1 } : { scaleX: 0 }}
                   transition={{ duration: 0.6 }}
                   style={{ transformOrigin: "left" }}
                   className="h-px w-full bg-black mt-4"
@@ -131,7 +134,7 @@ export default function ContactForm() {
               </select>
               <motion.div
                 initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
+                animate={animationsReady ? { scaleX: 1 } : { scaleX: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{ transformOrigin: "left" }}
                 className="h-px w-full bg-black mt-4"
@@ -150,7 +153,7 @@ export default function ContactForm() {
               ></textarea>
               <motion.div
                 initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
+                animate={animationsReady ? { scaleX: 1 } : { scaleX: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{ transformOrigin: "left" }}
                 className="h-px w-full bg-black mt-4"

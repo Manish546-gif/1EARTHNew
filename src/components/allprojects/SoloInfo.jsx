@@ -4,6 +4,7 @@ import projectimg from '../../assets/info1.png';
 import info2 from '../../assets/info2.png';
 import Line from "../common/Line";
 const SoloInfo = () => {
+
   const details = [
     { label: "LOCATION", value: "VELHE, BHOR (OUTSKIRTS OF PUNE, INDIA)" },
     { label: "YEAR", value: "2025" },
@@ -27,20 +28,42 @@ const SoloInfo = () => {
       </motion.div>
 
       <div className="flex flex-col md:pr-20 w-full md:w-2/6 space-y-6">
-        <div>
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <h3 className="font-bold mb-2">INFO</h3>
-          <p className="text-lg">
-            The Velhe Estate by One Earth Properties is a 100-acre gated
-            farmland community in the serene outskirts of Pune, surrounded by
-            the majestic Rajgad and Torna Forts. Blending nature, heritage, and
-            sustainable design, it offers expansive plots starting from 11,000
-            sq. ft. for farmhouses, retreats, or investment havens. With
-            eco-conscious infrastructure, lush landscapes, and wellness-inspired
-            amenities, the estate redefines luxury as harmony—offering a
-            grounded yet refined lifestyle where every sunrise over the hills
-            feels like coming home to nature.
-          </p>
-        </div>
+          <div className="text-lg">
+            {[
+              "The Velhe Estate by One Earth Properties is a",
+              " 100-acre gated farmland community in the ",
+              "serene outskirts of Pune, surrounded by",
+              "the majestic Rajgad and Torna Forts. Blending",
+              "nature, heritage, and sustainable design,",
+              "it offers expansive plots starting from",
+              "11,000 sq. ft. for farmhouses, retreats, or",
+              "investment havens. With eco-conscious ",
+              "infrastructure, lush landscapes, and wellness",
+              "inspired amenities, the estate redefines",
+              "luxury as harmony—offering a grounded yet",
+              "refined lifestyle where every sunrise over",
+              "the hills feels like coming home to nature."
+            ].map((line, i) => (
+              <motion.span
+                key={i}
+                className="block"
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: (i * 0.1) + 0.3 }}
+                viewport={{ once: true }}
+              >
+                {line}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
 
         <motion.div
           className="w-full h-50  overflow-hidden relative"
@@ -53,7 +76,12 @@ const SoloInfo = () => {
         <img src={info2} className="w-full h-full " alt="" />
         </motion.div>
 
-        <div>
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <h3 className="text-lg font-bold mb-4">DETAILS</h3>
           <div className="space-y-6">
             {details.map((item, index) => (
@@ -62,7 +90,7 @@ const SoloInfo = () => {
                 className="text-sm relative "
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: (index * 0.1) + 0.5 }}
                 viewport={{ once: true }}
                 whileHover="hover"
                 variants={{
@@ -77,7 +105,7 @@ const SoloInfo = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
