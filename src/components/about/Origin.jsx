@@ -50,7 +50,7 @@ export default function Origin() {
       {/* Heading Section */}
       <div className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl  md:mb-0 lg:mr-12 text-left w-full lg:w-auto">
         {heading.map((word, i) => (
-          <motion.span
+          <motion.p
             key={i}
             className="block"
             variants={textVariant}
@@ -60,7 +60,7 @@ export default function Origin() {
             custom={i}
           >
             {word}
-          </motion.span>
+          </motion.p>
         ))}
       </div>
 
