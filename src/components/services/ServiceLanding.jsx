@@ -76,7 +76,7 @@ export default function ServiceLanding() {
         <div className="absolute bottom-20 right-6 ml-6 md:ml-0 lg:ml-0 lg:right-8 max-w-lg xl:max-w-xs">
           <div className="text-sm lg:text-base leading-relaxed font-light">
             {paragraphLines.map((line, i) => (
-              <motion.span
+              <motion.p
                 key={i}
                 className="block"
                 variants={textVariant}
@@ -86,7 +86,7 @@ export default function ServiceLanding() {
                 custom={1 + i}
               >
                 {line}
-              </motion.span>
+              </motion.p>
             ))}
           </div>
         </div>
