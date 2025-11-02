@@ -45,7 +45,7 @@ export default function Philosophy() {
     <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center min-h-screen mb-10 p-8 md:gap-15 xl:gap-15 gap:10 md:mt-20">
       <div className="text-5xl md:text-7xl  mb-8 md:mb-0 md:mr-20 text-left">
         {heading.map((word, i) => (
-          <motion.span
+          <motion.p
             key={i}
             className="block"
             variants={textVariant}
@@ -55,7 +55,7 @@ export default function Philosophy() {
             custom={i}
           >
             {word}
-          </motion.span>
+          </motion.P>
         ))}
       </div>
       <div className="mb-6 md:w-3/6 md:ml-10">
@@ -67,11 +67,11 @@ export default function Philosophy() {
             viewport={{ once: true }}
             custom={4}
           >
-            OUR ORIGINS
+            OUR PHILOSOPHY
           </motion.h3>
           <div className="md:text-lg mb-2 md:mb-28">
             {originsLines.map((line, i) => (
-              <motion.span
+              <motion.p
                 key={i}
                 className="block"
                 variants={textVariant}
@@ -81,12 +81,12 @@ export default function Philosophy() {
                 custom={5 + i}
               >
                 {line}
-              </motion.span>
+              </motion.p>
             ))}
           </div>
           <div className="md:text-lg">
             {philosophyDescLines.map((line, i) => (
-              <motion.span
+              <motion.p
                 key={i}
                 className="block"
                 variants={textVariant}
@@ -96,7 +96,7 @@ export default function Philosophy() {
                 custom={7 + i}
               >
                 {line}
-              </motion.span>
+              </motion.p>
             ))}
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import img1 from "../../assets/homeproject.png";
+import TransitionLink from "./redirect.jsx";
 
 const projects = [
   { id: 1, title: "HARMONY HINGLAND", image: img1 },
@@ -127,7 +128,7 @@ const ProjectSlider = () => {
                 </h2>
               </div>
 
-              <Link to="/project">
+              <TransitionLink to="/project">
                 <button className="relative overflow-hidden bg-transparent border border-[#FBF0DA] hover:bg-[#FBF0DA] hover:text-black hover:cursor-pointer px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-medium transition-colors duration-300 group">
                   <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                     See Project
@@ -136,7 +137,7 @@ const ProjectSlider = () => {
                     See Project
                   </span>
                 </button>
-              </Link>
+              </TransitionLink>
             </div>
           </div>
         </motion.div>

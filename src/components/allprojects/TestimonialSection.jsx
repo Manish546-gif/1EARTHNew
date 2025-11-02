@@ -38,7 +38,7 @@ const TestimonialSection = () => {
             "something larger, a community built",
             "with purpose."
           ].map((line, i) => (
-            <motion.span
+            <motion.p
               key={i}
               className="block"
               initial={{ y: 40, opacity: 0 }}
@@ -47,7 +47,7 @@ const TestimonialSection = () => {
               viewport={{ once: true }}
             >
               {line}
-            </motion.span>
+            </motion.p>
           ))}
         </div>
 

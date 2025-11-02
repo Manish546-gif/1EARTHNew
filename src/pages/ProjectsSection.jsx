@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import projectimg from "../assets/projectland.png";
+import TransitionLink from "../components/common/redirect";
 
 const ProjectsSection = () => {
   const [showComingSoon, setShowComingSoon] = useState(false);
@@ -71,7 +72,7 @@ const ProjectsSection = () => {
             }}
             className="flex flex-col items-center"
           >
-            <Link to="/projectsolo">
+            <TransitionLink to="/projectsolo">
               <motion.div
                 whileHover={{
                   scale: 1.04,
@@ -88,7 +89,7 @@ const ProjectsSection = () => {
                   transition={{ duration: 2.5 }}
                 />
               </motion.div>
-            </Link>
+            </TransitionLink>
 
             <motion.h1
               className="text-2xl sm:text-3xl md:text-4xl uppercase font-serif mt-6 text-center md:text-start"
