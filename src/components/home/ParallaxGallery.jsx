@@ -18,40 +18,92 @@ const ParallaxGallery = () => {
   }, []);
   return (
     <section
-      className="relative mt-20 flex justify-center"
+      className="relative h-[80vh] mt-20 flex justify-center"
     >
-      <div className="grid grid-cols-2 grid-rows-3 gap-4 p-4 max-w-4xl w-full">
-        <img
-          src={img1}
-          alt="Main landscape image"
-          className="w-full h-full object-cover"
-        />
-        <img
-          src={img2}
-          alt="Top left overlay image"
-          className="w-full h-full object-cover"
-        />
-        <img
-          src={img3}
-          alt="Top right overlay image"
-          className="w-full h-full object-cover"
-        />
-        <img
-          src={img4}
-          alt="Bottom left overlay image"
-          className="w-full h-full object-cover"
-        />
-        <img
-          src={img5}
-          alt="Bottom right overlay image"
-          className="w-full h-full object-cover"
-        />
-        <img
-          src={img6}
-          alt="Center bottom overlay image"
-          className="w-full h-full object-cover"
-        />
-      </div>
+      {isMobile ? (
+        <div className="grid grid-cols-2 gap-4 p-4">
+          <img
+            src={img1}
+            alt="Main landscape image"
+            className="w-full aspect-square object-cover"
+          />
+          <img
+            src={img2}
+            alt="Top left overlay image"
+            className="w-full aspect-square object-cover"
+          />
+          <img
+            src={img3}
+            alt="Top right overlay image"
+            className="w-full aspect-square object-cover"
+          />
+          <img
+            src={img4}
+            alt="Bottom left overlay image"
+            className="w-full aspect-square object-cover"
+          />
+          <img
+            src={img5}
+            alt="Bottom right overlay image"
+            className="w-full aspect-square object-cover"
+          />
+          <img
+            src={img6}
+            alt="Center bottom overlay image"
+            className="w-full aspect-square object-cover"
+          />
+        </div>
+      ) : (
+        <>
+          <div className="relative w-[550px] h-[600px] md:w-[450px] md:h-[500px]">
+            <img
+              src={img1}
+              alt="Main landscape image"
+              className="w-full z-10 h-full object-cover"
+            />
+          </div>
+
+          <img
+            data-scroll
+            data-scroll-speed="0.1"
+            src={img2}
+            alt="Top left overlay image"
+            className="absolute z-5 top-[20%] left-[5%] w-[250px] h-[170px] md:top-[100%] md:w-[200px] md:h-[140px]"
+          />
+
+          <img
+            data-scroll
+            data-scroll-speed="0.1"
+            src={img3}
+            alt="Top right overlay image"
+            className="absolute z-5 top-[20%] right-[5%] w-[250px] h-[170px] md:top-[100%] md:w-[180px] md:h-[120px]"
+          />
+
+          <img
+            data-scroll
+            data-scroll-speed="0.1"
+            src={img4}
+            alt="Bottom left overlay image"
+            className="absolute z-5 bottom-[20%] left-[5%] w-[250px] h-[170px] md:-bottom-[75%] md:w-[210px] md:h-[110px]"
+          />
+
+          <img
+            data-scroll
+            data-scroll-speed="0.1"
+            src={img5}
+            alt="Bottom right overlay image"
+            className="absolute z-5 bottom-[20%] right-[5%] w-[250px] h-[170px] md:-bottom-[75%] md:w-[210px] md:h-[110px]"
+          />
+
+          <img
+            data-scroll
+            data-scroll-speed="0.1"
+            src={img6}
+            alt="Center bottom overlay image"
+            className="absolute z-5 bottom-[10%] left-[45%] w-[250px] h-[170px] md:-bottom-[100%] md:w-[150px] md:h-[100px]"
+          />
+        </>
+      )}
     </section>
   );
 };
