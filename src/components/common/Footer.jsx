@@ -31,11 +31,14 @@ export default function Footer() {
   };
 
   const paragraphLines = [
-    "More than a real estate brand, One Earth is a vision shaped by legacy, balance, and purpose.",
-    "We are guided by nature’s rhythm and India’s timeless heritage, crafting spaces that nurture life and inspire belonging.",
-    "Every creation reflects our belief in integrity, sustainability, and enduring design—",
-    "where development honors the land and living feels grounded yet luxurious.",
-    "At One Earth, we don’t just build properties; we cultivate legacies that stand the test of time.",
+    "More than a real estate brand, One Earth is a vision shaped by ",
+    "legacy, balance, and purpose. We are guided by nature’s rhythm",
+    "and India’s timeless heritage, crafting spaces that nurture",
+    "life and inspire belonging. Every creation reflects our",
+    "belief in integrity, sustainability, and enduring design",
+    "where development honors the land and living feels grounded",
+    "yet luxurious. At One Earth, we don’t just build properties;",
+    "we cultivate legacies that stand the test of time.",
   ];
 
   const navItems = [

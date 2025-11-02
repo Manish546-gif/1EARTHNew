@@ -4,6 +4,7 @@ import feature1 from "../../assets/feature1.png";
 import feature2 from "../../assets/feature2.png";
 
 export default function SoloFeatures() {
+
   return (
     <section className="max-w-8xl mx-auto px-4 sm:px-6 md:px-10 py-12 flex flex-col lg:flex-row gap-10 sm:gap-16 lg:gap-32 my-10">
       {/* Left Image */}
@@ -27,9 +28,15 @@ export default function SoloFeatures() {
 
       {/* Right Text and Second Image */}
       <div className="flex flex-col flex-grow w-full">
-        <h2 className="text-lg sm:text-xl font-bold mb-6 inline-block pb-1">
+        <motion.h2
+          className="text-lg sm:text-xl font-bold mb-6 inline-block pb-1"
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           MAIN FEATURES
-        </h2>
+        </motion.h2>
 
         <ul className="space-y-8 md:mr-10 lg:mr-20">
           {[
@@ -54,7 +61,7 @@ export default function SoloFeatures() {
               key={i}
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.6, delay: (i * 0.1) + 0.3 }}
               viewport={{ once: true, margin: "-100px" }}
             >
               <p className="font-bold text-lg sm:text-xl uppercase flex items-center gap-2 mb-2">

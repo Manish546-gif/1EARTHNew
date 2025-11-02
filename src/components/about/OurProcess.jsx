@@ -2,6 +2,19 @@ import { motion } from "framer-motion";
 import React from "react";
 import Line from "../common/Line";
 
+const textVariant = {
+  hidden: { y: 40, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 export default function OurProcess() {
   const processSteps = [
     {
@@ -43,10 +56,17 @@ export default function OurProcess() {
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           <div className="flex-shrink-0 md:w-4/11">
             <div className="text-center  lg:text-left">
-              <h2 className="text-6xl lg:text-8xl  text-black">
+              <motion.h2
+                className="text-6xl lg:text-8xl  text-black"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={0}
+              >
                 <span className="block">OUR</span>
                 <span className="block">PROCESS</span>
-              </h2>
+              </motion.h2>
             </div>
           </div>
 
@@ -66,22 +86,42 @@ export default function OurProcess() {
                      }}
                    >
                      <div className="flex items-start gap-4">
-                     
                        <div className="relative flex-shrink-0">
-                         <span className={`text-2xl lg:text-2xl font-bold text-black ${
-                           step.highlighted ? 'relative' : ''
-                         }`}>
+                         <motion.span
+                           className={`text-2xl lg:text-2xl font-bold text-black ${
+                             step.highlighted ? 'relative' : ''
+                           }`}
+                           variants={textVariant}
+                           initial="hidden"
+                           whileInView="visible"
+                           viewport={{ once: true }}
+                           custom={index * 3 + 1}
+                         >
                            {step.number}.
-                         </span>
+                         </motion.span>
                        </div>
-                       
+
                        <div className="flex-1">
-                         <p className="text-lg lg:text-xl font-bold text-black uppercase  mb-3">
+                         <motion.p
+                           className="text-lg lg:text-xl font-bold text-black uppercase  mb-3"
+                           variants={textVariant}
+                           initial="hidden"
+                           whileInView="visible"
+                           viewport={{ once: true }}
+                           custom={index * 3 + 2}
+                         >
                            {step.title}
-                         </p>
-                         <p className="text-sm lg:text-base md:mb-5 mb-5 text-black ">
+                         </motion.p>
+                         <motion.p
+                           className="text-sm lg:text-base md:mb-5 mb-5 text-black "
+                           variants={textVariant}
+                           initial="hidden"
+                           whileInView="visible"
+                           viewport={{ once: true }}
+                           custom={index * 3 + 3}
+                         >
                            {step.description}
-                         </p>
+                         </motion.p>
                        </div>
                      </div>
                      

@@ -33,10 +33,10 @@ export default function CraftVisionSection() {
       <Line />
       <div className="min-h-screen bg-[#FBF0DA] flex md:px-10 mb-10 items-center justify-center p-4">
         <div className="max-w-8xl w-full mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 items-center">
-            
-            {/* LEFT IMAGE (desktop only - unchanged) */}
-            <div className="hidden lg:block">
+          {/* DESKTOP VIEW (unchanged) */}
+          <div className="hidden lg:grid grid-cols-3 items-center">
+            {/* LEFT IMAGE */}
+            <div>
               <motion.div className="relative md:mt-80 overflow-hidden h-70 w-full md:w-4/6">
                 <motion.div
                   initial={{ scaleX: 1, opacity: 1 }}
@@ -134,8 +134,8 @@ export default function CraftVisionSection() {
               </Link>
             </motion.div>
 
-            {/* RIGHT IMAGE (desktop only - unchanged) */}
-            <div className="hidden lg:block">
+            {/* RIGHT IMAGE */}
+            <div>
               <motion.div className="relative h-155 overflow-hidden w-full">
                 <motion.div
                   initial={{ scaleX: 1, opacity: 1 }}
@@ -150,8 +150,42 @@ export default function CraftVisionSection() {
             </div>
           </div>
 
-          {/* MOBILE & TABLET IMAGES — height increased */}
-          <div className="lg:hidden mt-12 space-y-6">
+          {/* MOBILE VIEW — left aligned */}
+          <div className="lg:hidden flex flex-col items-start mt-12 space-y-6 text-left">
+            {/* HEADING */}
+            <div>
+              <motion.p
+                className="text-lg font-medium text-gray-black tracking-wider mb-2"
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                CONNECT
+              </motion.p>
+
+              <h1 className="text-5xl sm:text-6xl  text-black mb-3 mt-3 ">
+                {["CRAFT", "YOUR", "VISION"].map((word, i) => (
+                  <div key={i} className="overflow-hidden">
+                    <motion.span
+                      className="block"
+                      initial={{ y: 60, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.8,
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                        delay: 0.1 * (i + 1),
+                      }}
+                    >
+                      {word}
+                    </motion.span>
+                  </div>
+                ))}
+              </h1>
+            </div>
+
+            {/* FIRST IMAGE */}
             <div className="h-[320px] sm:h-[400px] md:h-[480px] w-full relative overflow-hidden rounded">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
@@ -164,7 +198,43 @@ export default function CraftVisionSection() {
               <img src={craft1} className="w-full h-full object-cover" alt="" />
             </div>
 
-            <div className="h-[320px] sm:h-[400px] md:h-[480px] w-full relative overflow-hidden">
+            {/* PARAGRAPH + BUTTON */}
+            <div className="w-full md:w-3/4 text-left space-y-1">
+              {paragraphLines.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="text-base sm:text-lg"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={i}
+                >
+                  {line}
+                </motion.p>
+              ))}
+
+              <Link to="/contact">
+                <motion.button
+                  className="relative mt-2 overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={paragraphLines.length}
+                >
+                  <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                    GET IN TOUCH
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                    GET IN TOUCH
+                  </span>
+                </motion.button>
+              </Link>
+            </div>
+
+            {/* SECOND IMAGE */}
+            <div className="h-[320px] sm:h-[400px] md:h-[480px] w-full relative overflow-hidden ">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}

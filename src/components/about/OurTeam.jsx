@@ -4,6 +4,19 @@ import img1 from "../../assets/team1.png";
 import img2 from "../../assets/team2.png";
 import Line from "../common/Line";
 
+const textVariant = {
+  hidden: { y: 40, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 export default function OurTeam() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-16 py-10">
@@ -11,26 +24,26 @@ export default function OurTeam() {
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
           {/* LEFT HEADING */}
           <div className="flex-shrink-0 w-full lg:w-1/4 text-center lg:text-left">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black overflow-hidden">
-              <motion.span
-                initial={{ y: 10, opacity: 1 }}
-                whileInView={{ y: 0 }}
-                transition={{ delay: 0.3, duration: 1.2, ease: "circOut" }}
-                className="block"
-              >
-                OUR
-              </motion.span>
-            </h2>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black overflow-hidden">
-              <motion.span
-                initial={{ y: 10, opacity: 1 }}
-                whileInView={{ y: 0 }}
-                transition={{ delay: 0.3, duration: 1.2, ease: "circOut" }}
-                className="block"
-              >
-                TEAM
-              </motion.span>
-            </h2>
+            <motion.h2
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0}
+            >
+              OUR
+            </motion.h2>
+            <motion.h2
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={1}
+            >
+              TEAM
+            </motion.h2>
           </div>
 
           {/* TEAM MEMBERS */}
@@ -46,12 +59,26 @@ export default function OurTeam() {
                 />
               </div>
               <div className="text-center lg:text-left w-full">
-                <h3 className="text-lg sm:text-xl md:text-2xl text-black uppercase tracking-wide mb-2">
+                <motion.h3
+                  className="text-lg sm:text-xl md:text-2xl text-black uppercase tracking-wide mb-2"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={2}
+                >
                   SHREYASH TARAWADE
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base font-sans text-black uppercase tracking-wide">
+                </motion.h3>
+                <motion.p
+                  className="text-xs sm:text-sm md:text-base font-sans text-black uppercase tracking-wide"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={3}
+                >
                   MANAGING DIRECTOR
-                </p>
+                </motion.p>
                 <Line />
               </div>
             </div>
@@ -67,12 +94,26 @@ export default function OurTeam() {
                 />
               </div>
               <div className="text-center lg:text-left w-full">
-                <h3 className="text-lg sm:text-xl md:text-2xl text-black uppercase tracking-wide mb-2">
+                <motion.h3
+                  className="text-lg sm:text-xl md:text-2xl text-black uppercase tracking-wide mb-2"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={4}
+                >
                   SONAL JADHAV
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base font-sans text-black uppercase tracking-wide">
+                </motion.h3>
+                <motion.p
+                  className="text-xs sm:text-sm md:text-base font-sans text-black uppercase tracking-wide"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={5}
+                >
                   CHIEF ARCHITECT
-                </p>
+                </motion.p>
                 <Line />
               </div>
             </div>

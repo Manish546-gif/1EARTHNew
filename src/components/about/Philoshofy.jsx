@@ -3,50 +3,102 @@ import { motion } from "framer-motion";
 import origin2 from '../../assets/origin3.png';
 import Line from "../common/Line";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
+const textVariant = {
+  hidden: { y: 40, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
     },
-  },
+  }),
 };
 
-const wordVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
+const originsLines = [
+  "One Earth Properties is more than",
+  "a real estate brand - it’s a vision",
+  "built on legacy, balance, and purpose.",
+  "We are a collective of dreamers,",
+  "planners, and creators who believe",
+  "that land is not just owned -",
+  "it is honoured."
+];
+
+const philosophyDescLines = [
+  "Our culture is rooted in integrity,",
+  "sustainability, and timeless design -",
+  "values that define every community",
+  "we build. Guided by the rhythm",
+  "of nature, and inspired by India’s",
+  "deep cultural heritage. One Earth",
+  "Properties creates spaces that breathe",
+  "freely, evolve gracefully, and stand",
+  "resiliently against time."
+];
 
 export default function Philosophy() {
   const heading = "WHAT WE STAND FOR".split(" ");
 
   return (
     <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center min-h-screen mb-10 p-8 md:gap-15 xl:gap-15 gap:10 md:mt-20">
-      <motion.div
-        className="text-5xl md:text-7xl  mb-8 md:mb-0 md:mr-20 text-left"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
+      <div className="text-5xl md:text-7xl  mb-8 md:mb-0 md:mr-20 text-left">
         {heading.map((word, i) => (
           <motion.span
             key={i}
             className="block"
-            variants={wordVariants}
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={i}
           >
             {word}
           </motion.span>
         ))}
-      </motion.div>
+      </div>
       <div className="mb-6 md:w-3/6 md:ml-10">
-          <h3 className=" mb-2">OUR ORIGINS</h3>
-          <p className="md:text-lg mb-2 md:mb-28">
-            One Earth Properties was founded with a singular vision – to redefine real estate by uniting sustainability, culture, and modern living. Rooted in Pune’s serene landscapes, our journey began with a simple belief: that land is not just to be developed, but to be nurtured.
-          </p>
-          <p className="md:text-lg">
-            Inspired by India’s deep connection to nature and timeless craftsmanship, we create spaces that coexist with their surroundings – where innovation serves the Earth, and design becomes an expression of balance. Each project stands as a testament to harmony, integrity, and renewal.
-          </p>
+          <motion.h3
+            className=" mb-2"
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={4}
+          >
+            OUR ORIGINS
+          </motion.h3>
+          <div className="md:text-lg mb-2 md:mb-28">
+            {originsLines.map((line, i) => (
+              <motion.span
+                key={i}
+                className="block"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={5 + i}
+              >
+                {line}
+              </motion.span>
+            ))}
+          </div>
+          <div className="md:text-lg">
+            {philosophyDescLines.map((line, i) => (
+              <motion.span
+                key={i}
+                className="block"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={7 + i}
+              >
+                {line}
+              </motion.span>
+            ))}
+          </div>
         </div>
      
       <div className="md:ml-32 w-full md:w-6/9 text-left">
@@ -62,15 +114,48 @@ export default function Philosophy() {
               <img src={origin2} alt="" className="w-full h-full bg-cover" />
       </div>
         <div>
-          <h3 className="font-bold mb-2">OUR PHILOSOPHY</h3>
-          <ul className=" space-y-1">
-            <li>Harmony</li>
+          <motion.h3
+            className="font-bold mb-2"
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={9}
+          >
+            OUR PHILOSOPHY
+          </motion.h3>
+          <motion.ul className=" space-y-1">
+            <motion.li
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={10}
+            >
+              Innovation
+            </motion.li>
             <Line />
-            <li>Integrity</li>
+            <motion.li
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={11}
+            >
+              Legacy
+            </motion.li>
             <Line />
-            <li>Sustainability</li>
+            <motion.li
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={12}
+            >
+              Sustainability
+            </motion.li>
             <Line />
-          </ul>
+          </motion.ul>
         </div>
       </div>
     </div>

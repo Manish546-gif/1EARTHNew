@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
@@ -94,19 +94,23 @@ export default function LetterParallax () {
 </motion.h2>
       </div>
       <div className="relative z-10 text-center" style={{ transformStyle: 'preserve-3d' }}>
-        <div 
+        <div
           ref={textRef}
           className="text-6xl md:text-9xl lg:text-10xl  text-black leading-tight select-none"
-          style={{ 
+          style={{
             perspective: '2000px',
             transformStyle: 'preserve-3d'
           }}
         >
-          <div className="block " style={{ transformStyle: 'preserve-3d' }}>
+          <div className="block md:block" style={{ transformStyle: 'preserve-3d' }}>
             {createLetters('EVOLVING WITH')}
           </div>
-          
-          <div className="block" style={{ transformStyle: 'preserve-3d' }}>
+
+          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
+            {createLetters('THE LAND')}
+          </div>
+
+          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
             {createLetters('THE LAND')}
           </div>
         </div>
