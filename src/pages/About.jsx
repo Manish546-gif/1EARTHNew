@@ -8,6 +8,7 @@ import Line from '../components/common/Line'
 import Origin from '../components/about/Origin'
 import WhyChoose from '../components/about/WhyChoose'
 import Philosophy from '../components/about/Philoshofy'
+import CraftVisionSection from '../components/services/CraftVisionSection'
 
 const About = () => {
   return (
@@ -22,6 +23,7 @@ const About = () => {
       <Line />
       <OurProcess />
       <WhyChoose/>
+      <CraftVisionSection />
       <Footer />
     </div>
   )
