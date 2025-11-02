@@ -73,7 +73,7 @@ export default function AboutLanding() {
         <div className="absolute lg:bottom-20 bottom-28 right-6 px-3 lg:right-8 max-w-md xl:max-w-xs">
           <div className="text-sm lg:text-base leading-relaxed font-light">
             {paragraphLines.map((line, i) => (
-              <motion.span
+              <motion.p
                 key={i}
                 className="block"
                 variants={textVariant}
@@ -83,7 +83,7 @@ export default function AboutLanding() {
                 custom={1 + i}
               >
                 {line}
-              </motion.span>
+              </motion.p>
             ))}
           </div>
         </div>
