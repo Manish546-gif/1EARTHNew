@@ -225,11 +225,7 @@ const Navbar = () => {
       >
         <div className="max-w-8xl mx-auto px-8 sm:px-10 lg:px-12 py-2">
           <div className="flex items-center justify-between h-16">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
+            <motion.div>
               <TransitionLink to="/" className="flex items-center gap-3">
                 <motion.img
                   src={logo}
@@ -238,8 +234,6 @@ const Navbar = () => {
                   style={{
                     filter: isLightBackground ? "brightness(0)" : "none",
                   }}
-                  whileHover={{ rotate: [0, -5, 5, 0] }}
-                  transition={{ duration: 0.5 }}
                 />
               </TransitionLink>
             </motion.div>
