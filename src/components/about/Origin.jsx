@@ -92,7 +92,7 @@ export default function Origin() {
           </motion.h3>
           <div className="mb-2 md:mb-28">
             {originLines.map((line, i) => (
-              <motion.span
+              <motion.p
                 key={i}
                 className="block text-sm sm:text-base leading-relaxed"
                 variants={textVariant}
@@ -102,12 +102,12 @@ export default function Origin() {
                 custom={1 + i}
               >
                 {line}
-              </motion.span>
+              </motion.p>
             ))}
           </div>
           <div className="text-sm sm:text-base leading-relaxed">
             {philosophyLines.map((line, i) => (
-              <motion.span
+              <motion.p
                 key={i}
                 className="block"
                 variants={textVariant}
@@ -117,7 +117,7 @@ export default function Origin() {
                 custom={3 + i}
               >
                 {line}
-              </motion.span>
+              </motion.p>
             ))}
           </div>
         </div>
