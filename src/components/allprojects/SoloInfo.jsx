@@ -51,16 +51,17 @@ const SoloInfo = () => {
               "refined lifestyle where every sunrise over",
               "the hills feels like coming home to nature."
             ].map((line, i) => (
-              <motion.span
+              <motion.p
                 key={i}
                 className="block"
+               
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: (i * 0.1) + 0.3 }}
                 viewport={{ once: true }}
               >
                 {line}
-              </motion.span>
+              </motion.p>
             ))}
           </div>
         </motion.div>
