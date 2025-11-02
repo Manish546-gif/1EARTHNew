@@ -55,7 +55,7 @@ export default function Philosophy() {
             custom={i}
           >
             {word}
-          </motion.P>
+          </motion.p>
         ))}
       </div>
       <div className="mb-6 md:w-3/6 md:ml-10">
