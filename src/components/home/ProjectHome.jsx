@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import img1 from "../../assets/homeproject.png";
-import TransitionLink from "./redirect.jsx";
+import TransitionLink from "../common/redirect";
 
 const projects = [
   { id: 1, title: "HARMONY HINGLAND", image: img1 },
